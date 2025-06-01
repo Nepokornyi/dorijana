@@ -7,7 +7,7 @@ import image from '@/image/about.jpg'
 
 const gridData = [
     { text: 'Nr. 1' },
-    { text: "What's Ark-Shelter" },
+    { text: "What's Dorijana" },
     { text: 'A new way of building' },
 ]
 
@@ -22,10 +22,10 @@ export const About = () => {
                 ))}
             </Box>
             <Box className="w-5/6 pl-[15%] grid grid-cols-3 gap-10">
-                <H3 className="px-20 py-10">{"What's Ark-Shelter?"}</H3>
+                <H3 className="px-20 py-10">{"What's Dorijana?"}</H3>
                 <H3 className="px-20 py-10 col-span-2">
                     {
-                        'Ark-Shelter equals modular, mobile architecture; creating prefabricated, fully finished, modular units. By a lake, deep in a forest, at the edge of a field, a steep mountain hill or your city rooftop! Make your dream come true, installed in one day, limiting on-site work to the bare minimum.'
+                        'Dorijana equals modular, mobile architecture; creating prefabricated, fully finished, modular units. By a lake, deep in a forest, at the edge of a field, a steep mountain hill or your city rooftop! Make your dream come true, installed in one day, limiting on-site work to the bare minimum.'
                     }
                 </H3>
                 <P className="pl-20 pb-10 col-start-2">
@@ -35,7 +35,7 @@ export const About = () => {
                 </P>
                 <P className="pl-20 pb-10 col-start-3">
                     {
-                        'Modularity ensures that your Ark can grow over time, following evolving family needs, business growth or new recreational desires. Still by being immersed in the natural environment, but without interrupting the ongoing business.'
+                        'Modularity ensures that your Dorijana can grow over time, following evolving family needs, business growth or new recreational desires. Still by being immersed in the natural environment, but without interrupting the ongoing business.'
                     }
                 </P>
             </Box>
