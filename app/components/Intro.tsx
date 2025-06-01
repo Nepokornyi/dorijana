@@ -16,7 +16,7 @@ const cardsConfig = [
 
 export const Intro = () => {
     return (
-        <Box className="-mt-48 w-5/6 pl-[15%] grid grid-cols-3 gap-10 bg-white">
+        <Box className="-mt-48 w-5/6 pl-[15%] grid grid-cols-3 gap-10 bg-background text-foreground">
             {cardsConfig.map((card) => (
                 <Box key={card.numeration} className="px-20 py-10">
                     <TypographySmall className="pb-2">
