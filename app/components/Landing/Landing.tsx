@@ -25,8 +25,8 @@ export const Landing = () => {
                 <Box>
                     <Button>Check out our feature news</Button>
                 </Box>
-                <H1>A new way of building</H1>
-                <H3>Quick and closer to nature</H3>
+                <H1 className="text-white">A new way of building</H1>
+                <H3 className="text-white">Quick and closer to nature</H3>
             </FlexContainer>
         </Box>
     )

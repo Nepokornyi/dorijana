@@ -71,11 +71,8 @@ export function P({
     children: ReactNode
     className?: string
 }) {
-    return (
-        <p className={`${className} leading-7 [&:not(:first-child)]:mt-6`}>
-            {children}
-        </p>
-    )
+    // [&:not(:first-child)]:mt-6
+    return <p className={`${className} leading-7`}>{children}</p>
 }
 
 export function InlineCode({
