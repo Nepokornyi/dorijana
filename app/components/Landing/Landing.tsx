@@ -23,7 +23,9 @@ export const Landing = () => {
             >
                 <Header />
                 <Box>
-                    <Button>Check out our feature news</Button>
+                    <Button className="bg-white text-black">
+                        Check out our feature news
+                    </Button>
                 </Box>
                 <H1 className="text-white">A new way of building</H1>
                 <H3 className="text-white">Quick and closer to nature</H3>

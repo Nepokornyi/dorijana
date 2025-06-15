@@ -6,9 +6,9 @@ import React from 'react'
 import image from '@/image/about.jpg'
 
 const gridData = [
-    { text: 'Nr. 1' },
+    { text: 'Nr. 01' },
     { text: "What's Dorijana" },
-    { text: 'A new way of building' },
+    { text: 'New way of building' },
 ]
 
 export const About = () => {

@@ -6,7 +6,7 @@ import React from 'react'
 import image from '@/image/work.jpg'
 
 const gridData = [
-    { text: 'Nr. 2', className: 'px-20 py-10' },
+    { text: 'Nr. 02', className: 'px-20 py-10' },
     { text: 'Why Dorijana', className: 'py-10' },
     { text: 'To unwind and connect', className: 'py-10 flex justify-end' },
 ]
@@ -52,7 +52,6 @@ export const Work = () => {
                 </FlexContainer>
 
                 <Box className="col-span-2 py-10 border">
-                    Text
                     <Image
                         src={image}
                         alt="dorijana vertical building"
