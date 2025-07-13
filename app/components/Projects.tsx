@@ -9,7 +9,10 @@ import image from '@/image/projects.jpg'
 const gridData = [
     { text: 'Nr. 03', className: 'px-20 py-10' },
     { text: 'The perks of owning an ark', className: 'py-10' },
-    { text: 'Specific features', className: 'py-10 flex justify-end' },
+    {
+        text: 'Specific features',
+        className: 'hidden lg:block py-10 flex justify-end',
+    },
 ]
 
 const cardData = [
@@ -48,7 +51,7 @@ const cardData = [
 export const Projects = () => {
     return (
         <>
-            <Box className="w-5/6 pl-[15%] grid grid-cols-[2fr_1fr_1fr] gap-10">
+            <Box className="w-full lg:w-5/6 lg:pl-[15%] grid grid-cols-2 lg:grid-cols-[2fr_1fr_1fr] gap-10">
                 {gridData.map((col) => (
                     <Box key={col.text} className={col.className}>
                         {col.text}
@@ -64,7 +67,7 @@ export const Projects = () => {
                 <FlexContainer
                     direction="flex-col"
                     gap="gap-10"
-                    className="px-20 py-10 col-start-1"
+                    className="px-20 py-10 col-span-2 lg:col-span-1 lg:col-start-1"
                 >
                     {cardData.map((card, index) => (
                         <FlexContainer
@@ -79,7 +82,7 @@ export const Projects = () => {
                     ))}
                 </FlexContainer>
 
-                <Box className="col-span-2 relative my-10 pr-20 -mr-[16.5vw]">
+                <Box className="hidden lg:block col-span-2 relative my-10 pr-20 -mr-[16.5vw]">
                     <Image
                         src={image}
                         alt="ark image"

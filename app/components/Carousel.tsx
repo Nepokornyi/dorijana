@@ -7,8 +7,8 @@ import image from '@/image/carousel.jpg'
 
 export const Carousel = () => {
     return (
-        <FlexContainer width="w-5/6" className="pl-[15%] my-32">
-            <Box className="w-full h-[75vh] ml-20">
+        <FlexContainer width="w-full lg:w-5/6" className="lg:pl-[15%] my-32">
+            <Box className="w-full h-[75vh] lg:ml-20">
                 <Image
                     src={image}
                     alt="dorijana vertical building"

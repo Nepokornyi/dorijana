@@ -10,7 +10,7 @@ export const Header = () => {
             <H2 className="uppercase tracking-widest border-none text-white">
                 dorijana
             </H2>
-            <Box>
+            <Box className="hidden lg:block">
                 <Button className="text-white" variant={'link'}>
                     Live
                 </Button>
@@ -24,7 +24,7 @@ export const Header = () => {
                     Care
                 </Button>
             </Box>
-            <Box>
+            <Box className="flex flex-col md:flex-row">
                 <Button className="text-white" variant={'link'}>
                     About
                 </Button>

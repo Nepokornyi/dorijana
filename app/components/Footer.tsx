@@ -10,7 +10,7 @@ const gridData = [
 export const Footer = () => {
     return (
         <footer className="flex flex-col items-center">
-            <Box className="w-5/6 pl-[15%] grid grid-cols-3 gap-10">
+            <Box className="w-full lg:w-5/6 lg:pl-[15%] grid grid-cols-2 lg:grid-cols-3 gap-10">
                 {gridData.map((col) => (
                     <Box key={col.text} className={col.className}>
                         <H3>{col.text}</H3>

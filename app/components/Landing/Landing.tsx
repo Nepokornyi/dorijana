@@ -19,7 +19,7 @@ export const Landing = () => {
                 justifyContent="justify-center"
                 direction="flex-col"
                 gap="gap-4"
-                className="pl-60 h-screen"
+                className="pl-10 md:pl-60 h-screen"
             >
                 <Header />
                 <Box>

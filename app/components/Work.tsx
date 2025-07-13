@@ -6,9 +6,12 @@ import React from 'react'
 import image from '@/image/work.jpg'
 
 const gridData = [
-    { text: 'Nr. 02', className: 'px-20 py-10' },
+    { text: 'Nr. 02', className: 'px-10 lg:px-20 py-10' },
     { text: 'Why Dorijana', className: 'py-10' },
-    { text: 'To unwind and connect', className: 'py-10 flex justify-end' },
+    {
+        text: 'To unwind and connect',
+        className: 'py-10 flex justify-end hidden lg:block',
+    },
 ]
 
 const cardData = [
@@ -25,7 +28,7 @@ const cardData = [
 export const Work = () => {
     return (
         <>
-            <Box className="w-5/6 pl-[15%] grid grid-cols-[2fr_1fr_1fr] gap-10">
+            <Box className="w-full lg:w-5/6 lg:pl-[15%] grid grid-cols-2 lg:grid-cols-[2fr_1fr_1fr] gap-10">
                 {gridData.map((col) => (
                     <Box key={col.text} className={col.className}>
                         {col.text}
@@ -35,7 +38,7 @@ export const Work = () => {
                 <FlexContainer
                     direction="flex-col"
                     gap="gap-10"
-                    className="px-20 py-10"
+                    className="px-10 lg:px-20 py-10 col-span-2 lg:col-span-1"
                 >
                     {cardData.map((card, index) => (
                         <Box key={index}>
@@ -51,7 +54,7 @@ export const Work = () => {
                     <H2 className="w-fit">Ask us your question</H2>
                 </FlexContainer>
 
-                <Box className="col-span-2 py-10 border">
+                <Box className="col-span-2 py-10 border hidden lg:block">
                     <Image
                         src={image}
                         alt="dorijana vertical building"
