@@ -3,7 +3,7 @@ import { H3, P } from '@/components/ui/typography'
 import Image from 'next/image'
 import React from 'react'
 
-import image from '@/image/about.jpg'
+import image from '@/assets/about.jpg'
 
 const gridData = [
     { text: 'Nr. 01' },

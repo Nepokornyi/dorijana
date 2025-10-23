@@ -31,7 +31,7 @@ export const Landing = () => {
             >
                 <Header />
                 <Box>
-                    <Button className="bg-white text-black hover:bg-white/90">
+                    <Button className="bg-black text-white hover:bg-black/70">
                         Check out our feature news
                     </Button>
                 </Box>

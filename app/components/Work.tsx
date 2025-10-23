@@ -3,7 +3,7 @@ import { FlexContainer } from '@/components/ui/flexContainer'
 import { H2, H3, P, TypographyMuted } from '@/components/ui/typography'
 import Image from 'next/image'
 import React from 'react'
-import image from '@/image/work.jpg'
+import image from '@/assets/work.jpg'
 
 const gridData = [
     { text: 'Nr. 02', className: 'px-10 lg:px-20 py-10' },

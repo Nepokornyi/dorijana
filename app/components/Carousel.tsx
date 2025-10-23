@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { FlexContainer } from '@/components/ui/flexContainer'
 import { Box } from '@/components/ui/box'
 
-import image from '@/image/carousel.jpg'
+import image from '@/assets/carousel.jpg'
 
 export const Carousel = () => {
     return (

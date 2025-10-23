@@ -4,7 +4,7 @@ import { H2, H3, P, TypographySmall } from '@/components/ui/typography'
 import Image from 'next/image'
 import React from 'react'
 
-import image from '@/image/projects.jpg'
+import image from '@/assets/projects.jpg'
 
 const gridData = [
     { text: 'Nr. 03', className: 'px-20 py-10' },
