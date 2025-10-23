@@ -4,14 +4,12 @@ import { H1, H3 } from '@/components/ui/typography'
 import { Button } from '@/components/ui/button'
 import { FlexContainer } from '@/components/ui/flexContainer'
 import { Box } from '@/components/ui/box'
+import VideoPlayer from '@/components/VideoPlayer'
 
 export const Landing = () => {
     return (
-        <Box>
-            <video
-                src="/video/landing.mp4"
-                muted
-                loop
+            <VideoPlayer
+                src="/video1/master.m3u8"
                 autoPlay
                 className="absolute top-0 left-0 -z-1 w-full h-full object-cover"
             />
