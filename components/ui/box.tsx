@@ -1,15 +1,22 @@
 import React, { ReactNode } from 'react'
 
-type BoxProps = {
+type BoxProps = React.ComponentPropsWithoutRef<'div'> & {
     children: ReactNode
-    className?: string
-    onClick?: () => void
 }
 
-export const Box = ({ children, className = '', onClick }: BoxProps) => {
-    return (
-        <div onClick={onClick} className={`relative ${className}`}>
-            {children}
-        </div>
-    )
-}
+export const Box = React.forwardRef<HTMLDivElement, BoxProps>(
+    ({ children, className = '', onClick, ...rest }, ref) => {
+        return (
+            <div
+                ref={ref}
+                onClick={onClick}
+                className={`relative ${className}`}
+                {...rest}
+            >
+                {children}
+            </div>
+        )
+    }
+)
+
+Box.displayName = 'Box'
