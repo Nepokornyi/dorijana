@@ -108,7 +108,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
                         <button
                             onClick={handleToggleMenu}
                             type="button"
-                            className={`fixed top-6 right-10 flex items-center gap-2 bg-transparent border-0 cursor-pointer font-medium transition-colors duration-300 z-[60] ${
+                            className={`lg:hidden fixed top-6 right-10 flex items-center gap-2 bg-transparent border-0 cursor-pointer font-medium transition-colors duration-300 z-[60] ${
                                 isMenuOpen
                                     ? 'text-[var(--menu-accent-color)]'
                                     : 'text-white'
@@ -147,7 +147,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
                         {/* Sliding Panel */}
                         <aside
                             ref={panelRef}
-                            className="fixed top-0 right-0 h-full hidden flex-col bg-black p-8 overflow-y-auto z-[60] w-[clamp(280px,80vw,420px)] text-white"
+                            className="fixed top-0 right-0 h-full hidden flex-col bg-black p-8 overflow-y-auto z-[50] w-[clamp(280px,80vw,420px)] text-white"
                             style={
                                 {
                                     '--menu-accent-color': accentColor,
