@@ -96,7 +96,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
         <>
             {/* Placeholder keeps header layout intact */}
             <div
-                className={`relative z-[80] ${className}`}
+                className={`relative z-[50] ${className}`}
                 style={{ '--menu-accent-color': accentColor } as CSSProperties}
             />
 
@@ -108,7 +108,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
                         <button
                             onClick={handleToggleMenu}
                             type="button"
-                            className={`fixed top-6 right-10 flex items-center gap-2 bg-transparent border-0 cursor-pointer font-medium transition-colors duration-300 z-[10000] ${
+                            className={`fixed top-6 right-10 flex items-center gap-2 bg-transparent border-0 cursor-pointer font-medium transition-colors duration-300 z-[60] ${
                                 isMenuOpen
                                     ? 'text-[var(--menu-accent-color)]'
                                     : 'text-white'
@@ -140,14 +140,14 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
                         {/* Overlay */}
                         <div
                             ref={overlayRef}
-                            className="fixed inset-0 bg-black opacity-0 pointer-events-none z-[9998]"
+                            className="fixed inset-0 bg-black opacity-0 pointer-events-none z-[50]"
                             onClick={handleToggleMenu}
                         />
 
                         {/* Sliding Panel */}
                         <aside
                             ref={panelRef}
-                            className="fixed top-0 right-0 h-full hidden flex-col bg-black p-8 overflow-y-auto z-[9999] w-[clamp(280px,80vw,420px)] text-white"
+                            className="fixed top-0 right-0 h-full hidden flex-col bg-black p-8 overflow-y-auto z-[60] w-[clamp(280px,80vw,420px)] text-white"
                             style={
                                 {
                                     '--menu-accent-color': accentColor,
