@@ -6,22 +6,38 @@ import React from 'react'
 import image from '@/assets/work.jpg'
 
 const gridData = [
-    { text: 'Nr. 02', className: 'px-10 lg:px-20 py-10' },
-    { text: 'Why Dorijana', className: 'py-10' },
+    { text: 'Č. 02', className: 'px-10 lg:px-20 py-10' },
+    { text: 'Proč Dorijana?', className: 'py-10' },
     {
-        text: 'To unwind and connect',
+        text: 'Naše služby',
         className: 'py-10 flex justify-end hidden lg:block',
     },
 ]
 
 const cardData = [
     {
-        title: 'Find a space to unwind',
-        text: 'Ark-Shelter shows the beauty of natural light and allows you to reconnect with nature. The large single pane windows seamlessly integrate the natural environment within your Ark. Enjoy a moment for yourself and take time to unwind.',
+        title: 'Kompletní Stavební Práce',
+        text: 'Zajišťujeme kompletní stavební práce v Praze a okolí — od základů až po finální úpravy. Stavíme s jistotou, kvalitou a respektem k vašemu času i rozpočtu',
     },
     {
-        title: 'Connect with nature',
-        text: 'Become as productive as nature itself, and grow and bloom within your own Ark. Because of Ark-Shelter’s self-sufficient system and ecological materials, you’ll live with zero-impact.',
+        title: 'Omítky a povrchové úpravy',
+        text: 'Provádíme strojní sádrové, jádrové a stěrkové omítky s precizní rovinností a dlouhou životností. Vhodné pro nové stavby i rekonstrukce.',
+    },
+    {
+        title: 'Zdivo a základové konstrukce',
+        text: 'Realizujeme zděné konstrukce z cihel, Ytongu a tvárnic, stejně jako betonáž základových pasů a desek. Zajišťujeme přesnost, stabilitu a dodržení technologických postupů.',
+    },
+    {
+        title: 'Podlahové konstrukce',
+        text: 'Zhotovujeme podlahy pro domácnosti i průmyslové objekty. Každá realizace splňuje požadavky přesnosti podle ČSN 744505.',
+    },
+    {
+        title: 'Fasády a zateplení',
+        text: 'Postaráme se o kompletní zateplení a revitalizaci fasád – od projekční přípravy až po finální povrch. Pracujeme s certifikovanými systémy a zaručujeme dlouhou životnost.',
+    },
+    {
+        title: 'Sádrokartonové práce',
+        text: 'Montujeme příčky, podhledy, vestavby a půdní prostory včetně izolací. Sádrokartonové konstrukce zaručují precizní výsledek a krátkou dobu montáže.',
     },
 ]
 
@@ -48,10 +64,10 @@ export const Work = () => {
                     ))}
 
                     <TypographyMuted className="uppercase py-4">
-                        Need more info?
+                        {'Chceš vědět víc'}?
                     </TypographyMuted>
 
-                    <H2 className="w-fit">Ask us your question</H2>
+                    <H2 className="w-fit">{'Kontaktuj nás'}</H2>
                 </FlexContainer>
 
                 <Box className="col-span-2 py-10 border hidden lg:block">

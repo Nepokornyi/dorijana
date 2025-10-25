@@ -31,12 +31,12 @@ export const Landing = () => {
             >
                 <Header />
                 <Box>
-                    <Button className="bg-black text-white hover:bg-black/70">
-                        Check out our feature news
+                    <Button className="bg-black text-white hover:bg-black/90 cursor-pointer">
+                        Kontaktujte nás
                     </Button>
                 </Box>
-                <H1 className="text-white">A new way of building</H1>
-                <H3 className="text-white">Quick and closer to nature</H3>
+                <H1 className="text-white">Dorijana</H1>
+                <H3 className="text-white">Nový způsob, jak stavět.</H3>
             </FlexContainer>
         </MotionBox>
     )

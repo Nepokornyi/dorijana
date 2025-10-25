@@ -6,9 +6,9 @@ import React from 'react'
 import image from '@/assets/about.jpg'
 
 const gridData = [
-    { text: 'Nr. 01' },
-    { text: "What's Dorijana" },
-    { text: 'New way of building', className: 'hidden lg:block' },
+    { text: 'Č. 01' },
+    { text: 'Kdo jsme?' },
+    { text: 'Stavební Vize', className: 'hidden lg:block' },
 ]
 
 export const About = () => {
@@ -25,22 +25,20 @@ export const About = () => {
                 ))}
             </Box>
             <Box className="w-5/6 lg:pl-[15%] grid grid-cols-1 lg:grid-cols-3 gap-10">
-                <H3 className="hidden lg:block px-20 py-10">
-                    {"What's Dorijana?"}
-                </H3>
+                <H3 className="hidden lg:block px-20 py-10">{'Kdo jsme?'}</H3>
                 <H3 className="px-10 lg:px-20 py-10 lg:col-span-2">
                     {
-                        'Dorijana equals modular, mobile architecture; creating prefabricated, fully finished, modular units. By a lake, deep in a forest, at the edge of a field, a steep mountain hill or your city rooftop! Make your dream come true, installed in one day, limiting on-site work to the bare minimum.'
+                        'Jsme stavební společnost z Prahy zaměřená na kompletní realizaci stavebních prací. Naši odborníci spojují dlouholeté zkušenosti s moderním přístupem, díky čemuž nabízíme ucelená řešení pro každý projekt — od hrubé stavby až po finální dokončení.'
                     }
                 </H3>
                 <P className="pl-10 lg:pl-20 pb-10 lg:col-start-2">
                     {
-                        'Our shelters are built in one piece by a team of craftsmen in our factory, which gives the incredible mobility to reach almost any location. Ideal production conditions allow us to achieve the highest detail and reduce production time. In doing so, we realize your dream project on time, on budget and with the highest possible quality.'
+                        'Ke každé zakázce přistupujeme zodpovědně, otevřeně a s respektem k potřebám klienta. Garantujeme férové jednání, vysokou kvalitu provedení a dodržení sjednaných termínů i cen. Žádné skryté vícepráce, žádná překvapení — na vše poskytujeme záruku 60 měsíců.'
                     }
                 </P>
                 <P className="pl-10 lg:pl-20 pb-10 lg:col-start-3">
                     {
-                        'Modularity ensures that your Dorijana can grow over time, following evolving family needs, business growth or new recreational desires. Still by being immersed in the natural environment, but without interrupting the ongoing business.'
+                        'Dbáme na kvalitu vlastní práce, stejně jako na výběr dodavatelů a materiálů Máme všechna potřebná oprávnění a certifikáty pro stavební činnost a jsme členy Hospodářské komory hlavního města Prahy.'
                     }
                 </P>
             </Box>

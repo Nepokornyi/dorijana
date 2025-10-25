@@ -7,16 +7,16 @@ import {
 import React from 'react'
 
 const cardsConfig = [
-    { numeration: 'Nr.  01', title: 'Living', description: 'Housing solution' },
-    { numeration: 'Nr.  02', title: 'Working', description: 'Office solution' },
+    { numeration: 'Č.  01', title: 'Bydlení', description: 'Stavební řešení' },
+    { numeration: 'Č.  02', title: 'Služby', description: 'Naše služby' },
     {
-        numeration: 'Nr.  03',
-        title: 'Relaxing',
-        description: 'Literally any purpose',
+        numeration: 'Č.  03',
+        title: 'Práce',
+        description: 'Co jsme dělali',
     },
-    { numeration: 'Nr. 04', title: 'Caring', description: 'Care-Shelter' },
+    { numeration: 'Č. 04', title: 'Podpora', description: 'Naše spolehlivost' },
     {
-        numeration: 'Nr.  05',
+        numeration: 'Č.  05',
         title: 'Hosting',
         description: 'Recreational solution',
     },
