@@ -8,6 +8,7 @@ import { About } from './components/About'
 import { Carousel } from './components/Carousel'
 import { Loader } from '@/components/Loader'
 import { useEffect, useState } from 'react'
+import { Header } from './components/Header'
 
 export default function Home() {
     const [loading, setLoading] = useState(true)
@@ -24,6 +25,7 @@ export default function Home() {
 
     return (
         <div className="font-[family-name:var(--font-geist-mono)] relative">
+            <Header />
             {loading && <Loader fadeOut={fadeOut} />}
             <Landing />
             <Intro />
