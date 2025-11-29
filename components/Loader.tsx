@@ -3,30 +3,62 @@
 import Lottie from 'lottie-react'
 import logo from '@/assets/logo.json'
 import { FlexContainer } from './ui/flexContainer'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence, Variants } from 'framer-motion'
 
-type LoaderProps = {
-    fadeOut?: boolean
+const wrapperVariants: Variants = {
+    visible: { opacity: 1 },
+    hidden: {
+        opacity: 0,
+        transition: {
+            duration: 0.4,
+            ease: 'easeOut',
+            when: 'afterChildren',
+        },
+    },
 }
 
-export const Loader = ({ fadeOut }: LoaderProps) => (
+const logoVariants: Variants = {
+    visible: { opacity: 1 },
+    hidden: {
+        opacity: 0,
+        transition: {
+            duration: 0.4,
+            ease: 'easeOut',
+        },
+    },
+}
+
+export const Loader = ({
+    visible,
+    onFinish,
+}: {
+    visible: boolean
+    onFinish: () => void
+}) => (
     <AnimatePresence>
-        <motion.div
-            key="loader"
-            initial={{ opacity: 1 }}
-            animate={{ opacity: fadeOut ? 0 : 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.8, ease: 'easeOut' }}
-            className="bg-black fixed inset-0 z-[9999] flex items-center justify-center"
-        >
-            <FlexContainer center>
-                <Lottie
-                    animationData={logo}
-                    loop
-                    autoplay
-                    className="size-40"
-                />
-            </FlexContainer>
-        </motion.div>
+        {visible && (
+            <motion.div
+                key="loader"
+                variants={wrapperVariants}
+                initial="visible"
+                animate="visible"
+                exit="hidden"
+                onAnimationComplete={(definition) => {
+                    if (definition === 'hidden') onFinish()
+                }}
+                className="bg-black fixed inset-0 z-[9999] flex items-center justify-center"
+            >
+                <FlexContainer center>
+                    <motion.div variants={logoVariants}>
+                        <Lottie
+                            animationData={logo}
+                            loop
+                            autoplay
+                            className="size-40"
+                        />
+                    </motion.div>
+                </FlexContainer>
+            </motion.div>
+        )}
     </AnimatePresence>
 )

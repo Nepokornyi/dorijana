@@ -32,7 +32,7 @@ export const Landing = () => {
                     width="w-[400px]"
                     direction="flex-col"
                     gap="gap-4"
-                    className="backdrop-blur-[1px] p-5"
+                    className="p-5"
                 >
                     <Box>
                         <Button className="bg-black text-white hover:bg-black/90 cursor-pointer">

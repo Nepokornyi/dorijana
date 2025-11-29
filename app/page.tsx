@@ -11,22 +11,20 @@ import { useEffect, useState } from 'react'
 import { Header } from './components/Header'
 
 export default function Home() {
-    const [loading, setLoading] = useState(true)
-    const [fadeOut, setFadeOut] = useState(false)
+    const [mounted, setMounted] = useState(true)
+    const [visible, setVisible] = useState(true)
 
     useEffect(() => {
-        const timer1 = setTimeout(() => setFadeOut(true), 2500)
-        const timer2 = setTimeout(() => setLoading(false), 3200)
-        return () => {
-            clearTimeout(timer1)
-            clearTimeout(timer2)
-        }
+        const t = setTimeout(() => setVisible(false), 2600)
+        return () => clearTimeout(t)
     }, [])
 
     return (
         <div className="font-[family-name:var(--font-geist-mono)] relative">
             <Header />
-            {loading && <Loader fadeOut={fadeOut} />}
+            {mounted && (
+                <Loader visible={visible} onFinish={() => setMounted(false)} />
+            )}
             <Landing />
             <Intro />
             <About />
