@@ -1,13 +1,12 @@
 'use client'
 import React from 'react'
 import { H1, H3 } from '@/components/ui/typography'
-// import { Button } from '@/components/ui/button'
+import { Button } from '@/components/ui/button'
 import { FlexContainer } from '@/components/ui/flexContainer'
 import { Box } from '@/components/ui/box'
 import { motion } from 'framer-motion'
 import VideoPlayer from '@/components/VideoPlayer'
 import { RotatingText } from '@/components/RotatingText/RotatingText'
-import { Button } from '@/components/ui/button'
 
 const MotionBox = motion(Box)
 
@@ -35,7 +34,7 @@ export const Landing = () => {
                     className="p-5"
                 >
                     <Box>
-                        <Button className="bg-black text-white hover:bg-black/90 cursor-pointer">
+                        <Button className="bg-white text-black hover:bg-white/90 cursor-pointer duration-200">
                             Kontaktujte nás
                         </Button>
                     </Box>
