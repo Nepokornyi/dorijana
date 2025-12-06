@@ -1,6 +1,6 @@
 import { Box } from '@/components/ui/box'
 import { FlexContainer } from '@/components/ui/flexContainer'
-import { H2, H3, P, TypographySmall } from '@/components/ui/typography'
+import { H2, H3, P } from '@/components/ui/typography'
 import Image from 'next/image'
 import React from 'react'
 
@@ -17,34 +17,16 @@ const gridData = [
 
 const cardData = [
     {
-        numeration: 'Nr. 01',
-        title: 'Designed to relax & inspire',
-        text: 'Ark-Shelter shows the beauty of natural light and allows you to reconnect with nature. The modern design and large, single pane, windows seamlessly integrate the natural environment within your Ark. This leads to inspiration or lets you take the time to unwind.',
+        title: 'Podlahové konstrukce',
+        text: 'Zhotovujeme podlahy pro domácnosti i průmyslové objekty. Každá realizace splňuje požadavky přesnosti podle ČSN 744505.',
     },
     {
-        numeration: 'Nr. 02',
-        title: 'Sustainable',
-        text: 'We use FSC-labeled wood, have a minimal waste policy, continuously reduce the carbon footprint of our units and more. Shelters can be built harvesting reusable sources, such as solar power and rainwater. The shelters are placed on ground screws that leave nature untouched',
+        title: 'Fasády a zateplení',
+        text: 'Postaráme se o kompletní zateplení a revitalizaci fasád – od projekční přípravy až po finální povrch. Pracujeme s certifikovanými systémy a zaručujeme dlouhou životnost.',
     },
     {
-        numeration: 'Nr. 03',
-        title: 'Flexible',
-        text: 'With their easy-to-move structure, Ark-Shelters offer ultimate flexibility regardless of their application, from pool houses for families to modular centers for healthcare companies. Get the most out of your investment with our versatile solutions that can move and grow with you.',
-    },
-    {
-        numeration: 'Nr. 04',
-        title: 'Efficient',
-        text: 'Our fully equipped workshops ensure short production times. Our finished products come with everything needed and are ready to be placed and connected in just one working day. With minimal on-site work required, our units provide maximum efficiency.',
-    },
-    {
-        numeration: 'Nr. 05',
-        title: 'Durable',
-        text: 'Our handcrafted shelters are built to last for decades, with a durable wooden shell that can withstand any conditions. And when you feel the need to update your Ark to match your evolving aesthetic desires, know that refurbishing is a breeze.',
-    },
-    {
-        numeration: 'Nr. 06',
-        title: 'Intelligent',
-        text: 'Arks can be equipped with numerous popular smart home automation technologies in order to meet the demands of our time, enabling you to control your ark from your smartphone and keep you focused on what really matters.',
+        title: 'Sádrokartonové práce',
+        text: 'Montujeme příčky, podhledy, vestavby a půdní prostory včetně izolací. Sádrokartonové konstrukce zaručují precizní výsledek a krátkou dobu montáže.',
     },
 ]
 
@@ -57,11 +39,11 @@ export const Projects = () => {
                         {col.text}
                     </Box>
                 ))}
-                <H2 className="border-none col-span-2 px-20 py-10 leading-12">
-                    Our Arks are created by craftsmen. Thanks to the
-                    high-quality wooden skeleton structures we can guarantee a
-                    durable, solid design that shelters you from all the
-                    elements.
+                <H2 className="border-none col-span-3 px-20 py-10 leading-12">
+                    Naše stavební realizace vynikají precizním zpracováním,
+                    ověřenými technologiemi a kvalitními materiály. Díky tomu
+                    garantujeme dlouhou životnost, vysoký komfort a
+                    profesionální výsledek v každém detailu.
                 </H2>
 
                 <FlexContainer
@@ -75,7 +57,6 @@ export const Projects = () => {
                             gap="gap-4"
                             key={index}
                         >
-                            <TypographySmall>{card.numeration}</TypographySmall>
                             <H3>{card.title}</H3>
                             <P>{card.text}</P>
                         </FlexContainer>

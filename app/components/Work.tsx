@@ -3,7 +3,8 @@ import { FlexContainer } from '@/components/ui/flexContainer'
 import { H2, H3, P, TypographyMuted } from '@/components/ui/typography'
 import Image from 'next/image'
 import React from 'react'
-import image from '@/assets/work.jpg'
+import jarov from '@/assets/work/jarov.jpg'
+import balabenka from '@/assets/work/balabenka.jpg'
 
 const gridData = [
     { text: 'Č. 02', className: 'px-10 lg:px-20 py-10' },
@@ -26,18 +27,6 @@ const cardData = [
     {
         title: 'Zdivo a základové konstrukce',
         text: 'Realizujeme zděné konstrukce z cihel, Ytongu a tvárnic, stejně jako betonáž základových pasů a desek. Zajišťujeme přesnost, stabilitu a dodržení technologických postupů.',
-    },
-    {
-        title: 'Podlahové konstrukce',
-        text: 'Zhotovujeme podlahy pro domácnosti i průmyslové objekty. Každá realizace splňuje požadavky přesnosti podle ČSN 744505.',
-    },
-    {
-        title: 'Fasády a zateplení',
-        text: 'Postaráme se o kompletní zateplení a revitalizaci fasád – od projekční přípravy až po finální povrch. Pracujeme s certifikovanými systémy a zaručujeme dlouhou životnost.',
-    },
-    {
-        title: 'Sádrokartonové práce',
-        text: 'Montujeme příčky, podhledy, vestavby a půdní prostory včetně izolací. Sádrokartonové konstrukce zaručují precizní výsledek a krátkou dobu montáže.',
     },
 ]
 
@@ -70,14 +59,30 @@ export const Work = () => {
                     <H2 className="w-fit">{'Kontaktuj nás'}</H2>
                 </FlexContainer>
 
-                <Box className="col-span-2 py-10 border hidden lg:block">
-                    <Image
-                        src={image}
-                        alt="dorijana vertical building"
-                        fill
-                        style={{ objectFit: 'cover' }}
-                    />
-                </Box>
+                <FlexContainer
+                    direction="flex-col"
+                    gap="gap-10"
+                    className="col-span-2 my-10"
+                >
+                    <Box className="w-full h-full">
+                        <Image
+                            src={jarov}
+                            alt="dorijana vertical building"
+                            fill
+                            style={{ objectFit: 'cover' }}
+                        />
+                        <div className="absolute top-0 left-0 w-full h-full bg-black/25" />
+                    </Box>
+                    <Box className="w-full h-full">
+                        <Image
+                            src={balabenka}
+                            alt="dorijana vertical building"
+                            fill
+                            style={{ objectFit: 'cover' }}
+                        />
+                        <div className="absolute top-0 left-0 w-full h-full bg-black/25" />
+                    </Box>
+                </FlexContainer>
             </Box>
         </>
     )

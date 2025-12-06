@@ -1,9 +1,7 @@
+import React from 'react'
 import { Box } from '@/components/ui/box'
 import { H3, P } from '@/components/ui/typography'
-import Image from 'next/image'
-import React from 'react'
-
-import image from '@/assets/about.jpg'
+import VideoPlayer from '@/components/VideoPlayer'
 
 const gridData = [
     { text: 'Č. 01' },
@@ -42,12 +40,12 @@ export const About = () => {
                     }
                 </P>
             </Box>
-            <Box className="relative w-full h-[50vh]">
-                <Image
-                    src={image}
-                    alt="dorijana building background"
-                    fill
-                    style={{ objectFit: 'cover' }}
+            <Box className="relative w-full h-[50vh] bg-black/35">
+                <VideoPlayer
+                    src="/video3/master.m3u8"
+                    autoPlay
+                    loop
+                    className="absolute top-0 left-0 -z-1 w-full h-full object-cover"
                 />
             </Box>
         </>
