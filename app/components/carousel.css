@@ -1,0 +1,16 @@
+.carousel-swiper .swiper-slide {
+    opacity: 0.4;
+    /* transform: scale(0.95); */
+    transition: all 1s ease;
+}
+
+.carousel-swiper .swiper-slide-active {
+    opacity: 1;
+    /* transform: scale(1); */
+}
+
+.carousel-swiper .swiper-slide-next,
+.carousel-swiper .swiper-slide-prev {
+    opacity: 0.5;
+    /* transform: scale(0.95); */
+}
