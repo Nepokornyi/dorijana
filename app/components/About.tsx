@@ -12,29 +12,31 @@ const gridData = [
 export const About = () => {
     return (
         <>
-            <Box className="w-full lg:w-5/6 lg:pl-[15%] grid grid-cols-2 lg:grid-cols-3 gap-10">
+            <Box className="w-full lg:w-5/6 lg:pl-60 grid grid-cols-2 lg:grid-cols-3 gap-10">
                 {gridData.map((col) => (
                     <Box
                         key={col.text}
-                        className={`px-10 lg:px-20 py-10 ${col.className}`}
+                        className={`px-10 lg:px-0 py-10 ${col.className}`}
                     >
                         {col.text}
                     </Box>
                 ))}
             </Box>
-            <Box className="w-5/6 lg:pl-[15%] grid grid-cols-1 lg:grid-cols-3 gap-10">
-                <H3 className="hidden lg:block px-20 py-10">{'Kdo jsme?'}</H3>
-                <H3 className="px-10 lg:px-20 py-10 lg:col-span-2">
+            <Box className="w-5/6 lg:pl-60 pb-10 grid grid-cols-1 lg:grid-cols-3 gap-10">
+                <H3 className="hidden lg:block px-10 lg:px-0 py-10">
+                    {'Kdo jsme?'}
+                </H3>
+                <H3 className="px-10 lg:px-0 py-10 lg:col-span-2">
                     {
                         'Jsme stavební společnost z Prahy zaměřená na kompletní realizaci stavebních prací. Naši odborníci spojují dlouholeté zkušenosti s moderním přístupem, díky čemuž nabízíme ucelená řešení pro každý projekt — od hrubé stavby až po finální dokončení.'
                     }
                 </H3>
-                <P className="pl-10 lg:pl-20 pb-10 lg:col-start-2">
+                <P className="pl-10 lg:pl-0 lg:col-start-2">
                     {
                         'Ke každé zakázce přistupujeme zodpovědně, otevřeně a s respektem k potřebám klienta. Garantujeme férové jednání, vysokou kvalitu provedení a dodržení sjednaných termínů i cen. Žádné skryté vícepráce, žádná překvapení — na vše poskytujeme záruku 60 měsíců.'
                     }
                 </P>
-                <P className="pl-10 lg:pl-20 pb-10 lg:col-start-3">
+                <P className="pl-10 lg:pl-10 lg:col-start-3">
                     {
                         'Dbáme na kvalitu vlastní práce, stejně jako na výběr dodavatelů a materiálů Máme všechna potřebná oprávnění a certifikáty pro stavební činnost a jsme členy Hospodářské komory hlavního města Prahy.'
                     }

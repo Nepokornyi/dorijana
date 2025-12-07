@@ -48,15 +48,18 @@ export const Carousel = () => {
         }, 3000)
     }
     return (
-        <FlexContainer width="w-full lg:w-5/6" className="lg:pl-[15%] my-32">
-            <Box className="w-full lg:ml-20">
+        <FlexContainer
+            width="w-full lg:w-5/6"
+            className="lg:pl-60 my-16 lg:my-32"
+        >
+            <Box className="w-full px-10 lg:px-0">
                 <Swiper
+                    className="carousel-swiper"
                     modules={[Autoplay]}
                     slidesPerView={3}
                     spaceBetween={20}
                     centeredSlides
                     loop
-                    className="carousel-swiper"
                     autoplay={{ delay: 3000, disableOnInteraction: false }}
                     onSwiper={(swiper) => {
                         swiperRef.current = swiper
@@ -69,21 +72,21 @@ export const Carousel = () => {
                     onSlideChange={handleSlideChange}
                     breakpoints={{
                         320: { slidesPerView: 1 },
-                        768: { slidesPerView: 2 },
-                        1024: { slidesPerView: 3 },
+                        768: { slidesPerView: 2, spaceBetween: 10 },
+                        1024: { slidesPerView: 3, spaceBetween: 20 },
                     }}
                 >
                     {carouselItems.map((item, index) => (
                         <SwiperSlide key={index}>
-                            <div className="group/carousel w-full h-[50vh] relative">
+                            <div className="group w-full h-[50vh] relative">
                                 <Image
                                     src={item}
                                     alt={`Carousel image ${index + 1}`}
                                     fill
                                     style={{ objectFit: 'cover' }}
                                 />
-                                <div className="absolute top-0 left-0 w-full h-full flex justify-center items-center bg-black/25 group-hover/carousel:bg-black/10 duration-500">
-                                    <Button className="opacity-0 group-hover/carousel:opacity-100 duration-500 cursor-pointer">
+                                <div className="absolute top-0 left-0 w-full h-full flex justify-center items-center bg-black/35 group-hover:bg-black/10 duration-500">
+                                    <Button className="opacity-0 group-hover:opacity-100 duration-500 cursor-pointer">
                                         Zjistít víc
                                     </Button>
                                 </div>
@@ -99,7 +102,7 @@ export const Carousel = () => {
                                 ? 'transition-all duration-3000 ease-out'
                                 : 'transition-none'
                         }`}
-                        style={{ width: isResetting ? '0%' : `${progress}%` }}
+                        style={{ width: `${progress}%` }}
                     />
                 </div>
             </Box>

@@ -25,16 +25,15 @@ export const Landing = () => {
             />
             <FlexContainer
                 alignItems="items-center"
-                className="bg-black/25 pl-10 lg:pl-60 h-screen"
+                className="bg-black/35 pl-10 lg:pl-60 h-screen"
             >
                 <FlexContainer
                     width="w-[400px]"
                     direction="flex-col"
                     gap="gap-4"
-                    className="p-5"
                 >
                     <Box>
-                        <Button className="bg-white text-black hover:bg-white/90 cursor-pointer duration-200">
+                        <Button className="cursor-pointer duration-200">
                             Kontaktujte nás
                         </Button>
                     </Box>

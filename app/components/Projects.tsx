@@ -1,13 +1,10 @@
 import { Box } from '@/components/ui/box'
 import { FlexContainer } from '@/components/ui/flexContainer'
 import { H2, H3, P } from '@/components/ui/typography'
-import Image from 'next/image'
-import React from 'react'
-
-import image from '@/assets/projects.jpg'
+import VideoPlayer from '@/components/VideoPlayer'
 
 const gridData = [
-    { text: 'Nr. 03', className: 'px-20 py-10' },
+    { text: 'Nr. 03', className: 'px-10 lg:px-0 py-10' },
     { text: 'The perks of owning an ark', className: 'py-10' },
     {
         text: 'Specific features',
@@ -33,13 +30,13 @@ const cardData = [
 export const Projects = () => {
     return (
         <>
-            <Box className="w-full lg:w-5/6 lg:pl-[15%] grid grid-cols-2 lg:grid-cols-[2fr_1fr_1fr] gap-10">
+            <Box className="w-full lg:w-5/6 lg:pl-60 grid grid-cols-2 lg:grid-cols-[2fr_1fr_1fr] gap-10">
                 {gridData.map((col) => (
                     <Box key={col.text} className={col.className}>
                         {col.text}
                     </Box>
                 ))}
-                <H2 className="border-none col-span-3 px-20 py-10 leading-12">
+                <H2 className="border-none col-span-3 px-10 lg:px-0 py-10 leading-12">
                     Naše stavební realizace vynikají precizním zpracováním,
                     ověřenými technologiemi a kvalitními materiály. Díky tomu
                     garantujeme dlouhou životnost, vysoký komfort a
@@ -49,7 +46,7 @@ export const Projects = () => {
                 <FlexContainer
                     direction="flex-col"
                     gap="gap-10"
-                    className="px-20 py-10 col-span-2 lg:col-span-1 lg:col-start-1"
+                    className="px-10 lg:px-0 py-10 col-span-2 lg:col-span-1 lg:col-start-1"
                 >
                     {cardData.map((card, index) => (
                         <FlexContainer
@@ -63,12 +60,12 @@ export const Projects = () => {
                     ))}
                 </FlexContainer>
 
-                <Box className="hidden lg:block col-span-2 relative my-10 pr-20 -mr-[16.5vw]">
-                    <Image
-                        src={image}
-                        alt="ark image"
-                        fill
-                        className="object-cover"
+                <Box className="hidden lg:block col-span-2 relative my-10 pr-20 -mr-[16.5vw] bg-black/35">
+                    <VideoPlayer
+                        src="/video5/master.m3u8"
+                        autoPlay
+                        loop
+                        className="absolute top-0 left-0 -z-1 w-full h-full object-cover"
                     />
                 </Box>
             </Box>
