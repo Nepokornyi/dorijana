@@ -10,13 +10,15 @@ import { Autoplay } from 'swiper/modules'
 
 import 'swiper/css'
 import 'swiper/css/effect-coverflow'
-import './carousel.css'
+// TODO: might look better without styles
+// import './carousel.css'
 
 import dock from '@/assets/carousel/dock.jpg'
 import harfa from '@/assets/carousel/harfa.jpg'
 import suomi from '@/assets/carousel/suomi.jpg'
 import visionary from '@/assets/carousel/visionary.jpg'
 import jarov from '@/assets/carousel/jarov.jpg'
+import { Button } from '@/components/ui/button'
 
 const carouselItems = [dock, harfa, suomi, visionary, jarov]
 
@@ -73,21 +75,26 @@ export const Carousel = () => {
                 >
                     {carouselItems.map((item, index) => (
                         <SwiperSlide key={index}>
-                            <div className="w-full h-[50vh] relative">
+                            <div className="group/carousel w-full h-[50vh] relative">
                                 <Image
                                     src={item}
                                     alt={`Carousel image ${index + 1}`}
                                     fill
                                     style={{ objectFit: 'cover' }}
                                 />
+                                <div className="absolute top-0 left-0 w-full h-full flex justify-center items-center bg-black/25 group-hover/carousel:bg-black/10 duration-500">
+                                    <Button className="opacity-0 group-hover/carousel:opacity-100 duration-500 cursor-pointer">
+                                        Zjistít víc
+                                    </Button>
+                                </div>
                             </div>
                         </SwiperSlide>
                     ))}
                 </Swiper>
-
+                {/* border color: #ffffff1a */}
                 <div className="w-full h-[0.5px] bg-[#fafafa] mt-4">
                     <div
-                        className={`h-full bg-black ${
+                        className={`h-full bg-neutral-950 ${
                             isResetting
                                 ? 'transition-all duration-3000 ease-out'
                                 : 'transition-none'
