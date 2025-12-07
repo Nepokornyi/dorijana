@@ -1,4 +1,3 @@
-import React from 'react'
 import { Box } from '@/components/ui/box'
 import { H3, P } from '@/components/ui/typography'
 import VideoPlayer from '@/components/VideoPlayer'

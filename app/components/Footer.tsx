@@ -41,8 +41,8 @@ export const Footer = () => {
                             <TypographyMuted>{col.text}</TypographyMuted>
                         )}
                         <ul>
-                            {col.points?.map((point) => (
-                                <li>
+                            {col.points?.map((point, index) => (
+                                <li key={index}>
                                     <TypographyMuted>{point}</TypographyMuted>
                                 </li>
                             ))}
