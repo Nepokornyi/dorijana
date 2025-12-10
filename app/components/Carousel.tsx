@@ -18,9 +18,53 @@ import harfa from '@/assets/carousel/harfa.jpg'
 import suomi from '@/assets/carousel/suomi.jpg'
 import visionary from '@/assets/carousel/visionary.jpg'
 import jarov from '@/assets/carousel/jarov.jpg'
-import { Button } from '@/components/ui/button'
+import { TypographyLarge, TypographySmall } from '@/components/ui/typography'
 
-const carouselItems = [dock, harfa, suomi, visionary, jarov]
+const carouselItems = [
+    {
+        title: 'Dock',
+        points: [
+            'Strojní sádrové omítky',
+            'Strojní stěrkové omítky',
+            'Konstrukce podlah',
+        ],
+        description:
+            'Dock in je město ve městě na praze 8. s obchody, kavárnami, restaurací, školkou i vlastním přístavem. Místo, které žije celý den.',
+        image: dock,
+    },
+    {
+        title: 'Harfa Design',
+        points: ['Strojní jádrové omítky', 'Strojní stěrkové omítky'],
+        description:
+            'Designový bytový dům přímo vedle obchodního centra Galerie Harfa a jen kousek pěšky od stanice metra B Českomoravská (Praha 9 - Libeň).',
+        image: harfa,
+    },
+    {
+        title: 'Suomi',
+        points: [
+            'Strojní sádrové omítky',
+            'Strojní stěrkové omítky',
+            'Konstrukce podlah',
+            'Vyzdívky',
+        ],
+        description:
+            'Nově vznikající rezidenční čtvrť SUOMI Hloubětín je situována do dynamicky se rozvíjející části Prahy 9.',
+        image: suomi,
+    },
+    {
+        title: 'Auto Jarov',
+        points: ['Strojní stěrkové omítky', 'Konstrukce podlah'],
+        description: 'Největší obchodní dům automobilů v ČR.',
+        image: jarov,
+    },
+    {
+        title: 'Visionary',
+        points: ['Strojní sádrové omítky', 'Strojní stěrkové omítky'],
+        description:
+            'Inovativní kancelářská budova Visionary, která se nachází v Praze 7.',
+        image: visionary,
+    },
+]
 
 export const Carousel = () => {
     const [progress, setProgress] = useState(0)
@@ -60,7 +104,11 @@ export const Carousel = () => {
                     spaceBetween={20}
                     centeredSlides
                     loop
-                    autoplay={{ delay: 3000, disableOnInteraction: false }}
+                    autoplay={{
+                        delay: 3000,
+                        disableOnInteraction: false,
+                        pauseOnMouseEnter: true,
+                    }}
                     onSwiper={(swiper) => {
                         swiperRef.current = swiper
                     }}
@@ -80,15 +128,37 @@ export const Carousel = () => {
                         <SwiperSlide key={index}>
                             <div className="group w-full h-[50vh] relative">
                                 <Image
-                                    src={item}
+                                    src={item.image}
                                     alt={`Carousel image ${index + 1}`}
                                     fill
                                     style={{ objectFit: 'cover' }}
                                 />
-                                <div className="absolute top-0 left-0 w-full h-full flex justify-center items-center bg-black/35 group-hover:bg-black/10 duration-500">
-                                    <Button className="opacity-0 group-hover:opacity-100 duration-500 cursor-pointer">
-                                        Zjistít víc
-                                    </Button>
+                                <div className="absolute top-0 left-0 w-full h-full flex justify-center items-center bg-black/35 group-hover:bg-black/75 duration-500">
+                                    <FlexContainer
+                                        direction="flex-col"
+                                        justifyContent="justify-end"
+                                        gap="gap-4"
+                                        className="h-full p-5 opacity-0 group-hover:opacity-100 duration-500 cursor-pointer"
+                                    >
+                                        <TypographyLarge>
+                                            {item.title}
+                                        </TypographyLarge>
+                                        <TypographySmall>
+                                            {item.description}
+                                        </TypographySmall>
+                                        <ul className="flex flex-col items-start gap-1">
+                                            {item.points.map((work, index) => (
+                                                <li
+                                                    className="bg-black/50 p-1"
+                                                    key={index}
+                                                >
+                                                    <TypographySmall fontSize="text-xs">
+                                                        {work}
+                                                    </TypographySmall>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </FlexContainer>
                                 </div>
                             </div>
                         </SwiperSlide>
