@@ -21,29 +21,43 @@ const gridData = [
     {
         header: 'Důležité odkazy',
         text: 'Podmínky ochrany osobních údajů',
+        link: 'https://dorijana.cz/podminky-ochrany-osobnich-udaju.html',
         className: '',
     },
 ]
 
 export const Footer = () => {
     return (
-        <footer className="w-full flex flex-col items-center py-10">
+        <footer className="w-full flex flex-col items-center py-5">
             <Box className="w-full lg:pl-60 grid grid-cols-2 lg:grid-cols-3 gap-10">
-                {gridData.map((col) => (
+                {gridData.map((col, index) => (
                     <FlexContainer
                         direction="flex-col"
                         gap="gap-4"
-                        key={col.text}
+                        key={index}
                         className={`${col.className} 'px-10 lg:px-0 py-10`}
                     >
-                        <TypographyMuted>{col.header}</TypographyMuted>
-                        {col.text && (
-                            <TypographyMuted>{col.text}</TypographyMuted>
+                        <TypographyMuted className="text-white">
+                            {col.header}
+                        </TypographyMuted>
+                        {col.text && !col.link && (
+                            <TypographyMuted className="text-white">
+                                {col.text}
+                            </TypographyMuted>
+                        )}
+                        {col.text && col.link && (
+                            <a href={col.link}>
+                                <TypographyMuted className="text-white">
+                                    {col.text}
+                                </TypographyMuted>
+                            </a>
                         )}
                         <ul>
                             {col.points?.map((point, index) => (
                                 <li key={index}>
-                                    <TypographyMuted>{point}</TypographyMuted>
+                                    <TypographyMuted className="text-white">
+                                        {point}
+                                    </TypographyMuted>
                                 </li>
                             ))}
                         </ul>
