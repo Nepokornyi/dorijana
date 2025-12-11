@@ -29,7 +29,7 @@ const gridData = [
 export const Footer = () => {
     return (
         <footer className="w-full flex flex-col items-center py-5">
-            <Box className="w-full lg:pl-60 grid grid-cols-2 lg:grid-cols-3 gap-10">
+            <Box className="w-full lg:pl-32 xl:pl-60 grid grid-cols-2 lg:grid-cols-3 gap-10">
                 {gridData.map((col, index) => (
                     <FlexContainer
                         direction="flex-col"

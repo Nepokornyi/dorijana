@@ -4,7 +4,6 @@ import {
     TypographyMuted,
     TypographySmall,
 } from '@/components/ui/typography'
-import React from 'react'
 
 const cardsConfig = [
     { numeration: 'Č.  01', title: 'Bydlení', description: 'Stavební řešení' },
@@ -24,7 +23,7 @@ const cardsConfig = [
 
 export const Intro = () => {
     return (
-        <Box className="-mt-64 w-5/6 lg:pl-60 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-10 bg-background text-foreground">
+        <Box className="-mt-64 w-5/6 lg:pl-32 xl:pl-60 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-10 bg-background text-foreground">
             {cardsConfig.map((card) => (
                 <Box
                     key={card.numeration}

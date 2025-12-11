@@ -11,7 +11,7 @@ const gridData = [
 export const About = () => {
     return (
         <>
-            <Box className="w-full lg:w-5/6 lg:pl-60 grid grid-cols-2 lg:grid-cols-3 gap-10">
+            <Box className="w-full lg:w-5/6 lg:pl-32 xl:pl-60 grid grid-cols-2 lg:grid-cols-3 gap-10">
                 {gridData.map((col) => (
                     <Box
                         key={col.text}
@@ -21,7 +21,7 @@ export const About = () => {
                     </Box>
                 ))}
             </Box>
-            <Box className="w-5/6 lg:pl-60 pb-10 grid grid-cols-1 lg:grid-cols-3 gap-10">
+            <Box className="w-5/6 lg:pl-32 xl:pl-60 pb-10 grid grid-cols-1 lg:grid-cols-3 gap-10">
                 <H3 className="hidden lg:block px-10 lg:px-0 py-10">
                     {'Kdo jsme?'}
                 </H3>

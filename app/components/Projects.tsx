@@ -30,7 +30,7 @@ const cardData = [
 export const Projects = () => {
     return (
         <>
-            <Box className="w-full lg:w-5/6 lg:pl-60 grid grid-cols-2 lg:grid-cols-[2fr_1fr_1fr] gap-10">
+            <Box className="w-full lg:w-5/6 lg:pl-32 xl:pl-60 grid grid-cols-2 lg:grid-cols-[2fr_1fr_1fr] gap-10">
                 {gridData.map((col) => (
                     <Box key={col.text} className={col.className}>
                         {col.text}
