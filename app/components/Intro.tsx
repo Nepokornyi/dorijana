@@ -23,7 +23,7 @@ const cardsConfig = [
 
 export const Intro = () => {
     return (
-        <Box className="-mt-64 w-5/6 lg:pl-32 xl:pl-60 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-10 bg-background text-foreground">
+        <Box className="-mt-32 lg:-mt-64 mr-16 lg:mr-32 xl:mr-60 lg:pl-32 xl:pl-60 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-10 bg-background text-foreground">
             {cardsConfig.map((card) => (
                 <Box
                     key={card.numeration}

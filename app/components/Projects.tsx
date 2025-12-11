@@ -30,7 +30,7 @@ const cardData = [
 export const Projects = () => {
     return (
         <>
-            <Box className="w-full lg:w-5/6 lg:pl-32 xl:pl-60 grid grid-cols-2 lg:grid-cols-[2fr_1fr_1fr] gap-10">
+            <Box className="w-full lg:px-32 xl:px-60 grid grid-cols-2 lg:grid-cols-[2fr_1fr_1fr] gap-10">
                 {gridData.map((col) => (
                     <Box key={col.text} className={col.className}>
                         {col.text}
@@ -60,7 +60,7 @@ export const Projects = () => {
                     ))}
                 </FlexContainer>
 
-                <Box className="hidden lg:block col-span-2 relative my-10 pr-20 -mr-[16.5vw] bg-black/35">
+                <Box className="hidden lg:block col-span-2 relative my-10 pr-20 -mr-[12.5vw] bg-black/35">
                     <VideoPlayer
                         src="/video5/master.m3u8"
                         autoPlay

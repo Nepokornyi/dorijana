@@ -93,8 +93,8 @@ export const Carousel = () => {
     }
     return (
         <FlexContainer
-            width="w-full lg:w-5/6"
-            className="lg:pl-32 xl:pl-60 my-16 lg:my-32"
+            width="w-full"
+            className="lg:px-32 xl:px-60 my-16 lg:my-32"
         >
             <Box className="w-full px-10 lg:px-0">
                 <Swiper

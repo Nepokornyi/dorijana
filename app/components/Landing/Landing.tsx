@@ -25,7 +25,7 @@ export const Landing = () => {
 
             <FlexContainer
                 alignItems="items-center"
-                className="bg-black/35 pl-10 lg:pl-32 xl:pl-60 h-screen"
+                className="bg-black/35 px-10 lg:px-32 xl:px-60 h-screen"
             >
                 <FlexContainer direction="flex-col" gap="gap-4">
                     <Box>
