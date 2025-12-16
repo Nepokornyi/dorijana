@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Box } from '@/components/ui/box'
 import { Button } from '@/components/ui/button'
 import StaggeredMenu from '@/components/ui/StaggerMenu/StaggerMenu'
@@ -50,7 +50,7 @@ export const Header = () => {
                 <StaggeredMenu
                     menuItems={menuItems}
                     socialLinks={socialLinks}
-                    accentColor="#5227FF"
+                    accentColor="#737373"
                 />
             </div>
         </header>

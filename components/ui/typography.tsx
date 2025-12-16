@@ -119,13 +119,15 @@ export function TypographyLarge({
 
 export function TypographySmall({
     children,
+    fontSize = 'text-sm',
     className,
 }: {
     children: ReactNode
+    fontSize?: string
     className?: string
 }) {
     return (
-        <small className={`${className} text-sm font-medium leading-none`}>
+        <small className={`${className} ${fontSize} font-medium leading-none`}>
             {children}
         </small>
     )
