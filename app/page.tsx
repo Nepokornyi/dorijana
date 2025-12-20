@@ -1,14 +1,15 @@
 'use client'
+import { useEffect, useState } from 'react'
+import { Loader } from '@/components/Loader'
+import { Header } from './components/Header'
 import { Landing } from './components/Landing/Landing'
 import { Intro } from './components/Intro'
+import { About } from './components/About'
 import { Work } from './components/Work'
+import { Partners } from './components/Partners'
+import { Carousel } from './components/Carousel/Carousel'
 import { Projects } from './components/Projects'
 import { Footer } from './components/Footer'
-import { About } from './components/About'
-import { Carousel } from './components/Carousel'
-import { Loader } from '@/components/Loader'
-import { useEffect, useState } from 'react'
-import { Header } from './components/Header'
 
 export default function Home() {
     const [mounted, setMounted] = useState(true)
@@ -20,15 +21,16 @@ export default function Home() {
     }, [])
 
     return (
-        <div className="font-[family-name:var(--font-geist-mono)] relative">
-            <Header />
+        <div className="font-sans relative">
             {mounted && (
                 <Loader visible={visible} onFinish={() => setMounted(false)} />
             )}
+            <Header />
             <Landing />
             <Intro />
             <About />
             <Work />
+            <Partners />
             <Carousel />
             <Projects />
             <Footer />
