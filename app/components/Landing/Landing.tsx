@@ -1,11 +1,11 @@
 'use client'
-import { H1, H3 } from '@/components/ui/typography'
-import { Button } from '@/components/ui/button'
+import { H3 } from '@/components/ui/typography'
 import { FlexContainer } from '@/components/ui/flexContainer'
 import { Box } from '@/components/ui/box'
 import { motion } from 'framer-motion'
 import { RotatingText } from '@/components/RotatingText/RotatingText'
 import VideoPlayer from '@/components/VideoPlayer'
+import { LogoText } from '@/assets/LogoText'
 
 const MotionBox = motion(Box)
 
@@ -27,13 +27,12 @@ export const Landing = () => {
                 alignItems="items-center"
                 className="bg-black/35 px-10 lg:px-32 xl:px-60 h-screen"
             >
-                <FlexContainer direction="flex-col" gap="gap-4">
-                    <Box>
-                        <Button className="cursor-pointer duration-200">
-                            Kontaktujte nás
-                        </Button>
-                    </Box>
-                    <H1 className="text-white">Dorijana</H1>
+                <FlexContainer
+                    width="w-[400px]"
+                    direction="flex-col"
+                    gap="gap-4"
+                >
+                    <LogoText />
                     <H3 className="text-white">
                         Jediný způsob, jak{' '}
                         <RotatingText
