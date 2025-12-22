@@ -1,9 +1,7 @@
-'use client'
-
 import Lottie from 'lottie-react'
 import logo from '@/assets/logo.json'
 import { FlexContainer } from './ui/flexContainer'
-import { motion, AnimatePresence, Variants } from 'framer-motion'
+import { motion, AnimatePresence, Variants } from 'motion/react'
 
 const wrapperVariants: Variants = {
     visible: { opacity: 1 },

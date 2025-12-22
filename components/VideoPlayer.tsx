@@ -1,5 +1,3 @@
-'use client'
-
 import { useEffect, useRef } from 'react'
 import Hls, { HlsConfig } from 'hls.js'
 

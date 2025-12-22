@@ -1,13 +1,12 @@
-'use client'
 import { H3 } from '@/components/ui/typography'
 import { FlexContainer } from '@/components/ui/flexContainer'
 import { Box } from '@/components/ui/box'
-import { motion } from 'framer-motion'
+import { motion } from 'motion/react'
 import { RotatingText } from '@/components/RotatingText/RotatingText'
 import VideoPlayer from '@/components/VideoPlayer'
 import { LogoText } from '@/assets/LogoText'
 
-const MotionBox = motion(Box)
+const MotionBox = motion.create(Box)
 
 export const Landing = () => {
     return (

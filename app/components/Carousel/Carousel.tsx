@@ -1,5 +1,3 @@
-'use client'
-
 import { useRef, useState } from 'react'
 import Image from 'next/image'
 import { FlexContainer } from '@/components/ui/flexContainer'

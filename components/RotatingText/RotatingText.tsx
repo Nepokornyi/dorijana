@@ -7,7 +7,7 @@ import React, {
     useMemo,
     useState,
 } from 'react'
-import { motion, AnimatePresence, Transition } from 'framer-motion'
+import { motion, AnimatePresence, Transition } from 'motion/react'
 import './RotatingText.css'
 
 type RotatingTextProps = {
