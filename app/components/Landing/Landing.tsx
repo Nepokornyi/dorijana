@@ -1,19 +1,33 @@
 import { H3 } from '@/components/ui/typography'
 import { FlexContainer } from '@/components/ui/flexContainer'
 import { Box } from '@/components/ui/box'
-import { motion } from 'motion/react'
 import { RotatingText } from '@/components/RotatingText/RotatingText'
 import VideoPlayer from '@/components/VideoPlayer'
 import { LogoText } from '@/assets/LogoText'
+import { useAnimationsEnabled } from '@/contexts/animation-context'
+import { motion, Variant } from 'motion/react'
+
+const hidden: Variant = {
+    opacity: 0,
+}
+
+const visible: Variant = {
+    opacity: 1,
+    transition: { duration: 1.2, ease: 'easeOut' },
+}
 
 const MotionBox = motion.create(Box)
 
 export const Landing = () => {
+    const animationsEnabled = useAnimationsEnabled()
+
     return (
         <MotionBox
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
+            initial="hidden"
+            animate={animationsEnabled ? 'visible' : 'hidden'}
+            whileInView={animationsEnabled ? 'visible' : undefined}
+            viewport={{ once: false, amount: 0.2 }}
+            variants={{ hidden, visible }}
         >
             <VideoPlayer
                 src="/video1/master.m3u8"

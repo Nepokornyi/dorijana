@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react'
 import { Box } from '@/components/ui/box'
 import { Button } from '@/components/ui/button'
-import StaggeredMenu from '@/components/ui/StaggerMenu/StaggerMenu'
 import { Logo } from '@/assets/Logo'
+import StaggeredMenu from '@/components/ui/StaggerMenu/StaggerMenu'
+import { useAnimationsEnabled } from '@/contexts/animation-context'
+import { motion, Variant } from 'motion/react'
 
 const menuItems = [
     { label: 'O nás', ariaLabel: 'Go to home page', link: '/' },
@@ -16,7 +18,20 @@ const socialLinks = [
     { label: 'LinkedIn', link: 'https://linkedin.com' },
 ]
 
+const hidden: Variant = {
+    opacity: 0,
+}
+
+const visible: Variant = {
+    opacity: 1,
+    transition: { duration: 1.2, ease: 'easeOut' },
+}
+
+const MotionBox = motion.create(Box)
+
 export const Header = () => {
+    const animationsEnabled = useAnimationsEnabled()
+
     const [scrolled, setScrolled] = useState(false)
 
     useEffect(() => {
@@ -36,13 +51,20 @@ export const Header = () => {
         >
             <Logo className="size-10 cursor-pointer" />
 
-            <Box className="hidden lg:flex items-center gap-2.5">
+            <MotionBox
+                initial="hidden"
+                animate={animationsEnabled ? 'visible' : 'hidden'}
+                whileInView={animationsEnabled ? 'visible' : undefined}
+                viewport={{ once: false, amount: 0.2 }}
+                variants={{ hidden, visible }}
+                className="hidden lg:flex items-center gap-2.5"
+            >
                 {['O nás', 'Služby', 'Kontakty'].map((item) => (
                     <Button key={item} className="text-white" variant="link">
                         {item}
                     </Button>
                 ))}
-            </Box>
+            </MotionBox>
 
             <div className="lg:hidden relative z-50">
                 <StaggeredMenu

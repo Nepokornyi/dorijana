@@ -10,6 +10,7 @@ import { Partners } from './components/Partners'
 import { Carousel } from './components/Carousel/Carousel'
 import { Projects } from './components/Projects'
 import { Footer } from './components/Footer'
+import { AnimationProvider } from '@/contexts/animation-context'
 
 export default function Home() {
     const [mounted, setMounted] = useState(true)
@@ -25,15 +26,17 @@ export default function Home() {
             {mounted && (
                 <Loader visible={visible} onFinish={() => setMounted(false)} />
             )}
-            <Header />
-            <Landing />
-            <Intro />
-            <About />
-            <Work />
-            <Partners />
-            <Carousel />
-            <Projects />
-            <Footer />
+            <AnimationProvider enabled={mounted}>
+                <Header />
+                <Landing />
+                <Intro />
+                <About />
+                <Work />
+                <Partners />
+                <Carousel />
+                <Projects />
+                <Footer />
+            </AnimationProvider>
         </div>
     )
 }
