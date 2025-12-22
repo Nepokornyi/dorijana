@@ -1,10 +1,10 @@
-import React, { ReactNode } from 'react'
+import { forwardRef, ReactNode } from 'react'
 
 type BoxProps = React.ComponentPropsWithoutRef<'div'> & {
     children: ReactNode
 }
 
-export const Box = React.forwardRef<HTMLDivElement, BoxProps>(
+export const Box = forwardRef<HTMLDivElement, BoxProps>(
     ({ children, className = '', onClick, ...rest }, ref) => {
         return (
             <div

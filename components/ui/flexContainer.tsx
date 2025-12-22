@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import { ComponentPropsWithoutRef, forwardRef, ReactNode } from 'react'
 import {
     Direction,
     Gap,
@@ -7,7 +7,7 @@ import {
     VerticalAlign,
 } from '../types/flexTypes'
 
-type FlexContainerProps = {
+type FlexContainerProps = ComponentPropsWithoutRef<'div'> & {
     children: ReactNode
     direction?: Direction
     minHeight?: MinHeight
@@ -21,39 +21,53 @@ type FlexContainerProps = {
     onClick?: (e?: React.MouseEvent<HTMLDivElement>) => void
 }
 
-export const FlexContainer = ({
-    children,
-    direction = 'flex-row',
-    minHeight = 'min-h-auto',
-    justifyContent,
-    alignItems,
-    width = 'w-full',
-    center = false,
-    gap = 'gap-0',
-    className = '',
-    id,
-    onClick,
-}: FlexContainerProps) => {
-    const horizontalAlignClass =
-        justifyContent || (center ? 'justify-center' : '')
-    const verticalAlignClass = alignItems || (center ? 'items-center' : '')
+export const FlexContainer = forwardRef<HTMLDivElement, FlexContainerProps>(
+    (
+        {
+            children,
+            direction = 'flex-row',
+            minHeight = 'min-h-auto',
+            justifyContent,
+            alignItems,
+            width = 'w-full',
+            center = false,
+            gap = 'gap-0',
+            className = '',
+            id,
+            onClick,
+            ...rest
+        },
+        ref
+    ) => {
+        const horizontalAlignClass =
+            justifyContent || (center ? 'justify-center' : '')
+        const verticalAlignClass = alignItems || (center ? 'items-center' : '')
 
-    const combinedClasses = [
-        'flex',
-        width,
-        direction,
-        horizontalAlignClass,
-        verticalAlignClass,
-        gap,
-        minHeight,
-        className,
-    ]
-        .filter(Boolean)
-        .join(' ')
+        const combinedClasses = [
+            'flex',
+            width,
+            direction,
+            horizontalAlignClass,
+            verticalAlignClass,
+            gap,
+            minHeight,
+            className,
+        ]
+            .filter(Boolean)
+            .join(' ')
 
-    return (
-        <div className={combinedClasses} id={id} onClick={onClick}>
-            {children}
-        </div>
-    )
-}
+        return (
+            <div
+                ref={ref}
+                className={combinedClasses}
+                id={id}
+                onClick={onClick}
+                {...rest}
+            >
+                {children}
+            </div>
+        )
+    }
+)
+
+FlexContainer.displayName = 'FlexContainer'
