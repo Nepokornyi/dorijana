@@ -8,7 +8,7 @@ const gridData = [
     { text: 'Proč Dorijana?', className: 'py-10' },
     {
         text: 'Naše služby',
-        className: 'py-10 flex justify-end hidden lg:block',
+        className: 'py-10 flex justify-end hidden lg:block lg:justify-self-end',
     },
 ]
 
