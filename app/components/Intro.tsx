@@ -79,11 +79,15 @@ export const Intro = () => {
                         key={card.numeration}
                         className="px-10 lg:px-0 pt-20 pb-10"
                     >
-                        <TypographySmall className="pb-2">
-                            {card.numeration}
-                        </TypographySmall>
-                        <H3>{card.title}</H3>
-                        <TypographyMuted>{card.description}</TypographyMuted>
+                        <Box className="cursor-pointer w-fit group">
+                            <TypographySmall className="pb-2">
+                                {card.numeration}
+                            </TypographySmall>
+                            <H3>{card.title}</H3>
+                            <TypographyMuted className="group-hover:text-primary duration-200">
+                                {card.description}
+                            </TypographyMuted>
+                        </Box>
                     </MotionBox>
                 ))}
             </MotionBox>
