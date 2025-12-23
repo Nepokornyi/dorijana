@@ -10,7 +10,7 @@ import { Partners } from './components/Partners'
 import { Carousel } from './components/Carousel/Carousel'
 import { Projects } from './components/Projects'
 import { Footer } from './components/Footer'
-import { AnimationProvider } from '@/contexts/animation-context'
+import { AnimationProvider } from '@/contexts/AnimationProvider'
 
 export default function Home() {
     const [mounted, setMounted] = useState(true)

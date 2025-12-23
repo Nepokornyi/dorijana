@@ -3,7 +3,7 @@ import { Box } from '@/components/ui/box'
 import { Button } from '@/components/ui/button'
 import { Logo } from '@/assets/Logo'
 import StaggeredMenu from '@/components/ui/StaggerMenu/StaggerMenu'
-import { useAnimationsEnabled } from '@/contexts/animation-context'
+import { useAnimationsEnabled } from '@/contexts/AnimationProvider'
 import { motion, stagger, Variants } from 'motion/react'
 
 const menuItems = [

@@ -4,7 +4,7 @@ import { Box } from '@/components/ui/box'
 import { RotatingText } from '@/components/RotatingText/RotatingText'
 import VideoPlayer from '@/components/VideoPlayer'
 import { LogoText } from '@/assets/LogoText'
-import { useAnimationsEnabled } from '@/contexts/animation-context'
+import { useAnimationsEnabled } from '@/contexts/AnimationProvider'
 import { motion, Variants } from 'motion/react'
 
 const parentVariants: Variants = {
