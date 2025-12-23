@@ -1,6 +1,12 @@
 import React from 'react'
 
-export const Logo = ({ className = '' }: { className?: string }) => {
+export const Logo = ({
+    className = '',
+    onClick,
+}: {
+    className?: string
+    onClick: () => void
+}) => {
     return (
         <svg
             id="Layer_1"
@@ -9,6 +15,7 @@ export const Logo = ({ className = '' }: { className?: string }) => {
             viewBox="0 0 2453.67 2951.31"
             className={className}
             fill="currentColor"
+            onClick={onClick}
         >
             <polygon
                 className="cls-1"

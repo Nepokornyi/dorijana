@@ -3,13 +3,14 @@ import { Box } from '@/components/ui/box'
 import { Button } from '@/components/ui/button'
 import { Logo } from '@/assets/Logo'
 import StaggeredMenu from '@/components/ui/StaggerMenu/StaggerMenu'
-import { useAnimationsEnabled } from '@/contexts/AnimationProvider'
+import { useAnimationsEnabled } from '@/contexts/animation-context'
 import { motion, stagger, Variants } from 'motion/react'
+import { useLenis } from '@/contexts/lenis-context'
 
 const menuItems = [
-    { label: 'O nás', ariaLabel: 'Go to home page', link: '/' },
-    { label: 'Služby', ariaLabel: 'Learn about us', link: '/' },
-    { label: 'Kontakty', ariaLabel: 'Get in touch', link: '/' },
+    { label: 'O nás', ariaLabel: 'Go to home page', link: '#about' },
+    { label: 'Služby', ariaLabel: 'Learn about us', link: '#work' },
+    { label: 'Kontakty', ariaLabel: 'Get in touch', link: '#partners' },
 ]
 
 const socialLinks = [
@@ -62,17 +63,21 @@ const MotionButton = motion.create(Button)
 
 export const Header = () => {
     const animationsEnabled = useAnimationsEnabled()
-
+    const { scrollTo } = useLenis()
     const [scrolled, setScrolled] = useState(false)
 
     useEffect(() => {
         const handleScroll = () => {
-            setScrolled(window.scrollY > 20)
+            setScrolled(window.scrollY > 30)
         }
 
         window.addEventListener('scroll', handleScroll, { passive: true })
         return () => window.removeEventListener('scroll', handleScroll)
     }, [])
+
+    const handleNavClick = (target: string) => {
+        scrollTo(target)
+    }
 
     return (
         <motion.header
@@ -86,18 +91,22 @@ export const Header = () => {
             }`}
         >
             <MotionBox variants={logoVariants}>
-                <Logo className="size-10 cursor-pointer" />
+                <Logo
+                    className="size-10 cursor-pointer"
+                    onClick={() => handleNavClick('#landing')}
+                />
             </MotionBox>
 
             <Box className="hidden lg:flex items-center gap-2.5">
-                {['O nás', 'Služby', 'Kontakty'].map((item) => (
+                {menuItems.map((item) => (
                     <MotionButton
                         variants={menuVariants}
-                        key={item}
+                        key={item.label}
                         className="text-white"
                         variant="link"
+                        onClick={() => handleNavClick(item.link)}
                     >
-                        {item}
+                        {item.label}
                     </MotionButton>
                 ))}
             </Box>

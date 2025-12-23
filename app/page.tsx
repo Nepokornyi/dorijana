@@ -10,14 +10,15 @@ import { Partners } from './components/Partners'
 import { Carousel } from './components/Carousel/Carousel'
 import { Projects } from './components/Projects'
 import { Footer } from './components/Footer'
-import { AnimationProvider } from '@/contexts/AnimationProvider'
+import { AnimationProvider } from '@/contexts/animation-context'
+import { LenisProvider } from '@/contexts/lenis-context'
 
 export default function Home() {
     const [mounted, setMounted] = useState(true)
     const [visible, setVisible] = useState(true)
 
     useEffect(() => {
-        const t = setTimeout(() => setVisible(false), 2600)
+        const t = setTimeout(() => setVisible(false), 1300)
         return () => clearTimeout(t)
     }, [])
 
@@ -26,17 +27,19 @@ export default function Home() {
             {mounted && (
                 <Loader visible={visible} onFinish={() => setMounted(false)} />
             )}
-            <AnimationProvider enabled={!mounted}>
-                <Header />
-                <Landing />
-                <Intro />
-                <About />
-                <Work />
-                <Partners />
-                <Carousel />
-                <Projects />
-                <Footer />
-            </AnimationProvider>
+            <LenisProvider>
+                <AnimationProvider enabled={!mounted}>
+                    <Header />
+                    <Landing />
+                    <Intro />
+                    <About />
+                    <Work />
+                    <Partners />
+                    <Carousel />
+                    <Projects />
+                    <Footer />
+                </AnimationProvider>
+            </LenisProvider>
         </div>
     )
 }

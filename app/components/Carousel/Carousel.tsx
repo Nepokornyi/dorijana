@@ -91,6 +91,7 @@ export const Carousel = () => {
     }
     return (
         <FlexContainer
+            id="carousel"
             width="w-full"
             className="lg:px-32 xl:px-60 my-16 lg:my-32"
         >

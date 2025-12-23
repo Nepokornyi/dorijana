@@ -4,7 +4,7 @@ import {
     TypographyMuted,
     TypographySmall,
 } from '@/components/ui/typography'
-import { useAnimationsEnabled } from '@/contexts/AnimationProvider'
+import { useAnimationsEnabled } from '@/contexts/animation-context'
 import { motion, stagger, Variants } from 'motion/react'
 
 const cardsConfig = [
@@ -64,6 +64,7 @@ export const Intro = () => {
 
     return (
         <MotionBox
+            id="intro"
             variants={parentVariants}
             initial="hidden"
             animate={animationsEnabled ? 'visible' : 'hidden'}

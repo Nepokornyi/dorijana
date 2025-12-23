@@ -29,42 +29,43 @@ const cardData = [
 
 export const Work = () => {
     return (
-        <>
-            <Box className="w-full lg:px-32 xl:px-60 grid grid-cols-2 lg:grid-cols-[2fr_1fr_1fr] gap-10">
-                {gridData.map((col) => (
-                    <Box key={col.text} className={col.className}>
-                        {col.text}
+        <Box
+            id="work"
+            className="w-full lg:px-32 xl:px-60 grid grid-cols-2 lg:grid-cols-[2fr_1fr_1fr] gap-10"
+        >
+            {gridData.map((col) => (
+                <Box key={col.text} className={col.className}>
+                    {col.text}
+                </Box>
+            ))}
+
+            <FlexContainer
+                direction="flex-col"
+                gap="gap-10"
+                className="px-10 lg:px-0 py-10 col-span-2 lg:col-span-1"
+            >
+                {cardData.map((card, index) => (
+                    <Box key={index}>
+                        <H3 className="pb-4">{card.title}</H3>
+                        <P>{card.text}</P>
                     </Box>
                 ))}
 
-                <FlexContainer
-                    direction="flex-col"
-                    gap="gap-10"
-                    className="px-10 lg:px-0 py-10 col-span-2 lg:col-span-1"
-                >
-                    {cardData.map((card, index) => (
-                        <Box key={index}>
-                            <H3 className="pb-4">{card.title}</H3>
-                            <P>{card.text}</P>
-                        </Box>
-                    ))}
+                <TypographyMuted className="uppercase py-4">
+                    {'Chceš vědět víc'}?
+                </TypographyMuted>
 
-                    <TypographyMuted className="uppercase py-4">
-                        {'Chceš vědět víc'}?
-                    </TypographyMuted>
+                <H2 className="w-fit">{'Kontaktuj nás'}</H2>
+            </FlexContainer>
 
-                    <H2 className="w-fit">{'Kontaktuj nás'}</H2>
-                </FlexContainer>
-
-                <Box className="hidden lg:flex col-span-2 my-10 bg-black/25">
-                    <VideoPlayer
-                        src="/video2/master.m3u8"
-                        autoPlay
-                        loop
-                        className="absolute top-0 left-0 -z-1 w-full h-full object-cover"
-                    />
-                </Box>
+            <Box className="hidden lg:flex col-span-2 my-10 bg-black/25">
+                <VideoPlayer
+                    src="/video2/master.m3u8"
+                    autoPlay
+                    loop
+                    className="absolute top-0 left-0 -z-1 w-full h-full object-cover"
+                />
             </Box>
-        </>
+        </Box>
     )
 }
