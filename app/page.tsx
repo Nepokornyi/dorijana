@@ -26,7 +26,7 @@ export default function Home() {
             {mounted && (
                 <Loader visible={visible} onFinish={() => setMounted(false)} />
             )}
-            <AnimationProvider enabled={mounted}>
+            <AnimationProvider enabled={!mounted}>
                 <Header />
                 <Landing />
                 <Intro />
