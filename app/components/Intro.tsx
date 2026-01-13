@@ -5,7 +5,7 @@ import {
     TypographySmall,
 } from '@/components/ui/typography'
 import { useAnimationsEnabled } from '@/contexts/animation-context'
-import { motion, stagger, Variants } from 'motion/react'
+import { motion, Variants } from 'motion/react'
 
 const cardsConfig = [
     { numeration: 'Č.  01', title: 'Bydlení', description: 'Stavební řešení' },
@@ -57,6 +57,17 @@ const childVariants: Variants = {
     },
 }
 
+const arrowLineVariants: Variants = {
+    hidden: { width: 0 },
+    hover: {
+        width: '100%',
+        transition: {
+            duration: 0.25,
+            ease: 'easeOut',
+        },
+    },
+}
+
 const MotionBox = motion.create(Box)
 
 export const Intro = () => {
@@ -81,13 +92,26 @@ export const Intro = () => {
                         className="px-10 lg:px-0 pt-20 pb-10"
                     >
                         <Box className="cursor-pointer w-fit group">
-                            <TypographySmall className="pb-2">
-                                {card.numeration}
-                            </TypographySmall>
-                            <H3>{card.title}</H3>
-                            <TypographyMuted className="group-hover:text-primary duration-200">
-                                {card.description}
-                            </TypographyMuted>
+                            <motion.div
+                                className="relative inline-block"
+                                initial="hidden"
+                                whileHover="hover"
+                            >
+                                <TypographySmall className="pb-2">
+                                    {card.numeration}
+                                </TypographySmall>
+
+                                <H3>{card.title}</H3>
+
+                                <TypographyMuted className="group-hover:text-primary duration-200">
+                                    {card.description}
+                                </TypographyMuted>
+                                {/* Arrow line */}
+                                <motion.span
+                                    variants={arrowLineVariants}
+                                    className="absolute left-0 -bottom-1 h-[1px] bg-primary"
+                                />
+                            </motion.div>
                         </Box>
                     </MotionBox>
                 ))}
