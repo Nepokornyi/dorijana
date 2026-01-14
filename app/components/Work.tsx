@@ -2,6 +2,8 @@ import { Box } from '@/components/ui/box'
 import { FlexContainer } from '@/components/ui/flexContainer'
 import { H2, H3, P, TypographyMuted } from '@/components/ui/typography'
 import VideoPlayer from '@/components/VideoPlayer'
+import { useAnimationsEnabled } from '@/contexts/animation-context'
+import { motion, stagger, Variants } from 'motion/react'
 
 const gridData = [
     { text: 'Č. 02', className: 'px-10 lg:px-0 py-10' },
@@ -27,10 +29,54 @@ const cardData = [
     },
 ]
 
+const parentVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            duration: 1.2,
+            ease: 'easeInOut',
+            delayChildren: stagger(0.75),
+        },
+    },
+}
+
+const textLeftVariants: Variants = {
+    hidden: { opacity: 0, x: -40 },
+    visible: {
+        opacity: 1,
+        x: 0,
+        transition: {
+            duration: 1.2,
+            ease: 'easeInOut',
+        },
+    },
+}
+
+const textRightVariants: Variants = {
+    hidden: { opacity: 0, x: 40 },
+    visible: {
+        opacity: 1,
+        x: 0,
+        transition: {
+            duration: 1.2,
+            ease: 'easeInOut',
+        },
+    },
+}
+
+const MotionBox = motion(Box)
+const MotionFlexContainer = motion(FlexContainer)
+
 export const Work = () => {
+    const animationsEnabled = useAnimationsEnabled()
+
     return (
-        <Box
+        <MotionBox
             id="work"
+            variants={parentVariants}
+            initial="hidden"
+            whileInView={animationsEnabled ? 'visible' : 'hidden'}
             className="w-full lg:px-32 xl:px-60 grid grid-cols-2 lg:grid-cols-[2fr_1fr_1fr] gap-10"
         >
             {gridData.map((col) => (
@@ -39,7 +85,8 @@ export const Work = () => {
                 </Box>
             ))}
 
-            <FlexContainer
+            <MotionFlexContainer
+                variants={textLeftVariants}
                 direction="flex-col"
                 gap="gap-10"
                 className="px-10 lg:px-0 py-10 col-span-2 lg:col-span-1"
@@ -56,16 +103,19 @@ export const Work = () => {
                 </TypographyMuted>
 
                 <H2 className="w-fit">{'Kontaktuj nás'}</H2>
-            </FlexContainer>
+            </MotionFlexContainer>
 
-            <Box className="hidden lg:flex col-span-2 my-10 bg-black/25">
+            <MotionBox
+                variants={textRightVariants}
+                className="hidden lg:flex col-span-2 my-10 bg-black/25"
+            >
                 <VideoPlayer
                     src="/video2/master.m3u8"
                     autoPlay
                     loop
                     className="absolute top-0 left-0 -z-1 w-full h-full object-cover"
                 />
-            </Box>
-        </Box>
+            </MotionBox>
+        </MotionBox>
     )
 }
