@@ -35,7 +35,6 @@ export default function Home() {
                     <About />
                     <Work />
                     <Partners />
-                    <Carousel />
                     <Projects />
                     <Footer />
                 </AnimationProvider>
