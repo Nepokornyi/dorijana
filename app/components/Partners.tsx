@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Box } from '@/components/ui/box'
-import { FlexContainer } from '@/components/ui/flexContainer'
-import { AnimatePresence, motion } from 'motion/react'
+import { AnimatePresence, motion, stagger, Variants } from 'motion/react'
 
 import brovos from '@/assets/logos/brovos.png'
 import czechSon from '@/assets/logos/czech&son.png'
@@ -11,17 +10,42 @@ import prumstav from '@/assets/logos/prumstav.png'
 import skanska from '@/assets/logos/skanska.png'
 import trigema from '@/assets/logos/trigema.png'
 import Image from 'next/image'
+import { useAnimationsEnabled } from '@/contexts/animation-context'
 
 const MotionBox = motion(Box)
 
 const logoSets = [
-    [brovos, czechSon],
-    [metrostav, pms, trigema],
-    [prumstav, skanska],
+    {
+        logos: [brovos, czechSon],
+        align: 'justify-start',
+    },
+    {
+        logos: [metrostav, pms, trigema],
+        align: 'justify-center',
+    },
+    {
+        logos: [prumstav, skanska],
+        align: 'justify-end',
+    },
 ]
 
+const parentVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            duration: 1.2,
+            ease: 'easeInOut',
+            delayChildren: stagger(0.75),
+        },
+    },
+}
+
 export const Partners = () => {
-    const [currentIndices, setCurrentIndices] = useState(Array(6).fill(0))
+    const animationsEnabled = useAnimationsEnabled()
+    const [currentIndices, setCurrentIndices] = useState(
+        Array(logoSets.length).fill(0)
+    )
 
     useEffect(() => {
         const intervals = logoSets.map((_, cellIndex) => {
@@ -34,7 +58,7 @@ export const Partners = () => {
                         const newIndices = [...prev]
                         newIndices[cellIndex] =
                             (newIndices[cellIndex] + 1) %
-                            logoSets[cellIndex].length
+                            logoSets[cellIndex].logos.length
                         return newIndices
                     })
                 }, intervalDuration)
@@ -49,10 +73,19 @@ export const Partners = () => {
     }, [])
 
     return (
-        <MotionBox className="px-10 lg:px-32 xl:px-60 py-10">
+        <MotionBox
+            id="partners"
+            variants={parentVariants}
+            initial="hidden"
+            whileInView={animationsEnabled ? 'visible' : 'hidden'}
+            className="px-10 lg:px-32 xl:px-60 py-10"
+        >
             <div className="grid grid-cols-2 lg:grid-cols-3">
-                {logoSets.map((logos, cellIndex) => (
-                    <div key={cellIndex} className="overflow-hidden">
+                {logoSets.map((logoSet, cellIndex) => (
+                    <div
+                        key={cellIndex}
+                        className={`overflow-hidden flex ${logoSet.align}`}
+                    >
                         <AnimatePresence mode="wait">
                             <motion.div
                                 key={currentIndices[cellIndex]}
@@ -78,7 +111,9 @@ export const Partners = () => {
                                 className="text-7xl cursor-default"
                             >
                                 <Image
-                                    src={logos[currentIndices[cellIndex]]}
+                                    src={
+                                        logoSet.logos[currentIndices[cellIndex]]
+                                    }
                                     alt="logo"
                                 />
                             </motion.div>
