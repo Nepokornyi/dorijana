@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Box } from '@/components/ui/box'
 import { Button } from '@/components/ui/button'
-import { Logo } from '@/assets/Logo'
+import { Logo } from '@/assets/logo/Logo'
 import StaggeredMenu from '@/components/ui/StaggerMenu/StaggerMenu'
 import { useAnimationsEnabled } from '@/contexts/animation-context'
 import { motion, stagger, Variants } from 'motion/react'

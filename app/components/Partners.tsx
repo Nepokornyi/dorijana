@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react'
 import { Box } from '@/components/ui/box'
 import { AnimatePresence, motion, stagger, Variants } from 'motion/react'
 
-import brovos from '@/assets/logos/brovos.png'
-import czechSon from '@/assets/logos/czech&son.png'
-import metrostav from '@/assets/logos/metrostav.png'
-import pms from '@/assets/logos/pms.png'
-import prumstav from '@/assets/logos/prumstav.png'
-import skanska from '@/assets/logos/skanska.png'
-import trigema from '@/assets/logos/trigema.png'
+import brovos from '@/assets/partners/brovos.png'
+import czechSon from '@/assets/partners/czech&son.png'
+import metrostav from '@/assets/partners/metrostav.png'
+import pms from '@/assets/partners/pms.png'
+import prumstav from '@/assets/partners/prumstav.png'
+import skanska from '@/assets/partners/skanska.png'
+import trigema from '@/assets/partners/trigema.png'
 import Image from 'next/image'
 import { useAnimationsEnabled } from '@/contexts/animation-context'
 
@@ -44,7 +44,7 @@ const parentVariants: Variants = {
 export const Partners = () => {
     const animationsEnabled = useAnimationsEnabled()
     const [currentIndices, setCurrentIndices] = useState(
-        Array(logoSets.length).fill(0)
+        Array(logoSets.length).fill(0),
     )
 
     useEffect(() => {

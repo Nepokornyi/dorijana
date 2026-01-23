@@ -3,7 +3,7 @@ import { FlexContainer } from '@/components/ui/flexContainer'
 import { Box } from '@/components/ui/box'
 import { RotatingText } from '@/components/RotatingText/RotatingText'
 import VideoPlayer from '@/components/VideoPlayer'
-import { LogoText } from '@/assets/LogoText'
+import { LogoText } from '@/assets/logo/LogoText'
 import { useAnimationsEnabled } from '@/contexts/animation-context'
 import { motion, Variants } from 'motion/react'
 

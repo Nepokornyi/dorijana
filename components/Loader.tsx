@@ -1,5 +1,5 @@
 import Lottie from 'lottie-react'
-import logo from '@/assets/logo.json'
+import logo from '@/assets/logo/logo.json'
 import { FlexContainer } from './ui/flexContainer'
 import { motion, AnimatePresence, Variants } from 'motion/react'
 
