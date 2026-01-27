@@ -36,7 +36,8 @@ const parentVariants: Variants = {
         transition: {
             duration: 1.2,
             ease: 'easeInOut',
-            delayChildren: stagger(0.75),
+            delayChildren: stagger(0.33),
+            delay: 0.33,
         },
     },
 }

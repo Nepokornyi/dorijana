@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Box } from '@/components/ui/box'
-import { AnimatePresence, motion, stagger, Variants } from 'motion/react'
+import { AnimatePresence, motion, Variants } from 'motion/react'
+import { useAnimationsEnabled } from '@/contexts/animation-context'
 
 import brovos from '@/assets/partners/brovos.png'
 import czechSon from '@/assets/partners/czech&son.png'
@@ -10,7 +11,6 @@ import prumstav from '@/assets/partners/prumstav.png'
 import skanska from '@/assets/partners/skanska.png'
 import trigema from '@/assets/partners/trigema.png'
 import Image from 'next/image'
-import { useAnimationsEnabled } from '@/contexts/animation-context'
 
 const MotionBox = motion(Box)
 
@@ -36,7 +36,7 @@ const parentVariants: Variants = {
         transition: {
             duration: 1.2,
             ease: 'easeInOut',
-            delayChildren: stagger(0.75),
+            delay: 0.33,
         },
     },
 }
