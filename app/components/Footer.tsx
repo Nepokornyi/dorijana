@@ -2,7 +2,21 @@ import { LogoFull } from '@/assets/logo/LogoFull'
 import { Box } from '@/components/ui/box'
 import { FlexContainer } from '@/components/ui/flexContainer'
 import { TypographyLarge, TypographyMuted } from '@/components/ui/typography'
+import { useAnimationsEnabled } from '@/contexts/animation-context'
 import { Mail, Phone, MapPin } from 'lucide-react'
+import { motion, Variants } from 'motion/react'
+
+const parentVariants: Variants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: {
+            duration: 1.2,
+            ease: 'easeInOut',
+        },
+    },
+}
 
 const LeftColumn = () => (
     <FlexContainer
@@ -63,10 +77,16 @@ const RightColumn = () => (
 )
 
 export const Footer = () => {
+    const animationsEnabled = useAnimationsEnabled()
     const currentYear = new Date().getFullYear()
 
     return (
-        <footer className="w-full flex flex-col items-center py-5 gap-5">
+        <motion.footer
+            variants={parentVariants}
+            initial="hidden"
+            whileInView={animationsEnabled ? 'visible' : 'hidden'}
+            className="w-full flex flex-col items-center py-5 gap-5"
+        >
             <Box className="w-full lg:px-32 xl:px-60 grid grid-cols-2 lg:grid-cols-[2fr_1fr_1fr] gap-10">
                 <LeftColumn />
                 <address className="not-italic">
@@ -77,6 +97,6 @@ export const Footer = () => {
             <TypographyMuted>
                 Dorijana s.r.o. © 2002-{currentYear}
             </TypographyMuted>
-        </footer>
+        </motion.footer>
     )
 }
