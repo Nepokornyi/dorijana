@@ -7,9 +7,9 @@ import { motion, stagger, Variants } from 'motion/react'
 
 const gridData = [
     { text: 'Č. 02', className: 'px-10 lg:px-0 py-10' },
-    { text: 'Proč Dorijana?', className: 'py-10' },
+    { text: 'Služby', className: 'py-10' },
     {
-        text: 'Naše služby',
+        text: 'Stavební práce',
         className: 'py-10 flex justify-end hidden lg:block lg:justify-self-end',
     },
 ]
@@ -103,7 +103,9 @@ export const Work = () => {
                     {'Chceš vědět víc'}?
                 </TypographyMuted>
 
-                <H2 className="w-fit">{'Kontaktuj nás'}</H2>
+                <H2 className="w-fit cursor-pointer hover:text-muted-foreground duration-200">
+                    {'Kontaktuj nás'}
+                </H2>
             </MotionFlexContainer>
 
             <MotionBox

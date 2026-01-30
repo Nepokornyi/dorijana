@@ -5,21 +5,39 @@ import {
     TypographySmall,
 } from '@/components/ui/typography'
 import { useAnimationsEnabled } from '@/contexts/animation-context'
+import { useLenis } from '@/contexts/lenis-context'
 import { motion, Variants } from 'motion/react'
 
 const cardsConfig = [
-    { numeration: 'Č.  01', title: 'Bydlení', description: 'Stavební řešení' },
-    { numeration: 'Č.  02', title: 'Služby', description: 'Naše služby' },
     {
-        numeration: 'Č.  03',
-        title: 'Práce',
-        description: 'Co jsme dělali',
+        numeration: 'Č. 01',
+        title: 'Identita',
+        description: 'Stavební vize',
+        link: '#about',
     },
-    { numeration: 'Č. 04', title: 'Podpora', description: 'Naše spolehlivost' },
     {
-        numeration: 'Č.  05',
-        title: 'Hosting',
-        description: 'Recreational solution',
+        numeration: 'Č. 02',
+        title: 'Služby',
+        description: 'Stavební práce',
+        link: '#work',
+    },
+    {
+        numeration: 'Č. 03',
+        title: 'Spolupráce',
+        description: 'Naši partneři',
+        link: '#partners',
+    },
+    {
+        numeration: 'Č. 04',
+        title: 'Kvalita',
+        description: 'Standardy a provedení',
+        link: '#projects',
+    },
+    {
+        numeration: 'Č. 05',
+        title: 'Realizace',
+        description: 'Vybrané stavební projekty',
+        link: '#footer',
     },
 ]
 
@@ -71,7 +89,12 @@ const arrowLineVariants: Variants = {
 const MotionBox = motion.create(Box)
 
 export const Intro = () => {
+    const { scrollTo } = useLenis()
     const animationsEnabled = useAnimationsEnabled()
+
+    const handleNavClick = (target: string) => {
+        scrollTo(target)
+    }
 
     return (
         <MotionBox
@@ -91,7 +114,10 @@ export const Intro = () => {
                         key={card.numeration}
                         className="px-10 lg:px-0 pt-20 pb-10"
                     >
-                        <Box className="cursor-pointer w-fit group">
+                        <Box
+                            className="cursor-pointer w-fit group"
+                            onClick={() => handleNavClick(card.link)}
+                        >
                             <motion.div
                                 className="relative inline-block"
                                 initial="hidden"

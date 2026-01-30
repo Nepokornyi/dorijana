@@ -24,7 +24,7 @@ const LeftColumn = () => (
         gap="gap-4"
         className="hidden lg:flex items-start px-10 lg:px-0 py-10"
     >
-        <TypographyLarge>O naši společnosti</TypographyLarge>
+        <TypographyLarge>O společnosti</TypographyLarge>
         <LogoFull className="w-40" />
         <TypographyMuted>
             Dorijana s.r.o. je pražská stavební společnost, která provádí
@@ -82,6 +82,7 @@ export const Footer = () => {
 
     return (
         <motion.footer
+            id="footer"
             variants={parentVariants}
             initial="hidden"
             whileInView={animationsEnabled ? 'visible' : 'hidden'}

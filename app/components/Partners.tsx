@@ -21,11 +21,20 @@ const logoSets = [
     },
     {
         logos: [metrostav, pms, trigema],
-        align: 'justify-center',
+        align: 'justify-start',
     },
     {
         logos: [prumstav, skanska],
         align: 'justify-end',
+    },
+]
+
+const titleData = [
+    { text: 'Č. 03', className: 'px-10 lg:px-0 py-10' },
+    { text: 'Spolupráce', className: 'py-10' },
+    {
+        text: 'Naši partneři',
+        className: 'py-10 flex justify-end hidden lg:block lg:justify-self-end',
     },
 ]
 
@@ -80,14 +89,19 @@ export const Partners = () => {
             whileInView={animationsEnabled ? 'visible' : 'hidden'}
             className="px-10 lg:px-32 xl:px-60 py-10"
         >
-            <div className="grid grid-cols-2 lg:grid-cols-3">
+            <div className="grid grid-cols-2 lg:grid-cols-[2fr_1fr_1fr]">
+                {titleData.map((col) => (
+                    <Box key={col.text} className={col.className}>
+                        {col.text}
+                    </Box>
+                ))}
                 {logoSets.map((logoSet, cellIndex) => (
-                    <div
+                    <Box
                         key={cellIndex}
                         className={`overflow-hidden flex ${logoSet.align}`}
                     >
                         <AnimatePresence mode="wait">
-                            <motion.div
+                            <MotionBox
                                 key={currentIndices[cellIndex]}
                                 initial={{
                                     opacity: 0,
@@ -116,9 +130,9 @@ export const Partners = () => {
                                     }
                                     alt="logo"
                                 />
-                            </motion.div>
+                            </MotionBox>
                         </AnimatePresence>
-                    </div>
+                    </Box>
                 ))}
             </div>
         </MotionBox>

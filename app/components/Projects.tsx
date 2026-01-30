@@ -6,10 +6,10 @@ import { useAnimationsEnabled } from '@/contexts/animation-context'
 import { motion, stagger, Variants } from 'motion/react'
 
 const gridData = [
-    { text: 'Č. 03', className: 'px-10 lg:px-0 py-10' },
-    { text: 'The perks of owning an ark', className: 'py-10' },
+    { text: 'Č. 04', className: 'px-10 lg:px-0 py-10' },
+    { text: 'Kvalita', className: 'py-10' },
     {
-        text: 'Specific features',
+        text: 'Standardy a provedení',
         className: 'py-10 flex justify-end hidden lg:block lg:justify-self-end',
     },
 ]

@@ -6,7 +6,7 @@ import { motion, stagger, Variants } from 'motion/react'
 
 const gridData = [
     { text: 'Č. 01' },
-    { text: 'Kdo jsme?' },
+    { text: 'Identita' },
     { text: 'Stavební Vize', className: 'hidden lg:block lg:justify-self-end' },
 ]
 
