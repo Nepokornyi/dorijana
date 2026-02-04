@@ -78,6 +78,7 @@ export const Work = () => {
             variants={parentVariants}
             initial="hidden"
             whileInView={animationsEnabled ? 'visible' : 'hidden'}
+            viewport={{ once: true }}
             className="w-full lg:px-32 xl:px-60 grid grid-cols-2 lg:grid-cols-[2fr_1fr_1fr] gap-10"
         >
             {gridData.map((col) => (

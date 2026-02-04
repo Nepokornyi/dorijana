@@ -86,6 +86,7 @@ export const Footer = () => {
             variants={parentVariants}
             initial="hidden"
             whileInView={animationsEnabled ? 'visible' : 'hidden'}
+            viewport={{ once: true }}
             className="w-full flex flex-col items-center py-5 gap-5"
         >
             <Box className="w-full lg:px-32 xl:px-60 grid grid-cols-2 lg:grid-cols-[2fr_1fr_1fr] gap-10">

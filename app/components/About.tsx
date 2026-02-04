@@ -70,7 +70,7 @@ export const About = () => {
             variants={parentVariants}
             initial="hidden"
             whileInView={animationsEnabled ? 'visible' : 'hidden'}
-            viewport={{ once: false, amount: 0.2 }}
+            viewport={{ once: true, amount: 0.2 }}
         >
             <MotionBox
                 variants={titleVariants}

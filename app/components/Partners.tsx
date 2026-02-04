@@ -53,7 +53,7 @@ const parentVariants: Variants = {
 export const Partners = () => {
     const animationsEnabled = useAnimationsEnabled()
     const [currentIndices, setCurrentIndices] = useState(
-        Array(logoSets.length).fill(0),
+        Array(logoSets.length).fill(0)
     )
 
     useEffect(() => {
@@ -87,6 +87,7 @@ export const Partners = () => {
             variants={parentVariants}
             initial="hidden"
             whileInView={animationsEnabled ? 'visible' : 'hidden'}
+            viewport={{ once: true }}
             className="px-10 lg:px-32 xl:px-60 py-10"
         >
             <div className="grid grid-cols-2 lg:grid-cols-[2fr_1fr_1fr]">
