@@ -8,6 +8,7 @@ import { About } from './components/About'
 import { Work } from './components/Work'
 import { Partners } from './components/Partners'
 import { Projects } from './components/Projects'
+import { ProjectsShowcase } from './components/ProjectsShowcase'
 import { Footer } from './components/Footer'
 import { AnimationProvider } from '@/contexts/animation-context'
 import { LenisProvider } from '@/contexts/lenis-context'
@@ -35,6 +36,7 @@ export default function Home() {
                     <Work />
                     <Partners />
                     <Projects />
+                    <ProjectsShowcase />
                     <Footer />
                 </AnimationProvider>
             </LenisProvider>
