@@ -1,20 +1,32 @@
 'use client'
-import { motion } from 'motion/react'
+import { motion, AnimatePresence } from 'motion/react'
 import { usePathname } from 'next/navigation'
+
+const opacityTransition = {
+    duration: 0.5,
+    ease: 'easeInOut' as const,
+}
 
 const Template = ({ children }: { children: React.ReactNode }) => {
     const pathname = usePathname()
+    const isRoot = pathname === '/'
 
     return (
-        <motion.div
-            key={pathname}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.5, ease: 'easeInOut' }}
-        >
-            {children}
-        </motion.div>
+        <AnimatePresence mode="wait">
+            <motion.div
+                key={pathname}
+                initial={isRoot ? { opacity: 1 } : { opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={
+                    isRoot
+                        ? { duration: 0.3, ease: 'easeOut' }
+                        : opacityTransition
+                }
+            >
+                {children}
+            </motion.div>
+        </AnimatePresence>
     )
 }
 

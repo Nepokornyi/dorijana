@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import Link from 'next/link'
 import { Box } from '@/components/ui/box'
 import { Button } from '@/components/ui/button'
 import { Logo } from '@/assets/logo/Logo'
@@ -91,10 +92,9 @@ export const Header = () => {
             }`}
         >
             <MotionBox variants={logoVariants}>
-                <Logo
-                    className="size-10 cursor-pointer"
-                    onClick={() => handleNavClick('#landing')}
-                />
+                <Link href="/" aria-label="Go to home page" className="cursor-pointer">
+                    <Logo className="size-10" />
+                </Link>
             </MotionBox>
 
             <Box className="hidden lg:flex items-center gap-2.5">

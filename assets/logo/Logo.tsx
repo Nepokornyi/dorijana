@@ -5,7 +5,7 @@ export const Logo = ({
     onClick,
 }: {
     className?: string
-    onClick: () => void
+    onClick?: () => void
 }) => {
     return (
         <svg
@@ -16,6 +16,7 @@ export const Logo = ({
             className={className}
             fill="currentColor"
             onClick={onClick}
+            role={onClick ? 'button' : undefined}
         >
             <polygon
                 className="cls-1"
