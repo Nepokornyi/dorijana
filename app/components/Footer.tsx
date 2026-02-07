@@ -5,6 +5,7 @@ import { TypographyLarge, TypographyMuted } from '@/components/ui/typography'
 import { useAnimationsEnabled } from '@/contexts/animation-context'
 import { Mail, Phone, MapPin } from 'lucide-react'
 import { motion, Variants } from 'motion/react'
+import Link from 'next/link'
 
 const parentVariants: Variants = {
     hidden: { opacity: 0, y: 40 },
@@ -68,11 +69,11 @@ const RightColumn = () => (
         className="items-start px-10 lg:px-0 py-10 justify-self-end"
     >
         <TypographyLarge>Důležité odkazy</TypographyLarge>
-        <a href="/terms">
+        <Link href="/terms">
             <TypographyMuted className="hover:text-white duration-200">
                 Podmínky ochrany osobních údajů
             </TypographyMuted>
-        </a>
+        </Link>
     </FlexContainer>
 )
 
