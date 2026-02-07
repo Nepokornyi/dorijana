@@ -1,0 +1,61 @@
+---
+description: Next.js 15, TypeScript, Tailwind v4, and Motion best practices matching project structure
+alwaysApply: true
+---
+
+# Next.js 15, TypeScript, Tailwind & Motion
+
+## Project structure
+
+- **Routes & page-specific UI**: `app/`, `app/components/` (e.g. Header, Footer, Intro, Landing).
+- **Shared components**: `components/` (Loader, OpacityWord, RotatingText, `components/ui/`).
+- **Providers & state**: `contexts/` (e.g. `animation-context`, `lenis-context`).
+- **Utilities**: `lib/utils.ts` (e.g. `cn`). **Assets**: `assets/` (logos, Lottie, images).
+
+Prefer colocating component-specific styles (e.g. `Carousel.css`) next to the component.
+
+## Next.js 15
+
+- Use **App Router** only. Put routes and layouts under `app/`.
+- Prefer **Server Components**. Add `'use client'` only when using hooks, browser APIs, or client-only libs (e.g. Motion, Lenis).
+- **Metadata** (`title`, `description`, etc.) must live in **Server Components**. Do not export `metadata` from a file that has `'use client'`.
+- Use `app/template.tsx` for layout UI that re-renders on navigation (e.g. page transition animations). Use `app/layout.tsx` for shared shell that does not.
+- Run dev with Turbopack: `next dev --turbopack`.
+
+## TypeScript
+
+- Use strict types; avoid `any`. Type props explicitly (e.g. `children: React.ReactNode`, `enabled: boolean`).
+- Use `Readonly<{ ... }>` for React component props when appropriate.
+
+## Tailwind v4
+
+- In global CSS: `@import 'tailwindcss';` and `@theme inline { ... }` for design tokens (e.g. `--color-primary`, `--font-sans`). Use `@layer base` for base styles.
+- Prefer utility classes. For component variants use `class-variance-authority` (cva) and `cn()` from `@/lib/utils` (see `components/ui/`).
+- Use theme tokens in classes (e.g. `bg-background`, `text-foreground`) so dark mode and design system stay consistent.
+
+## Motion (animations)
+
+- Use the **`motion`** package only. Import from `motion/react` for components and hooks, and from `motion` for types/values:
+  - `import { motion, AnimatePresence, useTransform, stagger, Variants } from 'motion/react'`
+  - `import { MotionValue } from 'motion'`
+- Do **not** use `framer-motion`; the project standard is `motion/react`.
+- Respect **AnimationProvider** / **useAnimationsEnabled()**: when animations are disabled, avoid or skip motion so the app respects reduced motion.
+- Prefer **Variants** for multi-state or list animations; use **stagger** from `motion/react` for staggered children.
+- Keep timing consistent with existing patterns (e.g. `duration: 0.5`–`1.2`, `ease: 'easeOut'` / `'easeInOut'`).
+
+## Quick reference
+
+```tsx
+// ✅ Motion: motion/react + Variants
+import { motion, stagger, Variants } from 'motion/react'
+
+const variants: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+}
+<motion.div variants={variants} initial="hidden" animate="visible" />
+
+// ✅ Scroll-linked or shared value
+import { MotionValue } from 'motion'
+import { motion, useTransform } from 'motion/react'
+```
