@@ -17,11 +17,20 @@ const projectItems: ReadonlyArray<{
     image: typeof dock
     span?: boolean
 }> = [
-    { title: 'Dock', image: dock, span: true },
+    { title: 'Dock', image: dock },
     { title: 'Harfa Design', image: harfa },
     { title: 'Suomi', image: suomi },
     { title: 'Auto Jarov', image: jarov },
-    { title: 'Visionary', image: visionary },
+    { title: 'Visionary', image: visionary, span: true },
+]
+
+const titleData = [
+    { text: 'Č. 05', className: 'px-10 lg:px-0 py-10' },
+    { text: 'Realizace', className: 'py-10' },
+    {
+        text: 'Vybrané stavební projekty',
+        className: 'py-10 flex justify-end hidden lg:block lg:justify-self-end',
+    },
 ]
 
 const containerVariants: Variants = {
@@ -69,18 +78,23 @@ export const ProjectsShowcase = () => {
             variants={containerVariants}
             initial="hidden"
             whileInView={animationsEnabled ? 'visible' : 'hidden'}
-            viewport={{ once: true, amount: 0.15 }}
-            className="w-full px-10 lg:px-32 xl:px-60 py-16 lg:py-24"
+            viewport={{ once: true }}
+            className="px-10 lg:px-32 xl:px-60 py-10"
         >
             <motion.div
                 variants={gridVariants}
-                className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5 auto-rows-[minmax(200px,28vh)]"
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr] gap-4 lg:gap-5"
             >
+                {titleData.map((col) => (
+                    <Box key={col.text} className={col.className}>
+                        {col.text}
+                    </Box>
+                ))}
                 {projectItems.map((item, index) => (
                     <MotionBox
                         key={item.title}
                         variants={cardVariants}
-                        className={`group relative overflow-hidden bg-muted ${
+                        className={`group relative overflow-hidden h-60 bg-muted ${
                             item.span
                                 ? 'sm:col-span-2 lg:col-span-2 lg:row-span-1'
                                 : ''
@@ -99,10 +113,9 @@ export const ProjectsShowcase = () => {
                                 src={item.image}
                                 alt={item.title}
                                 fill
-                                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                                 className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                             />
-                            <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-95 transition-opacity duration-500" />
+                            <div className="absolute inset-0 bg-black/35 bg-linear-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-95 transition-opacity duration-500" />
                         </div>
                         <div className="absolute inset-0 flex flex-col justify-end p-5 lg:p-6">
                             <H3 className="text-white border-none pb-0 font-semibold drop-shadow-sm group-hover:translate-y-0 transition-transform duration-300 ease-out">
