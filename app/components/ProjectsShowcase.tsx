@@ -66,11 +66,11 @@ const projectItems: ReadonlyArray<{
 ]
 
 const titleData = [
-    { text: 'Č. 05', className: 'px-10 lg:px-0 py-10' },
-    { text: 'Realizace', className: 'py-10' },
+    { text: 'Č. 05', className: 'py-20' },
+    { text: 'Realizace', className: 'py-20' },
     {
         text: 'Vybrané stavební projekty',
-        className: 'py-10 flex justify-end hidden lg:block lg:justify-self-end',
+        className: 'py-20 flex justify-end hidden lg:block lg:justify-self-end',
     },
 ]
 
@@ -82,15 +82,6 @@ const containerVariants: Variants = {
             duration: 0.8,
             ease: 'easeOut',
             delayChildren: 0.2,
-            staggerChildren: 0.12,
-        },
-    },
-}
-
-const gridVariants: Variants = {
-    hidden: {},
-    visible: {
-        transition: {
             staggerChildren: 0.12,
         },
     },
@@ -120,70 +111,63 @@ export const ProjectsShowcase = () => {
             initial="hidden"
             whileInView={animationsEnabled ? 'visible' : 'hidden'}
             viewport={{ once: true }}
-            className="px-10 lg:px-32 xl:px-60 py-10"
+            className="px-10 lg:px-32 xl:px-60 grid grid-cols-2 lg:grid-cols-[2fr_1fr_1fr] gap-5"
         >
-            <motion.div
-                variants={gridVariants}
-                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr] gap-4 lg:gap-5"
-            >
-                {titleData.map((col) => (
-                    <Box key={col.text} className={col.className}>
-                        {col.text}
-                    </Box>
-                ))}
-                {projectItems.map((item) => (
-                    <MotionBox
-                        key={item.title}
-                        variants={cardVariants}
-                        className={`group relative overflow-hidden h-60 bg-muted ${
-                            item.span
-                                ? 'sm:col-span-2 lg:col-span-2 lg:row-span-1'
-                                : ''
-                        }`}
-                        whileHover={
-                            animationsEnabled ? { scale: 1.02 } : undefined
-                        }
-                        transition={{
-                            type: 'tween',
-                            duration: 0.35,
-                            ease: 'easeOut',
-                        }}
-                    >
-                        <div className="absolute inset-0">
-                            <Image
-                                src={item.image}
-                                alt={item.title}
-                                fill
-                                className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
-                            />
-                            <div className="absolute inset-0 bg-black/35 bg-linear-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-95 transition-opacity duration-500" />
-                        </div>
+            {titleData.map((col) => (
+                <Box key={col.text} className={col.className}>
+                    {col.text}
+                </Box>
+            ))}
+            {projectItems.map((item) => (
+                <MotionBox
+                    key={item.title}
+                    variants={cardVariants}
+                    className={`group relative overflow-hidden h-60 bg-muted ${
+                        item.span
+                            ? 'col-span-2 lg:row-span-1'
+                            : 'col-span-2 md:col-span-1'
+                    }`}
+                    whileHover={animationsEnabled ? { scale: 1.02 } : undefined}
+                    transition={{
+                        type: 'tween',
+                        duration: 0.35,
+                        ease: 'easeOut',
+                    }}
+                >
+                    <div className="absolute inset-0">
+                        <Image
+                            src={item.image}
+                            alt={item.title}
+                            fill
+                            className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-black/35 bg-linear-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-95 transition-opacity duration-500" />
+                    </div>
 
-                        <div className="absolute inset-0 flex flex-col justify-start p-5 lg:p-6">
-                            <H3 className="text-white border-none pb-0 font-semibold drop-shadow-sm group-hover:translate-y-0 transition-transform duration-300 ease-out">
-                                {item.title}
-                            </H3>
-                            <div className="pointer-events-none absolute inset-x-5 bottom-5 translate-y-4 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-out delay-75">
-                                <TypographySmall className="text-white/90 max-h-16 overflow-hidden">
-                                    {item.description}
-                                </TypographySmall>
-                                <ul className="mt-2 flex flex-wrap gap-1.5 max-h-10">
-                                    {item.works.map((work) => (
-                                        <li
-                                            key={work}
-                                            className="bg-black/40 px-2 py-1"
-                                        >
-                                            <TypographySmall className="text-[10px] tracking-wide uppercase text-white/90">
-                                                {work}
-                                            </TypographySmall>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
+                    <div className="absolute inset-0 flex flex-col justify-start p-5">
+                        <H3 className="text-white border-none pb-0 font-semibold drop-shadow-sm group-hover:translate-y-0 transition-transform duration-300 ease-out">
+                            {item.title}
+                        </H3>
+                        <div className="pointer-events-none absolute inset-x-5 bottom-5 translate-y-4 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-out delay-75">
+                            <TypographySmall className="text-white/90 max-h-16 overflow-hidden">
+                                {item.description}
+                            </TypographySmall>
+                            <ul className="mt-2 flex flex-wrap gap-1.5 max-h-10">
+                                {item.works.map((work) => (
+                                    <li
+                                        key={work}
+                                        className="bg-black/40 px-2 py-1"
+                                    >
+                                        <TypographySmall className="text-[10px] tracking-wide uppercase text-white/90">
+                                            {work}
+                                        </TypographySmall>
+                                    </li>
+                                ))}
+                            </ul>
                         </div>
-                    </MotionBox>
-                ))}
-            </motion.div>
+                    </div>
+                </MotionBox>
+            ))}
         </MotionBox>
     )
 }
