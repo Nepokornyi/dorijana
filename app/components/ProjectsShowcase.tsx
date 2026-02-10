@@ -16,12 +16,53 @@ const projectItems: ReadonlyArray<{
     title: string
     image: typeof dock
     span?: boolean
+    description: string
+    works: ReadonlyArray<string>
 }> = [
-    { title: 'Dock', image: dock },
-    { title: 'Harfa Design', image: harfa },
-    { title: 'Suomi', image: suomi },
-    { title: 'Auto Jarov', image: jarov },
-    { title: 'Visionary', image: visionary, span: true },
+    {
+        title: 'Dock',
+        image: dock,
+        description:
+            'Dock in je město ve městě na Praze 8 s obchody, kavárnami, restaurací, školkou i vlastním přístavem.',
+        works: [
+            'STROJNÍ SÁDROVÉ OMÍTKY',
+            'STROJNÍ STĚRKOVÉ OMÍTKY',
+            'KONSTRUKCE PODLAH',
+        ],
+    },
+    {
+        title: 'Harfa Design',
+        image: harfa,
+        description:
+            'Designový bytový dům přímo vedle obchodního centra Galerie Harfa, kousek od stanice metra B Českomoravská.',
+        works: ['STROJNÍ JÁDROVÉ OMÍTKY', 'STROJNÍ STĚRKOVÉ OMÍTKY'],
+    },
+    {
+        title: 'Suomi',
+        image: suomi,
+        description:
+            'Rezidenční čtvrť SUOMI Hloubětín v dynamicky se rozvíjející části Prahy 9.',
+        works: [
+            'STROJNÍ SÁDROVÉ OMÍTKY',
+            'STROJNÍ STĚRKOVÉ OMÍTKY',
+            'KONSTRUKCE PODLAH',
+            'VYZDÍVKY',
+        ],
+    },
+    {
+        title: 'Auto Jarov',
+        image: jarov,
+        description: 'Největší obchodní dům automobilů v České republice.',
+        works: ['STROJNÍ STĚRKOVÉ OMÍTKY', 'KONSTRUKCE PODLAH'],
+    },
+    {
+        title: 'Visionary',
+        image: visionary,
+        span: true,
+        description:
+            'Inovativní kancelářská budova Visionary nacházející se v pražských Holešovicích.',
+        works: ['STROJNÍ SÁDROVÉ OMÍTKY', 'STROJNÍ STĚRKOVÉ OMÍTKY'],
+    },
 ]
 
 const titleData = [
@@ -90,7 +131,7 @@ export const ProjectsShowcase = () => {
                         {col.text}
                     </Box>
                 ))}
-                {projectItems.map((item, index) => (
+                {projectItems.map((item) => (
                     <MotionBox
                         key={item.title}
                         variants={cardVariants}
@@ -117,13 +158,28 @@ export const ProjectsShowcase = () => {
                             />
                             <div className="absolute inset-0 bg-black/35 bg-linear-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-95 transition-opacity duration-500" />
                         </div>
-                        <div className="absolute inset-0 flex flex-col justify-end p-5 lg:p-6">
+
+                        <div className="absolute inset-0 flex flex-col justify-start p-5 lg:p-6">
                             <H3 className="text-white border-none pb-0 font-semibold drop-shadow-sm group-hover:translate-y-0 transition-transform duration-300 ease-out">
                                 {item.title}
                             </H3>
-                            <TypographySmall className="text-white/90 mt-1 opacity-0 -translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-out delay-75">
-                                Projekt #{index + 1}
-                            </TypographySmall>
+                            <div className="pointer-events-none absolute inset-x-5 bottom-5 translate-y-4 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-out delay-75">
+                                <TypographySmall className="text-white/90 max-h-16 overflow-hidden">
+                                    {item.description}
+                                </TypographySmall>
+                                <ul className="mt-2 flex flex-wrap gap-1.5 max-h-10">
+                                    {item.works.map((work) => (
+                                        <li
+                                            key={work}
+                                            className="bg-black/40 px-2 py-1"
+                                        >
+                                            <TypographySmall className="text-[10px] tracking-wide uppercase text-white/90">
+                                                {work}
+                                            </TypographySmall>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
                         </div>
                     </MotionBox>
                 ))}
