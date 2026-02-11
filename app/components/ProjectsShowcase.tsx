@@ -146,7 +146,7 @@ export const ProjectsShowcase = () => {
                         <H3 className="text-white border-none pb-0 font-semibold drop-shadow-sm group-hover:translate-y-0 transition-transform duration-300 ease-out">
                             {item.title}
                         </H3>
-                        <div className="pointer-events-none absolute inset-x-5 lg:inset-x-2.5 xl:inset-x-5 bottom-5 translate-y-4 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-out delay-75">
+                        <div className="pointer-events-none absolute inset-x-5 lg:inset-x-2.5 xl:inset-x-5 bottom-5 translate-y-4 lg:opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-out delay-75">
                             <TypographySmall className="text-white/90 max-h-16 overflow-hidden">
                                 {item.description}
                             </TypographySmall>
