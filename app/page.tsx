@@ -23,7 +23,9 @@ export default function Home() {
     }, [])
 
     return (
-        <div className="font-sans relative">
+        <div
+            className={`${mounted ? 'h-screen overflow-hidden' : ''} font-sans relative`}
+        >
             {mounted && (
                 <Loader visible={visible} onFinish={() => setMounted(false)} />
             )}
