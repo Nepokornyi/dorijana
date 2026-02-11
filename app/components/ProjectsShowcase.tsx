@@ -122,10 +122,8 @@ export const ProjectsShowcase = () => {
                 <MotionBox
                     key={item.title}
                     variants={cardVariants}
-                    className={`group relative overflow-hidden h-60 bg-muted ${
-                        item.span
-                            ? 'col-span-2 lg:row-span-1'
-                            : 'col-span-2 md:col-span-1'
+                    className={`group relative overflow-hidden h-80 bg-muted ${
+                        item.span ? 'col-span-2' : 'col-span-2 md:col-span-1'
                     }`}
                     whileHover={animationsEnabled ? { scale: 1.02 } : undefined}
                     transition={{
@@ -144,15 +142,15 @@ export const ProjectsShowcase = () => {
                         <div className="absolute inset-0 bg-black/35 bg-linear-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-95 transition-opacity duration-500" />
                     </div>
 
-                    <div className="absolute inset-0 flex flex-col justify-start p-5">
+                    <div className="absolute inset-0 flex flex-col justify-start p-5 lg:p-2.5 xl:p-5">
                         <H3 className="text-white border-none pb-0 font-semibold drop-shadow-sm group-hover:translate-y-0 transition-transform duration-300 ease-out">
                             {item.title}
                         </H3>
-                        <div className="pointer-events-none absolute inset-x-5 bottom-5 translate-y-4 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-out delay-75">
+                        <div className="pointer-events-none absolute inset-x-5 lg:inset-x-2.5 xl:inset-x-5 bottom-5 translate-y-4 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-out delay-75">
                             <TypographySmall className="text-white/90 max-h-16 overflow-hidden">
                                 {item.description}
                             </TypographySmall>
-                            <ul className="mt-2 flex flex-wrap gap-1.5 max-h-10">
+                            <ul className="mt-2 flex flex-wrap gap-1.5">
                                 {item.works.map((work) => (
                                     <li
                                         key={work}
