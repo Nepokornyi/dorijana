@@ -8,6 +8,7 @@ import React, {
 } from 'react'
 import { createPortal } from 'react-dom'
 import { gsap } from 'gsap'
+import { useDisableScroll } from '@/hooks/useDisableScroll'
 
 type MenuItem = { label: string; ariaLabel: string; link: string }
 type SocialLink = { label: string; link: string }
@@ -40,6 +41,8 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
     const panelRef = useRef<HTMLDivElement | null>(null)
     const overlayRef = useRef<HTMLDivElement | null>(null)
 
+    useDisableScroll(isMenuOpen)
+
     useEffect(() => setMounted(true), [])
 
     const handleToggleMenu = useCallback(() => {
@@ -55,7 +58,6 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
         if (!panel || !overlay) return
 
         if (isMenuOpen) {
-            document.body.style.overflow = 'hidden'
             gsap.set(panel, { x: '100%', display: 'flex' })
             gsap.to(panel, { x: '0%', duration: 0.6, ease: 'power4.out' })
             gsap.fromTo(
@@ -66,10 +68,9 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
                     pointerEvents: 'auto',
                     duration: 0.4,
                     ease: 'power2.out',
-                }
+                },
             )
         } else {
-            document.body.style.overflow = ''
             gsap.to(panel, {
                 x: '100%',
                 duration: 0.4,
@@ -83,10 +84,6 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
                 pointerEvents: 'none',
                 duration: 0.3,
             })
-        }
-
-        return () => {
-            document.body.style.overflow = ''
         }
     }, [isMenuOpen])
 
@@ -145,7 +142,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
                         {/* Sliding Panel */}
                         <aside
                             ref={panelRef}
-                            className="fixed top-0 right-0 h-full hidden flex-col bg-black p-8 overflow-y-auto z-[50] w-[clamp(280px,80vw,420px)] text-white"
+                            className="fixed top-0 right-0 h-full hidden flex-col bg-black p-8 z-[50] w-[clamp(280px,80vw,420px)] text-white"
                             style={
                                 {
                                     '--menu-accent-color': accentColor,
@@ -205,7 +202,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
                             )}
                         </aside>
                     </>,
-                    document.body
+                    document.body,
                 )}
         </>
     )

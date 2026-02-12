@@ -12,6 +12,7 @@ import { ProjectsShowcase } from './components/ProjectShowcase/ProjectsShowcase'
 import { Footer } from './components/Footer'
 import { AnimationProvider } from '@/contexts/animation-context'
 import { LenisProvider } from '@/contexts/lenis-context'
+import { useDisableScroll } from '@/hooks/useDisableScroll'
 
 export default function Home() {
     const [mounted, setMounted] = useState(true)
@@ -22,10 +23,10 @@ export default function Home() {
         return () => clearTimeout(t)
     }, [])
 
+    useDisableScroll(mounted)
+
     return (
-        <div
-            className={`${mounted ? 'h-screen overflow-hidden' : ''} font-sans relative`}
-        >
+        <div className="font-sans relative">
             {mounted && (
                 <Loader visible={visible} onFinish={() => setMounted(false)} />
             )}
