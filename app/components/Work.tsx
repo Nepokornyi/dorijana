@@ -105,7 +105,7 @@ export const Work = () => {
                 </TypographyMuted>
 
                 <H2 className="w-fit cursor-pointer hover:text-muted-foreground duration-200">
-                    {'Kontaktuj nás'}
+                    <a href="mailto:info@dorijana.cz">Kontaktuj nás</a>
                 </H2>
             </MotionFlexContainer>
 
