@@ -21,18 +21,6 @@ const titleData = [
     },
 ]
 
-const parentVariants: Variants = {
-    hidden: { opacity: 0 },
-    visible: {
-        opacity: 1,
-        transition: {
-            duration: 1.2,
-            ease: 'easeInOut',
-            delay: 0.33,
-        },
-    },
-}
-
 const partners = [
     {
         logo: MetrostavLogo,
@@ -47,7 +35,7 @@ const partners = [
     {
         logo: PrumstavLogo,
         alt: 'Průmstav',
-        className: ' lg:justify-end',
+        className: 'lg:justify-end',
     },
     {
         logo: SkanskaLogo,
@@ -62,9 +50,21 @@ const partners = [
     {
         logo: CentralGroupLogo,
         alt: 'Central Group',
-        className: ' lg:justify-end',
+        className: 'lg:justify-end',
     },
 ]
+
+const parentVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            duration: 1.2,
+            ease: 'easeInOut',
+            delay: 0.33,
+        },
+    },
+}
 
 export const Partners = () => {
     const animationsEnabled = useAnimationsEnabled()
@@ -76,7 +76,7 @@ export const Partners = () => {
             initial="hidden"
             whileInView={animationsEnabled ? 'visible' : 'hidden'}
             viewport={{ once: true }}
-            className="px-10 lg:px-32 xl:px-60 py-10"
+            className="px-10 lg:px-32 xl:px-60"
         >
             <div className="grid grid-cols-2 lg:grid-cols-[2fr_1fr_1fr] gap-10">
                 {titleData.map((col) => (

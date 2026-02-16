@@ -7,11 +7,11 @@ import { PROJECT_ITEMS } from './projects-showcase-data'
 import { ProjectShowcaseCard } from './ProjectShowcaseCard'
 
 export const gridData = [
-    { text: 'Č. 05', className: 'py-20' },
-    { text: 'Realizace', className: 'py-20' },
+    { text: 'Č. 05', className: 'py-10' },
+    { text: 'Realizace', className: 'py-10' },
     {
         text: 'Vybrané stavební projekty',
-        className: 'py-20 flex justify-end hidden lg:block lg:justify-self-end',
+        className: 'py-10 flex justify-end hidden lg:block lg:justify-self-end',
     },
 ]
 
