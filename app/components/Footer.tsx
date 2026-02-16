@@ -23,7 +23,7 @@ const LeftColumn = () => (
     <FlexContainer
         direction="flex-col"
         gap="gap-4"
-        className="hidden lg:flex items-start px-10 lg:px-0 py-10"
+        className="px-10 lg:px-0 hidden lg:flex items-start"
     >
         <TypographyLarge>O společnosti</TypographyLarge>
         <LogoFull className="w-40" />
@@ -38,7 +38,7 @@ const MiddleColumn = () => (
     <FlexContainer
         direction="flex-col"
         gap="gap-4"
-        className="items-start px-10 lg:px-0 py-10"
+        className="px-10 lg:px-0 items-start"
     >
         <TypographyLarge>Kontaktujte nás</TypographyLarge>
         <ul className="text-sm flex flex-col gap-3 text-muted-foreground [&_li]:hover:text-white [&_li]:flex [&_li]:gap-3 [&_li]:items-center [&_li]:duration-200">
@@ -63,10 +63,10 @@ const MiddleColumn = () => (
 
 const RightColumn = () => (
     <FlexContainer
-        width="w-fit"
+        width="w-full sm:w-fit"
         direction="flex-col"
         gap="gap-4"
-        className="items-start px-10 lg:px-0 py-10 justify-self-end"
+        className="px-10 lg:px-0 items-start sm:justify-self-end"
     >
         <TypographyLarge>Důležité odkazy</TypographyLarge>
         <Link href="/terms">
@@ -90,7 +90,7 @@ export const Footer = () => {
             viewport={{ once: true }}
             className="w-full flex flex-col items-center py-5 gap-5"
         >
-            <Box className="w-full lg:px-32 xl:px-60 grid grid-cols-2 lg:grid-cols-[2fr_1fr_1fr] gap-10">
+            <Box className="w-full lg:px-32 xl:px-60 py-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr] gap-10">
                 <LeftColumn />
                 <address className="not-italic">
                     <MiddleColumn />
