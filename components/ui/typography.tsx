@@ -16,7 +16,7 @@ export const H1 = forwardRef<HTMLHeadingElement, TypographyProps>(
                 {children}
             </h1>
         )
-    }
+    },
 )
 
 export const H2 = forwardRef<HTMLHeadingElement, TypographyProps>(
@@ -24,12 +24,12 @@ export const H2 = forwardRef<HTMLHeadingElement, TypographyProps>(
         return (
             <h2
                 ref={ref}
-                className={`${className} scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0`}
+                className={`${className} scroll-m-20 text-3xl font-semibold tracking-tight first:mt-0`}
             >
                 {children}
             </h2>
         )
-    }
+    },
 )
 
 export const H3 = forwardRef<HTMLHeadingElement, TypographyProps>(
@@ -42,7 +42,7 @@ export const H3 = forwardRef<HTMLHeadingElement, TypographyProps>(
                 {children}
             </h3>
         )
-    }
+    },
 )
 
 export const H4 = forwardRef<HTMLHeadingElement, TypographyProps>(
@@ -55,7 +55,7 @@ export const H4 = forwardRef<HTMLHeadingElement, TypographyProps>(
                 {children}
             </h4>
         )
-    }
+    },
 )
 
 export const P = forwardRef<HTMLParagraphElement, TypographyProps>(
@@ -66,7 +66,7 @@ export const P = forwardRef<HTMLParagraphElement, TypographyProps>(
                 {children}
             </p>
         )
-    }
+    },
 )
 
 export const InlineCode = forwardRef<HTMLElement, TypographyProps>(
@@ -79,7 +79,7 @@ export const InlineCode = forwardRef<HTMLElement, TypographyProps>(
                 {children}
             </code>
         )
-    }
+    },
 )
 
 export const TypographyLead = forwardRef<HTMLParagraphElement, TypographyProps>(
@@ -92,7 +92,7 @@ export const TypographyLead = forwardRef<HTMLParagraphElement, TypographyProps>(
                 {children}
             </p>
         )
-    }
+    },
 )
 
 export const TypographyLarge = forwardRef<HTMLDivElement, TypographyProps>(
@@ -102,7 +102,7 @@ export const TypographyLarge = forwardRef<HTMLDivElement, TypographyProps>(
                 {children}
             </div>
         )
-    }
+    },
 )
 
 export const TypographySmall = forwardRef<HTMLElement, TypographyProps>(
@@ -115,7 +115,7 @@ export const TypographySmall = forwardRef<HTMLElement, TypographyProps>(
                 {children}
             </small>
         )
-    }
+    },
 )
 
 export const TypographyMuted = forwardRef<

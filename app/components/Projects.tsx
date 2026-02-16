@@ -89,7 +89,7 @@ export const Projects = () => {
             ))}
             <MotionH2
                 variants={textLeftVariants}
-                className="border-none col-span-3 px-10 lg:px-0 py-10 leading-12"
+                className="col-span-3 px-10 lg:px-0 py-10 leading-12"
             >
                 Naše stavební realizace vynikají precizním zpracováním,
                 ověřenými technologiemi a kvalitními materiály. Díky tomu
