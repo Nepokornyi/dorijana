@@ -87,12 +87,16 @@ export const Header = () => {
             animate={animationsEnabled ? 'visible' : 'hidden'}
             whileInView={animationsEnabled ? 'visible' : undefined}
             viewport={{ once: true, amount: 0.2 }}
-            className={`fixed top-0 left-0 w-full flex justify-between items-center px-10 py-5 z-50 transition-colors duration-300 ${
-                scrolled ? 'bg-background backdrop-blur-md' : 'bg-transparent'
-            }`}
+            className={`fixed top-0 left-0 w-full flex justify-between items-center px-10 py-5 z-50 
+                transition-colors duration-300 will-change-transform [transform:translate3d(0,0,0)]
+                ${scrolled ? 'bg-background backdrop-blur-md' : 'bg-transparent'}`}
         >
             <MotionBox variants={logoVariants}>
-                <Link href="/" aria-label="Go to home page" className="cursor-pointer">
+                <Link
+                    href="/"
+                    aria-label="Go to home page"
+                    className="cursor-pointer"
+                >
                     <Logo className="size-10" />
                 </Link>
             </MotionBox>
