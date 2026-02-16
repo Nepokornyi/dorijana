@@ -39,6 +39,7 @@ export const LenisProvider = ({ children }: { children: ReactNode }) => {
             wheelMultiplier: 0.9,
             touchMultiplier: 2,
             infinite: false,
+            prevent: (node) => node.classList.contains('lenis-prevent'),
         })
 
         lenisRef.current = lenis
@@ -57,7 +58,7 @@ export const LenisProvider = ({ children }: { children: ReactNode }) => {
 
     const scrollTo = (
         target: string | HTMLElement,
-        options?: ScrollToOptions
+        options?: ScrollToOptions,
     ) => {
         if (!lenisRef.current) return
         lenisRef.current.scrollTo(target, {
