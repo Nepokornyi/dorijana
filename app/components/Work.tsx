@@ -66,6 +66,17 @@ const textRightVariants: Variants = {
     },
 }
 
+const arrowLineVariants: Variants = {
+    hidden: { width: 0 },
+    hover: {
+        width: '100%',
+        transition: {
+            duration: 0.25,
+            ease: 'easeOut',
+        },
+    },
+}
+
 const MotionBox = motion(Box)
 const MotionFlexContainer = motion(FlexContainer)
 
@@ -104,9 +115,19 @@ export const Work = () => {
                     {'Chceš vědět víc'}?
                 </TypographyMuted>
 
-                <H2 className="w-fit cursor-pointer hover:text-muted-foreground duration-200">
-                    <a href="mailto:info@dorijana.cz">Kontaktuj nás</a>
-                </H2>
+                <MotionBox
+                    className="w-fit"
+                    initial="hidden"
+                    whileHover="hover"
+                >
+                    <H2 className="w-fit cursor-pointer duration-200">
+                        <a href="mailto:info@dorijana.cz">Kontaktuj nás</a>
+                    </H2>
+                    <motion.span
+                        variants={arrowLineVariants}
+                        className="absolute left-0 -bottom-1 h-[1px] bg-primary"
+                    />
+                </MotionBox>
             </MotionFlexContainer>
 
             <MotionBox
