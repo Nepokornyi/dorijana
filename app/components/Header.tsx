@@ -11,7 +11,7 @@ import { useLenis } from '@/contexts/lenis-context'
 const menuItems = [
     { label: 'O nás', ariaLabel: 'Go to home page', link: '#about' },
     { label: 'Služby', ariaLabel: 'Learn about us', link: '#work' },
-    { label: 'Kontakty', ariaLabel: 'Get in touch', link: '#partners' },
+    { label: 'Kontakty', ariaLabel: 'Get in touch', link: '#footer' },
 ]
 
 const socialLinks = [
