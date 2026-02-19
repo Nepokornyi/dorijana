@@ -85,8 +85,6 @@ export const Header = () => {
             variants={parentVariants}
             initial="hidden"
             animate={animationsEnabled ? 'visible' : 'hidden'}
-            whileInView={animationsEnabled ? 'visible' : undefined}
-            viewport={{ once: true, amount: 0.2 }}
             className={`lenis-prevent fixed top-0 left-0 w-full flex justify-between items-center px-10 py-5 z-50 
                 transition-colors duration-300
                 ${scrolled ? 'bg-background backdrop-blur-md' : 'bg-transparent'}`}
