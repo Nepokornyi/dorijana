@@ -22,7 +22,6 @@ interface StaggeredMenuProps {
     accentColor?: string
     onOpen?: () => void
     onClose?: () => void
-    extraSlot?: React.ReactNode
 }
 
 export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
@@ -31,10 +30,9 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
     showSocials = true,
     showItemNumbers = true,
     className = '',
-    accentColor = '#5227FF',
+    accentColor = '#737373',
     onOpen,
     onClose,
-    extraSlot,
 }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const [mounted, setMounted] = useState(false)
@@ -44,13 +42,6 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
     useDisableScroll(isMenuOpen)
 
     useEffect(() => setMounted(true), [])
-
-    const handleToggleMenu = useCallback(() => {
-        const next = !isMenuOpen
-        setIsMenuOpen(next)
-        if (next) onOpen?.()
-        else onClose?.()
-    }, [isMenuOpen, onOpen, onClose])
 
     useLayoutEffect(() => {
         const panel = panelRef.current
@@ -87,13 +78,17 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
         }
     }, [isMenuOpen])
 
+    const handleToggleMenu = useCallback(() => {
+        const next = !isMenuOpen
+        setIsMenuOpen(next)
+        if (next) onOpen?.()
+        else onClose?.()
+    }, [isMenuOpen, onOpen, onClose])
+
     return (
         <>
             {/* Placeholder keeps header layout intact */}
-            <div
-                className={`relative z-[50] ${className}`}
-                style={{ '--menu-accent-color': accentColor } as CSSProperties}
-            />
+            <div className={`relative z-50 ${className}`} />
 
             {/* Render overlay, panel, and button above everything via portal */}
             {mounted &&
@@ -103,17 +98,8 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
                         <button
                             onClick={handleToggleMenu}
                             type="button"
-                            className={`lg:hidden fixed top-6 right-10 flex items-center gap-2 bg-transparent border-0 cursor-pointer font-medium transition-colors duration-300 z-[60] ${
-                                isMenuOpen
-                                    ? 'text-[var(--menu-accent-color)]'
-                                    : 'text-white'
-                            }`}
-                            style={
-                                {
-                                    '--menu-accent-color': accentColor,
-                                } as CSSProperties
-                            }
-                            aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+                            className="lg:hidden fixed top-6 right-10 flex items-center gap-2 bg-transparent border-0 cursor-pointer font-medium transition-colors duration-300 z-60 text-white"
+                            aria-label={isMenuOpen ? 'Close' : 'Menu'}
                         >
                             <span className="text-lg select-none">
                                 {isMenuOpen ? 'Close' : 'Menu'}
@@ -135,14 +121,14 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
                         {/* Overlay */}
                         <div
                             ref={overlayRef}
-                            className="fixed inset-0 bg-black opacity-0 pointer-events-none z-[50]"
+                            className="fixed inset-0 bg-black opacity-0 pointer-events-none z-50"
                             onClick={handleToggleMenu}
                         />
 
                         {/* Sliding Panel */}
                         <aside
                             ref={panelRef}
-                            className="fixed top-0 right-0 h-full hidden flex-col bg-black p-8 z-[50] w-[clamp(280px,80vw,420px)] text-white"
+                            className="fixed top-0 right-0 h-full hidden flex-col bg-black p-8 z-50 w-[clamp(280px,80vw,420px)] text-white"
                             style={
                                 {
                                     '--menu-accent-color': accentColor,
@@ -160,7 +146,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
                                             <a
                                                 href={item.link}
                                                 aria-label={item.ariaLabel}
-                                                className="block text-3xl font-semibold uppercase tracking-tight text-white hover:text-[var(--menu-accent-color)] transition-colors"
+                                                className="block text-3xl font-semibold uppercase tracking-tight text-white hover:text-(--menu-accent-color) transition-colors duration-200"
                                             >
                                                 {item.label}
                                             </a>
@@ -175,13 +161,9 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
                                 )}
                             </ul>
 
-                            {extraSlot && (
-                                <div className="mt-12">{extraSlot}</div>
-                            )}
-
                             {showSocials && socialLinks.length > 0 && (
                                 <div className="mt-auto pt-8 flex flex-col gap-4">
-                                    <h3 className="text-[var(--menu-accent-color)] text-base font-medium">
+                                    <h3 className="text-(--menu-accent-color) text-base font-medium">
                                         Socials
                                     </h3>
                                     <ul className="flex flex-wrap items-center gap-4">
@@ -191,7 +173,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
                                                     href={link.link}
                                                     target="_blank"
                                                     rel="noopener noreferrer"
-                                                    className="text-lg font-medium text-white hover:text-[var(--menu-accent-color)] transition-colors"
+                                                    className="text-lg font-medium text-white hover:text-(--menu-accent-color) transition-colors"
                                                 >
                                                     {link.label}
                                                 </a>
