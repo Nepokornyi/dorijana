@@ -9,7 +9,7 @@ const opacityTransition = {
 
 const Template = ({ children }: { children: React.ReactNode }) => {
     const pathname = usePathname()
-    const isRoot = pathname === '/'
+    const isRoot = pathname === '/' || pathname === '/en'
 
     return (
         <AnimatePresence mode="wait">

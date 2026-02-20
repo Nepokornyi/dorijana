@@ -1,0 +1,100 @@
+{
+  "metadata": {
+    "title": "Dorijana",
+    "description": "Stavební společnost v České republice"
+  },
+  "common": {
+    "nav": {
+      "about": "O nás",
+      "services": "Služby",
+      "contact": "Kontakty",
+      "ariaHome": "Přejít na úvodní stránku",
+      "ariaAbout": "O nás",
+      "ariaContact": "Kontakt"
+    },
+    "social": {
+      "twitter": "Twitter",
+      "github": "GitHub",
+      "linkedin": "LinkedIn",
+      "label": "Socials"
+    },
+    "menu": {
+      "open": "Menu",
+      "close": "Zavřít"
+    }
+  },
+  "landing": {
+    "heroPrefix": "Jediný způsob, jak",
+    "rotatingWords": ["stavět", "tvořit", "měnit", "plánovat"]
+  },
+  "intro": {
+    "cards": [
+      { "numeration": "Č. 01", "title": "Identita", "description": "Stavební vize", "link": "#about" },
+      { "numeration": "Č. 02", "title": "Služby", "description": "Stavební práce", "link": "#work" },
+      { "numeration": "Č. 03", "title": "Spolupráce", "description": "Naši partneři", "link": "#partners" },
+      { "numeration": "Č. 04", "title": "Kvalita", "description": "Standardy a provedení", "link": "#projects" },
+      { "numeration": "Č. 05", "title": "Realizace", "description": "Vybrané stavební projekty", "link": "#footer" }
+    ]
+  },
+  "about": {
+    "grid": ["Č. 01", "Identita", "Stavební Vize"],
+    "whoWeAre": "Kdo jsme?",
+    "paragraph1": "Jsme stavební společnost z Prahy zaměřená na kompletní realizaci stavebních prací. Naši odborníci spojují dlouholeté zkušenosti s moderním přístupem, díky čemuž nabízíme ucelená řešení pro každý projekt — od hrubé stavby až po finální dokončení.",
+    "paragraph2": "Ke každé zakázce přistupujeme zodpovědně, otevřeně a s respektem k potřebám klienta. Garantujeme férové jednání, vysokou kvalitu provedení a dodržení sjednaných termínů i cen. Žádné skryté vícepráce, žádná překvapení — na vše poskytujeme záruku 60 měsíců.",
+    "paragraph3": "Dbáme na kvalitu vlastní práce, stejně jako na výběr dodavatelů a materiálů Máme všechna potřebná oprávnění a certifikáty pro stavební činnost a jsme členy Hospodářské komory hlavního města Prahy."
+  },
+  "work": {
+    "grid": ["Č. 02", "Služby", "Stavební práce"],
+    "cards": [
+      { "title": "Kompletní Stavební Práce", "text": "Zajišťujeme kompletní stavební práce v Praze a okolí — od základů až po finální úpravy. Stavíme s jistotou, kvalitou a respektem k vašemu času i rozpočtu" },
+      { "title": "Omítky a povrchové úpravy", "text": "Provádíme strojní sádrové, jádrové a stěrkové omítky s precizní rovinností a dlouhou životností. Vhodné pro nové stavby i rekonstrukce." },
+      { "title": "Zdivo a základové konstrukce", "text": "Realizujeme zděné konstrukce z cihel, Ytongu a tvárnic, stejně jako betonáž základových pasů a desek. Zajišťujeme přesnost, stabilitu a dodržení technologických postupů." }
+    ],
+    "wantMore": "Chceš vědět víc",
+    "contactUs": "Kontaktuj nás"
+  },
+  "projects": {
+    "grid": ["Č. 04", "Kvalita", "Standardy a provedení"],
+    "intro": "Naše stavební realizace vynikají precizním zpracováním, ověřenými technologiemi a kvalitními materiály. Díky tomu garantujeme dlouhou životnost, vysoký komfort a profesionální výsledek v každém detailu.",
+    "cards": [
+      { "title": "Podlahové konstrukce", "text": "Zhotovujeme podlahy pro domácnosti i průmyslové objekty. Každá realizace splňuje požadavky přesnosti podle ČSN 744505." },
+      { "title": "Fasády a zateplení", "text": "Postaráme se o kompletní zateplení a revitalizaci fasád – od projekční přípravy až po finální povrch. Pracujeme s certifikovanými systémy a zaručujeme dlouhou životnost." },
+      { "title": "Sádrokartonové práce", "text": "Montujeme příčky, podhledy, vestavby a půdní prostory včetně izolací. Sádrokartonové konstrukce zaručují precizní výsledek a krátkou dobu montáže." }
+    ]
+  },
+  "partners": {
+    "grid": ["Č. 03", "Spolupráce", "Naši partneři"],
+    "alts": {
+      "metrostav": "Metrostav",
+      "czechSon": "Czech & Son",
+      "prumstav": "Průmstav",
+      "skanska": "Skanska",
+      "trigema": "Trigema",
+      "centralGroup": "Central Group"
+    }
+  },
+  "showcase": {
+    "grid": ["Č. 05", "Realizace", "Vybrané stavební projekty"],
+    "projects": [
+      { "title": "Dock", "description": "Dock in je město ve městě na Praze 8 s obchody, kavárnami, restaurací, školkou i vlastním přístavem.", "works": ["STROJNÍ SÁDROVÉ OMÍTKY", "STROJNÍ STĚRKOVÉ OMÍTKY", "KONSTRUKCE PODLAH"] },
+      { "title": "Harfa Design", "description": "Designový bytový dům přímo vedle obchodního centra Galerie Harfa, kousek od stanice metra B Českomoravská.", "works": ["STROJNÍ JÁDROVÉ OMÍTKY", "STROJNÍ STĚRKOVÉ OMÍTKY"] },
+      { "title": "Suomi", "description": "Rezidenční čtvrť SUOMI Hloubětín v dynamicky se rozvíjející části Prahy 9.", "works": ["STROJNÍ SÁDROVÉ OMÍTKY", "STROJNÍ STĚRKOVÉ OMÍTKY", "KONSTRUKCE PODLAH", "VYZDÍVKY"] },
+      { "title": "Auto Jarov", "description": "Největší obchodní dům automobilů v České republice.", "works": ["STROJNÍ STĚRKOVÉ OMÍTKY", "KONSTRUKCE PODLAH"] },
+      { "title": "Visionary", "description": "Inovativní kancelářská budova Visionary nacházející se v pražských Holešovicích.", "works": ["STROJNÍ SÁDROVÉ OMÍTKY", "STROJNÍ STĚRKOVÉ OMÍTKY"], "span": true }
+    ]
+  },
+  "footer": {
+    "aboutTitle": "O společnosti",
+    "aboutDescription": "Dorijana s.r.o. je pražská stavební společnost, která provádí stavební zakázky ve vysoké kvalitě s velkým důrazem na detaily.",
+    "contactTitle": "Kontaktujte nás",
+    "linksTitle": "Důležité odkazy",
+    "privacyLink": "Podmínky ochrany osobních údajů",
+    "copyright": "Dorijana s.r.o. © 2002–{year}",
+    "addressLine1": "K Červenému dvoru 175/18a",
+    "addressLine2": "Strašnice, 100 00 Praha 10"
+  },
+  "terms": {
+    "pageTitle": "Podmínky ochrany osobních údajů",
+    "sections": []
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "sections": [
+    {
+      "title": "I. Personal Data Protection",
+      "clauses": [
+        { "id": "1.1", "content": "By clicking the \"I understand\" button below these terms, the user confirms that they have read and understood the privacy policy, consent to its wording, and accept it in full." },
+        { "id": "1.2", "content": "The Provider is the controller of users' personal data pursuant to Article 4(7) of Regulation (EU) 2016/679 (GDPR). The Provider undertakes to process personal data in accordance with applicable law, in particular the GDPR." },
+        { "id": "1.3", "content": "Personal data means any information relating to an identified or identifiable natural person; an identifiable natural person is one who can be identified, directly or indirectly, in particular by reference to an identifier such as a name, identification number, location data, an online identifier or to one or more factors specific to the physical, physiological, genetic, mental, economic, cultural or social identity of that natural person." },
+        { "id": "1.4", "content": "When placing an order, personal data necessary for the successful processing of the order (name and address, contact details) are required. The purpose of processing personal data is to process the user's order and to exercise the rights and obligations arising from the contractual relationship between the Provider and the User. The purpose is also to send commercial communications and carry out other marketing activities. The legal basis for processing is contract performance (Art. 6(1)(b) GDPR), legal obligation (Art. 6(1)(c) GDPR) and the Provider's legitimate interest (Art. 6(1)(f) GDPR)." },
+        { "id": "1.5", "content": "The Provider uses subcontractors for the performance of the licence agreement, in particular mailing and web hosting services. Subcontractors have been verified for secure processing of personal data. The Provider has concluded a data processing agreement with the hosting subcontractor." },
+        { "id": "1.6", "content": "The Provider stores users' personal data for the period necessary to exercise rights and obligations arising from the contractual relationship (15 years after termination). After that period, the data will be deleted." },
+        { "id": "1.7", "content": "The user has the right to request access to their personal data (Art. 15 GDPR), rectification (Art. 16 GDPR), restriction of processing (Art. 18 GDPR), erasure (Art. 17 GDPR), to object to processing (Art. 21 GDPR) and to data portability (Art. 20 GDPR)." },
+        { "id": "1.8", "content": "The user has the right to lodge a complaint with the competent data protection supervisory authority if they believe their right to protection of personal data has been infringed." },
+        { "id": "1.9", "content": "The user is not obliged to provide personal data. However, provision of personal data is a necessary requirement for concluding and performing the contract; without it, the contract cannot be concluded or performed by the Provider." },
+        { "id": "1.10", "content": "The Provider does not carry out automated individual decision-making within the meaning of Article 22 GDPR." },
+        { "id": "1.11", "content": "By filling in the contact form, the user:", "subItems": ["consents to the use of their personal data for electronic commercial communications, advertising, direct marketing and market research by the Provider and third parties, but no more than once per week; and", "declares that they do not consider such communications to be unsolicited advertising; and", "may withdraw this consent at any time in writing at info@dorijana.cz."] },
+        { "id": "1.12", "content": "The Provider uses cookies to improve service quality, personalise the offer and for analytics. By using the website, the User consents to the use of this technology." }
+      ]
+    },
+    {
+      "title": "II. Rights and Obligations Between Controller and Processor",
+      "clauses": [
+        { "id": "2.1", "content": "The Provider is a processor of users' clients' personal data under Article 28 GDPR. The User is the controller of such data." },
+        { "id": "2.2", "content": "These terms govern the mutual rights and obligations in relation to the processing of personal data to which the Provider has gained access in connection with the performance of the licence agreement concluded via acceptance of the general terms and conditions on www.dorijana.cz." },
+        { "id": "2.3", "content": "The Provider undertakes to process personal data for the User within the scope and for the purposes set out in Articles 2.4–2.7. Processing will be automated. The Provider may not process personal data in breach of or beyond these terms." },
+        { "id": "2.4", "content": "The Provider undertakes to process for the User personal data in the following scope:", "subItems": ["ordinary personal data;", "special categories of data under Article 9 GDPR that the User has obtained in connection with their business activities."] },
+        { "id": "2.5", "content": "The Provider undertakes to process personal data for the purpose of handling enquiries and requests from clients obtained via the contact form." },
+        { "id": "2.6", "content": "Personal data may only be processed at the Provider's premises or those of its subcontractors under Article 2.8, within the territory of the European Union." },
+        { "id": "2.7", "content": "The Provider undertakes to process the User's clients' personal data for the period necessary to exercise rights and obligations arising from the contractual relationship (15 years after termination)." },
+        { "id": "2.8", "content": "The User grants permission to involve the application hosting provider as a sub-processor under Article 28(2) GDPR. The User also grants the Provider general permission to involve other processors, provided the Provider informs the User in writing of any intended changes and gives the User the opportunity to object. The Provider must impose the same data protection obligations on sub-processors as set out in these terms." },
+        { "id": "2.9", "content": "The Provider undertakes to secure the processing of personal data in particular by:", "subItems": ["Processing personal data in accordance with law and the User's instructions.", "Implementing appropriate technical and organisational measures to protect personal data.", "Ensuring that only authorised persons have access to personal data under clear identification.", "Ensuring that authorised persons are bound by confidentiality.", "Deleting or returning all personal data to the User after the end of the provision of services, unless required to retain it by law.", "Providing the User with all information necessary to demonstrate compliance with this agreement and the GDPR and allowing audits."] },
+        { "id": "2.10", "content": "The User undertakes to report without delay any facts that could adversely affect the proper and timely performance of obligations under these terms and to provide the Provider with the cooperation necessary to perform these terms." }
+      ]
+    },
+    {
+      "title": "III. Final Provisions",
+      "clauses": [
+        { "id": "3.1", "content": "These terms cease to be valid upon expiry of the period referred to in Articles 1.6 and 2.7." },
+        { "id": "3.2", "content": "The User agrees to these terms by ticking the consent box in the online form. By ticking, the User confirms that they have read the terms, agree to them and accept them in full." },
+        { "id": "3.3", "content": "The Provider is entitled to amend these terms. The Provider must publish the new version on its website without undue delay or send it to the User by email." },
+        { "id": "3.4", "content": "Provider contact details for matters relating to these terms: +420 777 700 202, info@dorijana.cz" },
+        { "id": "3.5", "content": "Matters not expressly governed by these terms are governed by the GDPR and the law of the Czech Republic, in particular Act No. 89/2012 Sb., the Civil Code, as amended." }
+      ]
+    }
+  ]
+}

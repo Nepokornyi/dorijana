@@ -1,0 +1,100 @@
+{
+  "metadata": {
+    "title": "Dorijana",
+    "description": "Construction company in the Czech Republic"
+  },
+  "common": {
+    "nav": {
+      "about": "About us",
+      "services": "Services",
+      "contact": "Contact",
+      "ariaHome": "Go to home page",
+      "ariaAbout": "Learn about us",
+      "ariaContact": "Get in touch"
+    },
+    "social": {
+      "twitter": "Twitter",
+      "github": "GitHub",
+      "linkedin": "LinkedIn",
+      "label": "Socials"
+    },
+    "menu": {
+      "open": "Menu",
+      "close": "Close"
+    }
+  },
+  "landing": {
+    "heroPrefix": "The only way to",
+    "rotatingWords": ["build", "create", "change", "plan"]
+  },
+  "intro": {
+    "cards": [
+      { "numeration": "No. 01", "title": "Identity", "description": "Construction vision", "link": "#about" },
+      { "numeration": "No. 02", "title": "Services", "description": "Construction work", "link": "#work" },
+      { "numeration": "No. 03", "title": "Partnership", "description": "Our partners", "link": "#partners" },
+      { "numeration": "No. 04", "title": "Quality", "description": "Standards and execution", "link": "#projects" },
+      { "numeration": "No. 05", "title": "Delivery", "description": "Selected construction projects", "link": "#footer" }
+    ]
+  },
+  "about": {
+    "grid": ["No. 01", "Identity", "Construction Vision"],
+    "whoWeAre": "Who we are?",
+    "paragraph1": "We are a Prague-based construction company focused on the complete execution of construction work. Our experts combine many years of experience with a modern approach, offering comprehensive solutions for every project — from rough construction to final completion.",
+    "paragraph2": "We approach every project responsibly, openly and with respect for the client's needs. We guarantee fair dealing, high quality of execution and adherence to agreed deadlines and prices. No hidden extras, no surprises — we offer a 60-month warranty on everything.",
+    "paragraph3": "We care about the quality of our own work as well as the choice of suppliers and materials. We have all the necessary permits and certificates for construction activities and are members of the Chamber of Commerce of the City of Prague."
+  },
+  "work": {
+    "grid": ["No. 02", "Services", "Construction work"],
+    "cards": [
+      { "title": "Complete Construction Work", "text": "We provide complete construction work in Prague and the surrounding area — from foundations to final finishes. We build with certainty, quality and respect for your time and budget." },
+      { "title": "Plastering and surface finishes", "text": "We carry out machine-applied gypsum, core and skim plastering with precise flatness and long life. Suitable for new builds and refurbishments." },
+      { "title": "Masonry and foundation structures", "text": "We realise masonry structures in brick, Ytong and blocks, as well as foundation strip and slab concreting. We ensure accuracy, stability and compliance with technical procedures." }
+    ],
+    "wantMore": "Want to know more",
+    "contactUs": "Contact us"
+  },
+  "projects": {
+    "grid": ["No. 04", "Quality", "Standards and execution"],
+    "intro": "Our construction projects stand out for precise execution, proven technologies and quality materials. We therefore guarantee long life, high comfort and a professional result in every detail.",
+    "cards": [
+      { "title": "Floor structures", "text": "We produce floors for residential and industrial buildings. Every project meets the accuracy requirements of ČSN 744505." },
+      { "title": "Facades and insulation", "text": "We take care of complete insulation and facade refurbishment — from design to final finish. We work with certified systems and guarantee long life." },
+      { "title": "Drywall work", "text": "We install partitions, ceilings, built-in units and loft spaces including insulation. Drywall construction guarantees a precise result and short installation time." }
+    ]
+  },
+  "partners": {
+    "grid": ["No. 03", "Partnership", "Our partners"],
+    "alts": {
+      "metrostav": "Metrostav",
+      "czechSon": "Czech & Son",
+      "prumstav": "Průmstav",
+      "skanska": "Skanska",
+      "trigema": "Trigema",
+      "centralGroup": "Central Group"
+    }
+  },
+  "showcase": {
+    "grid": ["No. 05", "Delivery", "Selected construction projects"],
+    "projects": [
+      { "title": "Dock", "description": "Dock is a city within a city in Prague 8 with shops, cafés, a restaurant, nursery and its own harbour.", "works": ["MACHINE GYPSUM PLASTERING", "MACHINE SKIM PLASTERING", "FLOOR STRUCTURES"] },
+      { "title": "Harfa Design", "description": "Design apartment building next to Galerie Harfa shopping centre, close to Českomoravská metro station.", "works": ["MACHINE CORE PLASTERING", "MACHINE SKIM PLASTERING"] },
+      { "title": "Suomi", "description": "SUOMI Hloubětín residential quarter in a dynamically developing part of Prague 9.", "works": ["MACHINE GYPSUM PLASTERING", "MACHINE SKIM PLASTERING", "FLOOR STRUCTURES", "MASONRY"] },
+      { "title": "Auto Jarov", "description": "The largest car dealership building in the Czech Republic.", "works": ["MACHINE SKIM PLASTERING", "FLOOR STRUCTURES"] },
+      { "title": "Visionary", "description": "Innovative Visionary office building located in Prague's Holešovice.", "works": ["MACHINE GYPSUM PLASTERING", "MACHINE SKIM PLASTERING"], "span": true }
+    ]
+  },
+  "footer": {
+    "aboutTitle": "About the company",
+    "aboutDescription": "Dorijana s.r.o. is a Prague construction company that carries out construction projects to a high standard with great attention to detail.",
+    "contactTitle": "Contact us",
+    "linksTitle": "Important links",
+    "privacyLink": "Privacy policy",
+    "copyright": "Dorijana s.r.o. © 2002–{year}",
+    "addressLine1": "K Červenému dvoru 175/18a",
+    "addressLine2": "Strašnice, 100 00 Prague 10"
+  },
+  "terms": {
+    "pageTitle": "Privacy policy",
+    "sections": []
+  }
+}

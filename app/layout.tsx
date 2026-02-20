@@ -1,6 +1,7 @@
-import type { Metadata } from 'next'
+import { headers } from 'next/headers'
 import { Gantari, Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
+import { routing } from '@/i18n/routing'
 
 const geistSans = Geist({
     variable: '--font-geist-sans',
@@ -17,18 +18,17 @@ const gantariSans = Gantari({
     subsets: ['latin'],
 })
 
-export const metadata: Metadata = {
-    title: 'Dorijana',
-    description: 'Costruction company in czech republic',
-}
-
-export default function RootLayout({
+export default async function RootLayout({
     children,
 }: Readonly<{
     children: React.ReactNode
 }>) {
+    const headersList = await headers()
+    const locale =
+        headersList.get('x-next-intl-locale') ?? routing.defaultLocale
+
     return (
-        <html lang="en" className="dark">
+        <html lang={locale} className="dark">
             <body
                 className={`${geistSans.variable} ${geistMono.variable} ${gantariSans.variable} antialiased`}
             >

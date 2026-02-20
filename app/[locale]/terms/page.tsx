@@ -1,11 +1,15 @@
 'use client'
-import { H3, H4, P } from '@/components/ui/typography'
-import React from 'react'
-import { Header } from '../components/Header'
+import { H3, H4 } from '@/components/ui/typography'
+import { Header } from '../../components/Header'
 import { LenisProvider } from '@/contexts/lenis-context'
 import { AnimationProvider } from '@/contexts/animation-context'
-import { termsSections } from './terms-data'
-import type { Clause } from './terms-data'
+import { useMessages } from 'next-intl'
+
+type Clause = {
+    id: string
+    content: string
+    subItems?: string[]
+}
 
 function ClauseItem({ clause }: { clause: Clause }) {
     return (
@@ -25,15 +29,24 @@ function ClauseItem({ clause }: { clause: Clause }) {
     )
 }
 
-const Terms = () => {
+export default function TermsPage() {
+    const messages = useMessages()
+    const terms = messages.terms as
+        | { pageTitle: string; sections: Array<{ title: string; clauses: Clause[] }> }
+        | undefined
+
+    if (!terms?.sections?.length) {
+        return null
+    }
+
     return (
         <div className="font-sans relative">
             <LenisProvider>
                 <AnimationProvider enabled>
                     <Header />
                     <section className="relative flex flex-col w-full h-full justify-center items-center lg:px-32 xl:px-60 py-40 gap-10">
-                        <H3>Podmínky ochrany osobních údajů</H3>
-                        {termsSections.map((section, sectionIndex) => (
+                        <H3>{terms.pageTitle}</H3>
+                        {terms.sections.map((section, sectionIndex) => (
                             <article
                                 key={sectionIndex}
                                 className="w-full max-w-4xl"
@@ -57,5 +70,3 @@ const Terms = () => {
         </div>
     )
 }
-
-export default Terms
