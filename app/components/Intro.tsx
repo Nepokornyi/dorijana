@@ -102,11 +102,11 @@ export const Intro = () => {
             variants={parentVariants}
             initial="hidden"
             animate={animationsEnabled ? 'visible' : 'hidden'}
-            className="-mt-64 mr-16 lg:mr-32 xl:mr-60"
+            className="-mt-52 mr-16 lg:mr-32 xl:mr-60"
         >
             <MotionBox
                 variants={staggerVariants}
-                className="lg:pl-32 xl:pl-60 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-10 bg-background text-foreground"
+                className="lg:pl-32 xl:pl-60 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-10 bg-background text-foreground"
             >
                 {cardsConfig.map((card) => (
                     <MotionBox

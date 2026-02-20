@@ -69,9 +69,13 @@ export const Landing = () => {
                         direction="flex-col"
                         gap="gap-4"
                         variants={childVariants}
+                        className="pr-6 sm:pr-0"
                     >
                         <LogoText />
-                        <H3 className="text-white">
+                        <H3
+                            fontSize="text-xl md:text-2xl"
+                            className="text-white"
+                        >
                             Jediný způsob, jak{' '}
                             <RotatingText
                                 texts={[

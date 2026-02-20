@@ -33,11 +33,11 @@ export const H2 = forwardRef<HTMLHeadingElement, TypographyProps>(
 )
 
 export const H3 = forwardRef<HTMLHeadingElement, TypographyProps>(
-    ({ children, className }, ref) => {
+    ({ children, fontSize = 'text-2xl', className }, ref) => {
         return (
             <h3
                 ref={ref}
-                className={`${className} scroll-m-20 text-2xl font-semibold tracking-tight`}
+                className={`${className} ${fontSize} scroll-m-20 font-semibold tracking-tight`}
             >
                 {children}
             </h3>
