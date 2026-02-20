@@ -5,22 +5,22 @@
   },
   "common": {
     "nav": {
-      "about": "About us",
+      "identity": "About",
       "services": "Services",
+      "partners": "Partners",
+      "projects": "Projects",
       "contact": "Contact",
-      "ariaHome": "Go to home page",
-      "ariaAbout": "Learn about us",
-      "ariaContact": "Get in touch"
-    },
-    "social": {
-      "twitter": "Twitter",
-      "github": "GitHub",
-      "linkedin": "LinkedIn",
-      "label": "Socials"
+      "ariaHome": "Go to home page"
     },
     "menu": {
       "open": "Menu",
       "close": "Close"
+    },
+    "languages": {
+      "label": "Language",
+      "cs": "Čeština",
+      "en": "English",
+      "ru": "Русский"
     }
   },
   "landing": {

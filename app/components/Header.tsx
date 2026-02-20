@@ -7,13 +7,9 @@ import { useAnimationsEnabled } from '@/contexts/animation-context'
 import { motion, stagger, Variants } from 'motion/react'
 import { useLenis } from '@/contexts/lenis-context'
 import { useTranslations } from 'next-intl'
-import { Link } from '@/i18n/navigation'
-
-const socialLinksConfig = [
-    { key: 'twitter' as const, link: 'https://twitter.com' },
-    { key: 'github' as const, link: 'https://github.com' },
-    { key: 'linkedin' as const, link: 'https://linkedin.com' },
-]
+import { Link, usePathname } from '@/i18n/navigation'
+import { useLocale } from 'next-intl'
+import { routing } from '@/i18n/routing'
 
 const parentVariants: Variants = {
     hidden: {
@@ -57,21 +53,25 @@ const menuVariants: Variants = {
 const MotionBox = motion.create(Box)
 const MotionButton = motion.create(Button)
 
+const NAV_CONFIG = [
+    { key: 'identity' as const, link: '#about' },
+    { key: 'services' as const, link: '#work' },
+    { key: 'partners' as const, link: '#partners' },
+    { key: 'projects' as const, link: '#projects' },
+    { key: 'contact' as const, link: '#footer' },
+]
+
 export const Header = () => {
     const t = useTranslations('common.nav')
-    const tSocial = useTranslations('common.social')
     const animationsEnabled = useAnimationsEnabled()
     const { scrollTo } = useLenis()
     const [scrolled, setScrolled] = useState(false)
+    const locale = useLocale()
+    const pathname = usePathname()
 
-    const menuItems = [
-        { label: t('about'), ariaLabel: t('ariaHome'), link: '#about' },
-        { label: t('services'), ariaLabel: t('ariaAbout'), link: '#work' },
-        { label: t('contact'), ariaLabel: t('ariaContact'), link: '#footer' },
-    ]
-
-    const socialLinks = socialLinksConfig.map(({ key, link }) => ({
-        label: tSocial(key),
+    const menuItems = NAV_CONFIG.map(({ key, link }) => ({
+        label: t(key),
+        ariaLabel: t('ariaHome'),
         link,
     }))
 
@@ -119,6 +119,21 @@ export const Header = () => {
                         {item.label}
                     </MotionButton>
                 ))}
+                <Box className="hidden lg:flex items-center gap-2 ml-4 pl-4 border-l border-white/30">
+                    {routing.locales.map((loc) => (
+                        <Link
+                            key={loc}
+                            href={pathname || '/'}
+                            locale={loc}
+                            className={`text-sm font-medium transition-colors duration-200 ${
+                                locale === loc ? 'text-white' : 'text-white/70 hover:text-white'
+                            }`}
+                            aria-label={loc === 'cs' ? 'Čeština' : 'English'}
+                        >
+                            {loc.toUpperCase()}
+                        </Link>
+                    ))}
+                </Box>
             </Box>
 
             <motion.div
@@ -127,7 +142,6 @@ export const Header = () => {
             >
                 <StaggeredMenu
                     menuItems={menuItems}
-                    socialLinks={socialLinks}
                     accentColor="#737373"
                 />
             </motion.div>

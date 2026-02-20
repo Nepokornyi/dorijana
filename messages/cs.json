@@ -5,22 +5,22 @@
   },
   "common": {
     "nav": {
-      "about": "O nás",
+      "identity": "O nás",
       "services": "Služby",
-      "contact": "Kontakty",
-      "ariaHome": "Přejít na úvodní stránku",
-      "ariaAbout": "O nás",
-      "ariaContact": "Kontakt"
-    },
-    "social": {
-      "twitter": "Twitter",
-      "github": "GitHub",
-      "linkedin": "LinkedIn",
-      "label": "Socials"
+      "partners": "Partneři",
+      "projects": "Projekty",
+      "contact": "Kontakt",
+      "ariaHome": "Přejít na úvodní stránku"
     },
     "menu": {
       "open": "Menu",
       "close": "Zavřít"
+    },
+    "languages": {
+      "label": "Jazyk",
+      "cs": "Čeština",
+      "en": "English",
+      "ru": "Русский"
     }
   },
   "landing": {

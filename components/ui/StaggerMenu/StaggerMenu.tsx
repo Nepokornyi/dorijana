@@ -1,19 +1,18 @@
 import React, { CSSProperties, useCallback, useEffect, useState } from 'react'
-import Link from 'next/link'
 import { createPortal } from 'react-dom'
 import { motion, AnimatePresence, Variants, stagger } from 'motion/react'
 import { useDisableScroll } from '@/hooks/useDisableScroll'
 import { useAnimationsEnabled } from '@/contexts/animation-context'
 import { useLenis } from '@/contexts/lenis-context'
 import { useTranslations } from 'next-intl'
+import { Link, usePathname } from '@/i18n/navigation'
+import { useLocale } from 'next-intl'
+import { routing } from '@/i18n/routing'
 
 type MenuItem = { label: string; ariaLabel: string; link: string }
-type SocialLink = { label: string; link: string }
 
 interface StaggeredMenuProps {
     menuItems?: MenuItem[]
-    socialLinks?: SocialLink[]
-    showSocials?: boolean
     showItemNumbers?: boolean
     className?: string
     accentColor?: string
@@ -111,8 +110,6 @@ const menuItemVariants: Variants = {
 
 export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
     menuItems = [],
-    socialLinks = [],
-    showSocials = true,
     showItemNumbers = true,
     className = '',
     accentColor = '#737373',
@@ -120,8 +117,10 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
     onClose,
 }) => {
     const tMenu = useTranslations('common.menu')
-    const tSocial = useTranslations('common.social')
+    const tLanguages = useTranslations('common.languages')
     const animationsEnabled = useAnimationsEnabled()
+    const locale = useLocale()
+    const pathname = usePathname()
     const { scrollTo, lenis } = useLenis()
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const [mounted, setMounted] = useState(false)
@@ -249,58 +248,56 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
                                                     ))}
                                             </motion.ul>
 
-                                            {showSocials &&
-                                                socialLinks.length > 0 && (
-                                                    <motion.div
-                                                        className="mt-auto pt-8 flex flex-col gap-4"
-                                                        variants={
-                                                            menuContainerVariants
-                                                        }
-                                                        initial="hidden"
-                                                        animate="visible"
-                                                        exit="exit"
-                                                    >
-                                                        <motion.h3
-                                                            variants={
-                                                                menuItemVariants
-                                                            }
-                                                            className="text-(--menu-accent-color) text-base font-medium"
-                                                        >
-                                                            {tSocial('label')}
-                                                        </motion.h3>
-                                                        <ul className="flex flex-wrap items-center gap-4">
-                                                            {socialLinks.map(
-                                                                (
-                                                                    link,
-                                                                    index,
-                                                                ) => (
-                                                                    <motion.li
-                                                                        key={
-                                                                            link.label +
-                                                                            index
-                                                                        }
-                                                                        variants={
-                                                                            menuItemVariants
-                                                                        }
-                                                                    >
-                                                                        <Link
-                                                                            href={
-                                                                                link.link
-                                                                            }
-                                                                            target="_blank"
-                                                                            rel="noopener noreferrer"
-                                                                            className="text-lg font-medium text-white hover:text-(--menu-accent-color) transition-colors"
-                                                                        >
-                                                                            {
-                                                                                link.label
-                                                                            }
-                                                                        </Link>
-                                                                    </motion.li>
-                                                                ),
-                                                            )}
-                                                        </ul>
-                                                    </motion.div>
-                                                )}
+                                            <motion.div
+                                                className="mt-auto pt-8 flex flex-col gap-4"
+                                                variants={menuContainerVariants}
+                                                initial="hidden"
+                                                animate="visible"
+                                                exit="exit"
+                                            >
+                                                <motion.h3
+                                                    variants={menuItemVariants}
+                                                    className="text-(--menu-accent-color) text-base font-medium"
+                                                >
+                                                    {tLanguages('label')}
+                                                </motion.h3>
+                                                <ul className="flex flex-wrap items-center gap-4">
+                                                    {routing.locales.map(
+                                                        (loc) => (
+                                                            <motion.li
+                                                                key={loc}
+                                                                variants={
+                                                                    menuItemVariants
+                                                                }
+                                                            >
+                                                                <Link
+                                                                    href={
+                                                                        pathname ||
+                                                                        '/'
+                                                                    }
+                                                                    locale={loc}
+                                                                    onClick={
+                                                                        handleToggleMenu
+                                                                    }
+                                                                    className={`text-lg font-medium transition-colors ${
+                                                                        locale ===
+                                                                        loc
+                                                                            ? 'text-white'
+                                                                            : 'text-white/80 hover:text-(--menu-accent-color)'
+                                                                    }`}
+                                                                >
+                                                                    {tLanguages(
+                                                                        loc as
+                                                                            | 'cs'
+                                                                            | 'en'
+                                                                            | 'ru',
+                                                                    )}
+                                                                </Link>
+                                                            </motion.li>
+                                                        ),
+                                                    )}
+                                                </ul>
+                                            </motion.div>
                                         </motion.aside>
                                     </>
                                 )}
