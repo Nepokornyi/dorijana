@@ -1,8 +1,10 @@
 import React, { CSSProperties, useCallback, useEffect, useState } from 'react'
+import Link from 'next/link'
 import { createPortal } from 'react-dom'
 import { motion, AnimatePresence, Variants, stagger } from 'motion/react'
 import { useDisableScroll } from '@/hooks/useDisableScroll'
 import { useAnimationsEnabled } from '@/contexts/animation-context'
+import { useLenis } from '@/contexts/lenis-context'
 
 type MenuItem = { label: string; ariaLabel: string; link: string }
 type SocialLink = { label: string; link: string }
@@ -116,13 +118,25 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
     onOpen,
     onClose,
 }) => {
+    const animationsEnabled = useAnimationsEnabled()
+    const { scrollTo, lenis } = useLenis()
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const [mounted, setMounted] = useState(false)
-    const animationsEnabled = useAnimationsEnabled()
+    const [pendingScrollTarget, setPendingScrollTarget] = useState<
+        string | null
+    >(null)
 
     useDisableScroll(isMenuOpen)
 
     useEffect(() => setMounted(true), [])
+
+    // Trigger scroll after menu closes and Lenis is available
+    useEffect(() => {
+        if (!isMenuOpen && pendingScrollTarget && lenis) {
+            scrollTo(pendingScrollTarget)
+            setPendingScrollTarget(null)
+        }
+    }, [isMenuOpen, pendingScrollTarget, lenis, scrollTo])
 
     const handleToggleMenu = useCallback(() => {
         const next = !isMenuOpen
@@ -130,6 +144,11 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
         if (next) onOpen?.()
         else onClose?.()
     }, [isMenuOpen, onOpen, onClose])
+
+    const handleNavClick = (target: string) => {
+        setPendingScrollTarget(target)
+        handleToggleMenu()
+    }
 
     return (
         <>
@@ -210,15 +229,19 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
                                                                 menuItemVariants
                                                             }
                                                         >
-                                                            <a
-                                                                href={item.link}
+                                                            <button
+                                                                onClick={() =>
+                                                                    handleNavClick(
+                                                                        item.link,
+                                                                    )
+                                                                }
                                                                 aria-label={
                                                                     item.ariaLabel
                                                                 }
                                                                 className="block text-3xl font-semibold uppercase tracking-tight text-white hover:text-(--menu-accent-color) transition-colors duration-200"
                                                             >
                                                                 {item.label}
-                                                            </a>
+                                                            </button>
                                                         </motion.li>
                                                     ))}
                                             </motion.ul>
@@ -257,7 +280,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
                                                                             menuItemVariants
                                                                         }
                                                                     >
-                                                                        <a
+                                                                        <Link
                                                                             href={
                                                                                 link.link
                                                                             }
@@ -268,7 +291,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
                                                                             {
                                                                                 link.label
                                                                             }
-                                                                        </a>
+                                                                        </Link>
                                                                     </motion.li>
                                                                 ),
                                                             )}

@@ -1,11 +1,11 @@
 import { useEffect } from 'react'
 import { useLenis } from '@/contexts/lenis-context'
 
-export const useDisableScroll = (enabled: boolean) => {
+export const useDisableScroll = (disabled: boolean) => {
     const { lenis } = useLenis()
 
     useEffect(() => {
-        if (!enabled) return
+        if (!disabled) return lenis?.start()
 
         const prev = document.body.style.overflow
         document.body.style.overflow = 'hidden'
@@ -15,5 +15,5 @@ export const useDisableScroll = (enabled: boolean) => {
             document.body.style.overflow = prev
             lenis?.start()
         }
-    }, [enabled, lenis])
+    }, [disabled, lenis])
 }
