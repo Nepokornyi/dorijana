@@ -14,6 +14,23 @@ import { AnimationProvider } from '@/contexts/animation-context'
 import { LenisProvider } from '@/contexts/lenis-context'
 import { useDisableScroll } from '@/hooks/useDisableScroll'
 
+function Content({ mounted }: { mounted: boolean }) {
+    useDisableScroll(mounted)
+    return (
+        <AnimationProvider enabled={!mounted}>
+            <Header />
+            <Landing />
+            <Intro />
+            <About />
+            <Work />
+            <Partners />
+            <Projects />
+            <ProjectsShowcase />
+            <Footer />
+        </AnimationProvider>
+    )
+}
+
 export default function Home() {
     const [mounted, setMounted] = useState(true)
     const [visible, setVisible] = useState(true)
@@ -23,25 +40,13 @@ export default function Home() {
         return () => clearTimeout(t)
     }, [])
 
-    useDisableScroll(mounted)
-
     return (
-        <div className="font-sans relative">
+        <div className="font-sans relative overflow-hidden">
             {mounted && (
                 <Loader visible={visible} onFinish={() => setMounted(false)} />
             )}
             <LenisProvider>
-                <AnimationProvider enabled={!mounted}>
-                    <Header />
-                    <Landing />
-                    <Intro />
-                    <About />
-                    <Work />
-                    <Partners />
-                    <Projects />
-                    <ProjectsShowcase />
-                    <Footer />
-                </AnimationProvider>
+                <Content mounted={mounted} />
             </LenisProvider>
         </div>
     )

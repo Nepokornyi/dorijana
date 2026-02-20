@@ -1,7 +1,13 @@
 'use client'
 
 import Lenis from 'lenis'
-import { createContext, ReactNode, useContext, useEffect, useRef } from 'react'
+import {
+    createContext,
+    ReactNode,
+    useContext,
+    useEffect,
+    useState,
+} from 'react'
 
 interface ScrollToOptions {
     offset?: number
@@ -27,10 +33,10 @@ const LenisContext = createContext<LenisContextType>({
 export const useLenis = () => useContext(LenisContext)
 
 export const LenisProvider = ({ children }: { children: ReactNode }) => {
-    const lenisRef = useRef<Lenis | null>(null)
+    const [lenis, setLenis] = useState<Lenis | null>(null)
 
     useEffect(() => {
-        const lenis = new Lenis({
+        const instance = new Lenis({
             duration: 1.15,
             easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
             orientation: 'vertical',
@@ -42,17 +48,17 @@ export const LenisProvider = ({ children }: { children: ReactNode }) => {
             prevent: (node) => node.classList.contains('lenis-prevent'),
         })
 
-        lenisRef.current = lenis
+        setLenis(instance)
 
-        function raf(time: number) {
-            lenis.raf(time)
+        const raf = (time: number) => {
+            instance.raf(time)
             requestAnimationFrame(raf)
         }
 
         requestAnimationFrame(raf)
 
         return () => {
-            lenis.destroy()
+            instance.destroy()
         }
     }, [])
 
@@ -60,8 +66,8 @@ export const LenisProvider = ({ children }: { children: ReactNode }) => {
         target: string | HTMLElement,
         options?: ScrollToOptions,
     ) => {
-        if (!lenisRef.current) return
-        lenisRef.current.scrollTo(target, {
+        if (!lenis) return
+        lenis.scrollTo(target, {
             offset: -80, // Adjust based on your header height
             duration: 1.5,
             easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -70,7 +76,7 @@ export const LenisProvider = ({ children }: { children: ReactNode }) => {
     }
 
     return (
-        <LenisContext.Provider value={{ lenis: lenisRef.current, scrollTo }}>
+        <LenisContext.Provider value={{ lenis, scrollTo }}>
             {children}
         </LenisContext.Provider>
     )

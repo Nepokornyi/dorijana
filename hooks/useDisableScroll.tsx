@@ -5,14 +5,23 @@ export const useDisableScroll = (disabled: boolean) => {
     const { lenis } = useLenis()
 
     useEffect(() => {
-        if (!disabled) return lenis?.start()
+        if (!disabled) {
+            lenis?.start()
+            return
+        }
 
-        const prev = document.body.style.overflow
-        document.body.style.overflow = 'hidden'
         lenis?.stop()
+        
+        const preventScroll = (e: WheelEvent | TouchEvent) => {
+            e.preventDefault()
+        }
+
+        window.addEventListener('wheel', preventScroll, { passive: false })
+        window.addEventListener('touchmove', preventScroll, { passive: false })
 
         return () => {
-            document.body.style.overflow = prev
+            window.removeEventListener('wheel', preventScroll)
+            window.removeEventListener('touchmove', preventScroll)
             lenis?.start()
         }
     }, [disabled, lenis])
