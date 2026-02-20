@@ -4,29 +4,12 @@ import { H2, H3, P } from '@/components/ui/typography'
 import VideoPlayer from '@/components/VideoPlayer'
 import { useAnimationsEnabled } from '@/contexts/animation-context'
 import { motion, stagger, Variants } from 'motion/react'
+import { useTranslations } from 'next-intl'
 
-const gridData = [
-    { text: 'Č. 04', className: 'px-10 lg:px-0 py-10' },
-    { text: 'Kvalita', className: 'py-10' },
-    {
-        text: 'Standardy a provedení',
-        className: 'py-10 flex justify-end hidden lg:block lg:justify-self-end',
-    },
-]
-
-const cardData = [
-    {
-        title: 'Podlahové konstrukce',
-        text: 'Zhotovujeme podlahy pro domácnosti i průmyslové objekty. Každá realizace splňuje požadavky přesnosti podle ČSN 744505.',
-    },
-    {
-        title: 'Fasády a zateplení',
-        text: 'Postaráme se o kompletní zateplení a revitalizaci fasád – od projekční přípravy až po finální povrch. Pracujeme s certifikovanými systémy a zaručujeme dlouhou životnost.',
-    },
-    {
-        title: 'Sádrokartonové práce',
-        text: 'Montujeme příčky, podhledy, vestavby a půdní prostory včetně izolací. Sádrokartonové konstrukce zaručují precizní výsledek a krátkou dobu montáže.',
-    },
+const PROJECTS_GRID_CLASSES = [
+    'px-10 lg:px-0 py-10',
+    'py-10',
+    'py-10 flex justify-end hidden lg:block lg:justify-self-end',
 ]
 
 const parentVariants: Variants = {
@@ -71,7 +54,10 @@ const MotionFlexContainer = motion(FlexContainer)
 const MotionH2 = motion(H2)
 
 export const Projects = () => {
+    const t = useTranslations('projects')
     const animationsEnabled = useAnimationsEnabled()
+    const gridTexts = t.raw('grid') as string[]
+    const cardData = t.raw('cards') as Array<{ title: string; text: string }>
 
     return (
         <MotionBox
@@ -82,19 +68,16 @@ export const Projects = () => {
             viewport={{ once: true }}
             className="w-full lg:px-32 xl:px-60 grid grid-cols-2 lg:grid-cols-[2fr_1fr_1fr] gap-x-10 overflow-hidden"
         >
-            {gridData.map((col) => (
-                <Box key={col.text} className={col.className}>
-                    {col.text}
+            {gridTexts.map((text, i) => (
+                <Box key={text} className={PROJECTS_GRID_CLASSES[i] ?? ''}>
+                    {text}
                 </Box>
             ))}
             <MotionH2
                 variants={textLeftVariants}
                 className="col-span-3 px-10 lg:px-0 py-10 leading-12"
             >
-                Naše stavební realizace vynikají precizním zpracováním,
-                ověřenými technologiemi a kvalitními materiály. Díky tomu
-                garantujeme dlouhou životnost, vysoký komfort a profesionální
-                výsledek v každém detailu.
+                {t('intro')}
             </MotionH2>
 
             <MotionFlexContainer

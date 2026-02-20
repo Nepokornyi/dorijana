@@ -5,6 +5,7 @@ import { motion, AnimatePresence, Variants, stagger } from 'motion/react'
 import { useDisableScroll } from '@/hooks/useDisableScroll'
 import { useAnimationsEnabled } from '@/contexts/animation-context'
 import { useLenis } from '@/contexts/lenis-context'
+import { useTranslations } from 'next-intl'
 
 type MenuItem = { label: string; ariaLabel: string; link: string }
 type SocialLink = { label: string; link: string }
@@ -118,6 +119,8 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
     onOpen,
     onClose,
 }) => {
+    const tMenu = useTranslations('common.menu')
+    const tSocial = useTranslations('common.social')
     const animationsEnabled = useAnimationsEnabled()
     const { scrollTo, lenis } = useLenis()
     const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -164,10 +167,10 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
                             onClick={handleToggleMenu}
                             type="button"
                             className="lg:hidden fixed top-6 right-10 flex items-center gap-2 bg-transparent border-0 cursor-pointer font-medium transition-colors duration-300 z-60 text-white"
-                            aria-label={isMenuOpen ? 'Close' : 'Menu'}
+                            aria-label={isMenuOpen ? tMenu('close') : tMenu('open')}
                         >
                             <span className="text-lg select-none">
-                                {isMenuOpen ? 'Close' : 'Menu'}
+                                {isMenuOpen ? tMenu('close') : tMenu('open')}
                             </span>
                             <span className="relative w-[18px] h-[18px] flex items-center justify-center">
                                 <span
@@ -263,7 +266,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
                                                             }
                                                             className="text-(--menu-accent-color) text-base font-medium"
                                                         >
-                                                            Socials
+                                                            {tSocial('label')}
                                                         </motion.h3>
                                                         <ul className="flex flex-wrap items-center gap-4">
                                                             {socialLinks.map(

@@ -3,16 +3,15 @@
 import { Box } from '@/components/ui/box'
 import { useAnimationsEnabled } from '@/contexts/animation-context'
 import { motion, Variants } from 'motion/react'
-import { PROJECT_ITEMS } from './projects-showcase-data'
+import { useTranslations } from 'next-intl'
+import { PROJECT_IMAGES } from './projects-showcase-data'
 import { ProjectShowcaseCard } from './ProjectShowcaseCard'
+import type { ProjectItem } from './projects-showcase-data'
 
-export const gridData = [
-    { text: 'Č. 05', className: 'py-10' },
-    { text: 'Realizace', className: 'py-10' },
-    {
-        text: 'Vybrané stavební projekty',
-        className: 'py-10 flex justify-end hidden lg:block lg:justify-self-end',
-    },
+const SHOWCASE_GRID_CLASSES = [
+    'py-10',
+    'py-10',
+    'py-10 flex justify-end hidden lg:block lg:justify-self-end',
 ]
 
 const containerVariants: Variants = {
@@ -31,7 +30,21 @@ const containerVariants: Variants = {
 const MotionBox = motion(Box)
 
 export const ProjectsShowcase = () => {
+    const t = useTranslations('showcase')
     const animationsEnabled = useAnimationsEnabled()
+    const gridTexts = t.raw('grid') as string[]
+    const localeProjects = t.raw('projects') as Array<{
+        title: string
+        description: string
+        works: string[]
+        span?: boolean
+    }>
+
+    const projects: ProjectItem[] = localeProjects.map((p, i) => ({
+        ...p,
+        image: PROJECT_IMAGES[i]!.image,
+        span: PROJECT_IMAGES[i]?.span ?? p.span,
+    }))
 
     return (
         <MotionBox
@@ -42,12 +55,12 @@ export const ProjectsShowcase = () => {
             viewport={{ once: true }}
             className="px-10 lg:px-32 xl:px-60 grid grid-cols-2 lg:grid-cols-[2fr_1fr_1fr] gap-5"
         >
-            {gridData.map((col) => (
-                <Box key={col.text} className={col.className}>
-                    {col.text}
+            {gridTexts.map((text, i) => (
+                <Box key={text} className={SHOWCASE_GRID_CLASSES[i] ?? ''}>
+                    {text}
                 </Box>
             ))}
-            {PROJECT_ITEMS.map((project) => (
+            {projects.map((project) => (
                 <ProjectShowcaseCard
                     key={project.title}
                     project={project}

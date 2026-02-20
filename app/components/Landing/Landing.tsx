@@ -6,6 +6,7 @@ import VideoPlayer from '@/components/VideoPlayer'
 import { LogoText } from '@/assets/logo/LogoText'
 import { useAnimationsEnabled } from '@/contexts/animation-context'
 import { motion, Variants } from 'motion/react'
+import { useTranslations } from 'next-intl'
 
 const parentVariants: Variants = {
     hidden: {
@@ -42,7 +43,9 @@ const MotionBox = motion.create(Box)
 const MotionFlexBox = motion.create(FlexContainer)
 
 export const Landing = () => {
+    const t = useTranslations('landing')
     const animationsEnabled = useAnimationsEnabled()
+    const rotatingWords = t.raw('rotatingWords') as string[]
 
     return (
         <Box id="landing">
@@ -76,14 +79,9 @@ export const Landing = () => {
                             fontSize="text-xl md:text-2xl"
                             className="text-white"
                         >
-                            Jediný způsob, jak{' '}
+                            {t('heroPrefix')}{' '}
                             <RotatingText
-                                texts={[
-                                    'stavět',
-                                    'tvořit',
-                                    'měnit',
-                                    'plánovat',
-                                ]}
+                                texts={rotatingWords}
                                 mainClassName="justify-center overflow-hidden"
                                 staggerFrom={'last'}
                                 initial={{ y: '100%' }}

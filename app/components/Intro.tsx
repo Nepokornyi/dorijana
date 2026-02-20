@@ -7,39 +7,14 @@ import {
 import { useAnimationsEnabled } from '@/contexts/animation-context'
 import { useLenis } from '@/contexts/lenis-context'
 import { motion, Variants } from 'motion/react'
+import { useTranslations } from 'next-intl'
 
-const cardsConfig = [
-    {
-        numeration: 'Č. 01',
-        title: 'Identita',
-        description: 'Stavební vize',
-        link: '#about',
-    },
-    {
-        numeration: 'Č. 02',
-        title: 'Služby',
-        description: 'Stavební práce',
-        link: '#work',
-    },
-    {
-        numeration: 'Č. 03',
-        title: 'Spolupráce',
-        description: 'Naši partneři',
-        link: '#partners',
-    },
-    {
-        numeration: 'Č. 04',
-        title: 'Kvalita',
-        description: 'Standardy a provedení',
-        link: '#projects',
-    },
-    {
-        numeration: 'Č. 05',
-        title: 'Realizace',
-        description: 'Vybrané stavební projekty',
-        link: '#footer',
-    },
-]
+type IntroCard = {
+    numeration: string
+    title: string
+    description: string
+    link: string
+}
 
 const parentVariants: Variants = {
     hidden: { y: 260 },
@@ -89,6 +64,8 @@ const arrowLineVariants: Variants = {
 const MotionBox = motion.create(Box)
 
 export const Intro = () => {
+    const t = useTranslations('intro')
+    const cardsConfig = t.raw('cards') as IntroCard[]
     const { scrollTo } = useLenis()
     const animationsEnabled = useAnimationsEnabled()
 

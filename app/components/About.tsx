@@ -3,12 +3,7 @@ import { H3, P } from '@/components/ui/typography'
 import VideoPlayer from '@/components/VideoPlayer'
 import { useAnimationsEnabled } from '@/contexts/animation-context'
 import { motion, stagger, Variants } from 'motion/react'
-
-const gridData = [
-    { text: 'Č. 01' },
-    { text: 'Identita' },
-    { text: 'Stavební Vize', className: 'hidden lg:block lg:justify-self-end' },
-]
+import { useTranslations } from 'next-intl'
 
 const parentVariants: Variants = {
     hidden: { opacity: 0 },
@@ -62,8 +57,16 @@ const MotionBox = motion.create(Box)
 const MotionH3 = motion.create(H3)
 const MotionP = motion.create(P)
 
+const ABOUT_GRID_CLASSES = [
+    'px-10 lg:px-0 py-10',
+    'px-10 lg:px-0 py-10',
+    'px-10 lg:px-0 py-10 hidden lg:block lg:justify-self-end',
+]
+
 export const About = () => {
+    const t = useTranslations('about')
     const animationsEnabled = useAnimationsEnabled()
+    const gridTexts = t.raw('grid') as string[]
 
     return (
         <MotionBox
@@ -77,12 +80,12 @@ export const About = () => {
                 id="about"
                 className="w-full lg:px-32 xl:px-60 grid grid-cols-2 lg:grid-cols-3 gap-10"
             >
-                {gridData.map((col) => (
+                {gridTexts.map((text, i) => (
                     <Box
-                        key={col.text}
-                        className={`px-10 lg:px-0 py-10 ${col.className}`}
+                        key={text}
+                        className={ABOUT_GRID_CLASSES[i] ?? ''}
                     >
-                        {col.text}
+                        {text}
                     </Box>
                 ))}
             </MotionBox>
@@ -91,31 +94,25 @@ export const About = () => {
                     variants={textLeftVariants}
                     className="hidden lg:block px-10 lg:px-0 py-10"
                 >
-                    {'Kdo jsme?'}
+                    {t('whoWeAre')}
                 </MotionH3>
                 <MotionH3
                     variants={textRightVariants}
                     className="px-10 lg:px-0 py-10 lg:col-span-2 lg:text-justify"
                 >
-                    {
-                        'Jsme stavební společnost z Prahy zaměřená na kompletní realizaci stavebních prací. Naši odborníci spojují dlouholeté zkušenosti s moderním přístupem, díky čemuž nabízíme ucelená řešení pro každý projekt — od hrubé stavby až po finální dokončení.'
-                    }
+                    {t('paragraph1')}
                 </MotionH3>
                 <MotionP
                     variants={textLeftVariants}
                     className="pl-10 lg:pl-0 lg:col-start-2 lg:text-justify"
                 >
-                    {
-                        'Ke každé zakázce přistupujeme zodpovědně, otevřeně a s respektem k potřebám klienta. Garantujeme férové jednání, vysokou kvalitu provedení a dodržení sjednaných termínů i cen. Žádné skryté vícepráce, žádná překvapení — na vše poskytujeme záruku 60 měsíců.'
-                    }
+                    {t('paragraph2')}
                 </MotionP>
                 <MotionP
                     variants={textRightVariants}
                     className="pl-10 lg:pl-10 lg:col-start-3 lg:text-justify"
                 >
-                    {
-                        'Dbáme na kvalitu vlastní práce, stejně jako na výběr dodavatelů a materiálů Máme všechna potřebná oprávnění a certifikáty pro stavební činnost a jsme členy Hospodářské komory hlavního města Prahy.'
-                    }
+                    {t('paragraph3')}
                 </MotionP>
             </MotionBox>
             <Box className="relative w-full h-[50vh] bg-black/35">

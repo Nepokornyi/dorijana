@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import Link from 'next/link'
 import { Box } from '@/components/ui/box'
 import { Button } from '@/components/ui/button'
 import { Logo } from '@/assets/logo/Logo'
@@ -7,17 +6,13 @@ import StaggeredMenu from '@/components/ui/StaggerMenu/StaggerMenu'
 import { useAnimationsEnabled } from '@/contexts/animation-context'
 import { motion, stagger, Variants } from 'motion/react'
 import { useLenis } from '@/contexts/lenis-context'
+import { useTranslations } from 'next-intl'
+import { Link } from '@/i18n/navigation'
 
-const menuItems = [
-    { label: 'O nás', ariaLabel: 'Go to home page', link: '#about' },
-    { label: 'Služby', ariaLabel: 'Learn about us', link: '#work' },
-    { label: 'Kontakty', ariaLabel: 'Get in touch', link: '#footer' },
-]
-
-const socialLinks = [
-    { label: 'Twitter', link: 'https://twitter.com' },
-    { label: 'GitHub', link: 'https://github.com' },
-    { label: 'LinkedIn', link: 'https://linkedin.com' },
+const socialLinksConfig = [
+    { key: 'twitter' as const, link: 'https://twitter.com' },
+    { key: 'github' as const, link: 'https://github.com' },
+    { key: 'linkedin' as const, link: 'https://linkedin.com' },
 ]
 
 const parentVariants: Variants = {
@@ -63,9 +58,22 @@ const MotionBox = motion.create(Box)
 const MotionButton = motion.create(Button)
 
 export const Header = () => {
+    const t = useTranslations('common.nav')
+    const tSocial = useTranslations('common.social')
     const animationsEnabled = useAnimationsEnabled()
     const { scrollTo } = useLenis()
     const [scrolled, setScrolled] = useState(false)
+
+    const menuItems = [
+        { label: t('about'), ariaLabel: t('ariaHome'), link: '#about' },
+        { label: t('services'), ariaLabel: t('ariaAbout'), link: '#work' },
+        { label: t('contact'), ariaLabel: t('ariaContact'), link: '#footer' },
+    ]
+
+    const socialLinks = socialLinksConfig.map(({ key, link }) => ({
+        label: tSocial(key),
+        link,
+    }))
 
     useEffect(() => {
         const handleScroll = () => {
@@ -92,7 +100,7 @@ export const Header = () => {
             <MotionBox variants={logoVariants}>
                 <Link
                     href="/"
-                    aria-label="Go to home page"
+                    aria-label={t('ariaHome')}
                     className="cursor-pointer"
                 >
                     <Logo className="size-10" />

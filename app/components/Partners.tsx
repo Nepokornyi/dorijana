@@ -2,6 +2,7 @@ import React from 'react'
 import { Box } from '@/components/ui/box'
 import { motion, Variants } from 'motion/react'
 import { useAnimationsEnabled } from '@/contexts/animation-context'
+import { useTranslations } from 'next-intl'
 
 import { MetrostavLogo } from '@/assets/partners/Metrostav'
 import { CzechSonLogo } from '@/assets/partners/CzechSon'
@@ -12,46 +13,19 @@ import { CentralGroupLogo } from '@/assets/partners/CentralGroup'
 
 const MotionBox = motion(Box)
 
-const titleData = [
-    { text: 'Č. 03', className: 'py-10' },
-    { text: 'Spolupráce', className: 'py-10' },
-    {
-        text: 'Naši partneři',
-        className: 'py-10 flex justify-end hidden lg:block lg:justify-self-end',
-    },
+const PARTNERS_GRID_CLASSES = [
+    'py-10',
+    'py-10',
+    'py-10 flex justify-end hidden lg:block lg:justify-self-end',
 ]
 
-const partners = [
-    {
-        logo: MetrostavLogo,
-        alt: 'Metrostav',
-        className: '',
-    },
-    {
-        logo: CzechSonLogo,
-        alt: 'Czech & Son',
-        className: '',
-    },
-    {
-        logo: PrumstavLogo,
-        alt: 'Průmstav',
-        className: 'lg:justify-end',
-    },
-    {
-        logo: SkanskaLogo,
-        alt: 'Skanska',
-        className: '',
-    },
-    {
-        logo: TrigemaLogo,
-        alt: 'Trigema',
-        className: '',
-    },
-    {
-        logo: CentralGroupLogo,
-        alt: 'Central Group',
-        className: 'lg:justify-end',
-    },
+const partnersConfig = [
+    { logo: MetrostavLogo, altKey: 'metrostav' as const, className: '' },
+    { logo: CzechSonLogo, altKey: 'czechSon' as const, className: '' },
+    { logo: PrumstavLogo, altKey: 'prumstav' as const, className: 'lg:justify-end' },
+    { logo: SkanskaLogo, altKey: 'skanska' as const, className: '' },
+    { logo: TrigemaLogo, altKey: 'trigema' as const, className: '' },
+    { logo: CentralGroupLogo, altKey: 'centralGroup' as const, className: 'lg:justify-end' },
 ]
 
 const parentVariants: Variants = {
@@ -67,7 +41,9 @@ const parentVariants: Variants = {
 }
 
 export const Partners = () => {
+    const t = useTranslations('partners')
     const animationsEnabled = useAnimationsEnabled()
+    const gridTexts = t.raw('grid') as string[]
 
     return (
         <MotionBox
@@ -79,14 +55,14 @@ export const Partners = () => {
             className="px-10 lg:px-32 xl:px-60"
         >
             <div className="grid grid-cols-2 lg:grid-cols-[2fr_1fr_1fr] gap-10">
-                {titleData.map((col) => (
-                    <Box key={col.text} className={col.className}>
-                        {col.text}
+                {gridTexts.map((text, i) => (
+                    <Box key={text} className={PARTNERS_GRID_CLASSES[i] ?? ''}>
+                        {text}
                     </Box>
                 ))}
-                {partners.map(({ logo: LogoComponent, alt, className }) => (
+                {partnersConfig.map(({ logo: LogoComponent, altKey, className }) => (
                     <motion.div
-                        key={alt}
+                        key={altKey}
                         whileHover={{
                             y: -4,
                             scale: 1.02,
@@ -95,7 +71,7 @@ export const Partners = () => {
                         transition={{ duration: 0.2, ease: 'easeOut' }}
                         className={`flex opacity-80 hover:opacity-100 transition-opacity duration-200 ${className}`}
                     >
-                        <LogoComponent className="w-full sm:w-52 h-auto grayscale hover:grayscale-0" />
+                        <LogoComponent className="w-full sm:w-52 h-auto grayscale hover:grayscale-0" aria-label={t(`alts.${altKey}`)} />
                     </motion.div>
                 ))}
             </div>

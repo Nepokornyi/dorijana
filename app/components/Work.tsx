@@ -4,29 +4,12 @@ import { H2, H3, P, TypographyMuted } from '@/components/ui/typography'
 import VideoPlayer from '@/components/VideoPlayer'
 import { useAnimationsEnabled } from '@/contexts/animation-context'
 import { motion, stagger, Variants } from 'motion/react'
+import { useTranslations } from 'next-intl'
 
-const gridData = [
-    { text: 'Č. 02', className: 'px-10 lg:px-0 py-10' },
-    { text: 'Služby', className: 'py-10' },
-    {
-        text: 'Stavební práce',
-        className: 'py-10 flex justify-end hidden lg:block lg:justify-self-end',
-    },
-]
-
-const cardData = [
-    {
-        title: 'Kompletní Stavební Práce',
-        text: 'Zajišťujeme kompletní stavební práce v Praze a okolí — od základů až po finální úpravy. Stavíme s jistotou, kvalitou a respektem k vašemu času i rozpočtu',
-    },
-    {
-        title: 'Omítky a povrchové úpravy',
-        text: 'Provádíme strojní sádrové, jádrové a stěrkové omítky s precizní rovinností a dlouhou životností. Vhodné pro nové stavby i rekonstrukce.',
-    },
-    {
-        title: 'Zdivo a základové konstrukce',
-        text: 'Realizujeme zděné konstrukce z cihel, Ytongu a tvárnic, stejně jako betonáž základových pasů a desek. Zajišťujeme přesnost, stabilitu a dodržení technologických postupů.',
-    },
+const WORK_GRID_CLASSES = [
+    'px-10 lg:px-0 py-10',
+    'py-10',
+    'py-10 flex justify-end hidden lg:block lg:justify-self-end',
 ]
 
 const parentVariants: Variants = {
@@ -81,7 +64,10 @@ const MotionBox = motion(Box)
 const MotionFlexContainer = motion(FlexContainer)
 
 export const Work = () => {
+    const t = useTranslations('work')
     const animationsEnabled = useAnimationsEnabled()
+    const gridTexts = t.raw('grid') as string[]
+    const cardData = t.raw('cards') as Array<{ title: string; text: string }>
 
     return (
         <MotionBox
@@ -92,9 +78,9 @@ export const Work = () => {
             viewport={{ once: true }}
             className="w-full lg:px-32 xl:px-60 grid grid-cols-2 lg:grid-cols-[2fr_1fr_1fr] gap-x-10"
         >
-            {gridData.map((col) => (
-                <Box key={col.text} className={col.className}>
-                    {col.text}
+            {gridTexts.map((text, i) => (
+                <Box key={text} className={WORK_GRID_CLASSES[i] ?? ''}>
+                    {text}
                 </Box>
             ))}
 
@@ -112,7 +98,7 @@ export const Work = () => {
                 ))}
 
                 <TypographyMuted className="uppercase py-4">
-                    {'Chceš vědět víc'}?
+                    {t('wantMore')}?
                 </TypographyMuted>
 
                 <MotionBox
@@ -121,7 +107,7 @@ export const Work = () => {
                     whileHover="hover"
                 >
                     <H2 className="w-fit cursor-pointer duration-200">
-                        <a href="mailto:info@dorijana.cz">Kontaktuj nás</a>
+                        <a href="mailto:info@dorijana.cz">{t('contactUs')}</a>
                     </H2>
                     <motion.span
                         variants={arrowLineVariants}

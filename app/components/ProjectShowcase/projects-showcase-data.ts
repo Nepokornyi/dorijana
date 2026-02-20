@@ -12,49 +12,14 @@ export type ProjectItem = Readonly<{
     works: ReadonlyArray<string>
 }>
 
-export const PROJECT_ITEMS: ReadonlyArray<ProjectItem> = [
-    {
-        title: 'Dock',
-        image: dock,
-        description:
-            'Dock in je město ve městě na Praze 8 s obchody, kavárnami, restaurací, školkou i vlastním přístavem.',
-        works: [
-            'STROJNÍ SÁDROVÉ OMÍTKY',
-            'STROJNÍ STĚRKOVÉ OMÍTKY',
-            'KONSTRUKCE PODLAH',
-        ],
-    },
-    {
-        title: 'Harfa Design',
-        image: harfa,
-        description:
-            'Designový bytový dům přímo vedle obchodního centra Galerie Harfa, kousek od stanice metra B Českomoravská.',
-        works: ['STROJNÍ JÁDROVÉ OMÍTKY', 'STROJNÍ STĚRKOVÉ OMÍTKY'],
-    },
-    {
-        title: 'Suomi',
-        image: suomi,
-        description:
-            'Rezidenční čtvrť SUOMI Hloubětín v dynamicky se rozvíjející části Prahy 9.',
-        works: [
-            'STROJNÍ SÁDROVÉ OMÍTKY',
-            'STROJNÍ STĚRKOVÉ OMÍTKY',
-            'KONSTRUKCE PODLAH',
-            'VYZDÍVKY',
-        ],
-    },
-    {
-        title: 'Auto Jarov',
-        image: jarov,
-        description: 'Největší obchodní dům automobilů v České republice.',
-        works: ['STROJNÍ STĚRKOVÉ OMÍTKY', 'KONSTRUKCE PODLAH'],
-    },
-    {
-        title: 'Visionary',
-        image: visionary,
-        span: true,
-        description:
-            'Inovativní kancelářská budova Visionary nacházející se v pražských Holešovicích.',
-        works: ['STROJNÍ SÁDROVÉ OMÍTKY', 'STROJNÍ STĚRKOVÉ OMÍTKY'],
-    },
+/** Images and layout only; text comes from locale (showcase.projects). */
+export const PROJECT_IMAGES: ReadonlyArray<{
+    image: typeof dock
+    span?: boolean
+}> = [
+    { image: dock },
+    { image: harfa },
+    { image: suomi },
+    { image: jarov },
+    { image: visionary, span: true },
 ]

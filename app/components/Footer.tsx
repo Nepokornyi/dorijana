@@ -5,7 +5,8 @@ import { TypographyLarge, TypographyMuted } from '@/components/ui/typography'
 import { useAnimationsEnabled } from '@/contexts/animation-context'
 import { Mail, Phone, MapPin } from 'lucide-react'
 import { motion, Variants } from 'motion/react'
-import Link from 'next/link'
+import { useTranslations } from 'next-intl'
+import { Link } from '@/i18n/navigation'
 
 const parentVariants: Variants = {
     hidden: { opacity: 0, y: 40 },
@@ -19,65 +20,72 @@ const parentVariants: Variants = {
     },
 }
 
-const LeftColumn = () => (
-    <FlexContainer
-        direction="flex-col"
-        gap="gap-4"
-        className="px-10 lg:px-0 hidden lg:flex items-start"
-    >
-        <TypographyLarge>O společnosti</TypographyLarge>
-        <LogoFull className="w-40" />
-        <TypographyMuted>
-            Dorijana s.r.o. je pražská stavební společnost, která provádí
-            stavební zakázky ve vysoké kvalitě s velkým důrazem na detaily.
-        </TypographyMuted>
-    </FlexContainer>
-)
+const LeftColumn = () => {
+    const t = useTranslations('footer')
+    return (
+        <FlexContainer
+            direction="flex-col"
+            gap="gap-4"
+            className="px-10 lg:px-0 hidden lg:flex items-start"
+        >
+            <TypographyLarge>{t('aboutTitle')}</TypographyLarge>
+            <LogoFull className="w-40" />
+            <TypographyMuted>{t('aboutDescription')}</TypographyMuted>
+        </FlexContainer>
+    )
+}
 
-const MiddleColumn = () => (
-    <FlexContainer
-        direction="flex-col"
-        gap="gap-4"
-        className="px-10 lg:px-0 items-start"
-    >
-        <TypographyLarge>Kontaktujte nás</TypographyLarge>
-        <ul className="text-sm flex flex-col gap-3 text-muted-foreground [&_li]:hover:text-white [&_li]:flex [&_li]:gap-3 [&_li]:items-center [&_li]:duration-200">
-            <li>
-                <Mail strokeWidth={1} size={18} />
-                <a href="mailto:info@dorijana.cz">info@dorijana.cz</a>
-            </li>
-            <li>
-                <Phone strokeWidth={1} size={18} />
-                <a href="tel:+420777700202"> +420 777 700 202</a>
-            </li>
-            <li>
-                <MapPin strokeWidth={1} size={18} />
-                <a href="https://maps.app.goo.gl/LvYt2DQbXJFXUPty6">
-                    K Červenému dvoru 175/18a <br />
-                    Strašnice, 100 00 Praha 10
-                </a>
-            </li>
-        </ul>
-    </FlexContainer>
-)
+const MiddleColumn = () => {
+    const t = useTranslations('footer')
+    return (
+        <FlexContainer
+            direction="flex-col"
+            gap="gap-4"
+            className="px-10 lg:px-0 items-start"
+        >
+            <TypographyLarge>{t('contactTitle')}</TypographyLarge>
+            <ul className="text-sm flex flex-col gap-3 text-muted-foreground [&_li]:hover:text-white [&_li]:flex [&_li]:gap-3 [&_li]:items-center [&_li]:duration-200">
+                <li>
+                    <Mail strokeWidth={1} size={18} />
+                    <a href="mailto:info@dorijana.cz">info@dorijana.cz</a>
+                </li>
+                <li>
+                    <Phone strokeWidth={1} size={18} />
+                    <a href="tel:+420777700202"> +420 777 700 202</a>
+                </li>
+                <li>
+                    <MapPin strokeWidth={1} size={18} />
+                    <a href="https://maps.app.goo.gl/LvYt2DQbXJFXUPty6">
+                        {t('addressLine1')} <br />
+                        {t('addressLine2')}
+                    </a>
+                </li>
+            </ul>
+        </FlexContainer>
+    )
+}
 
-const RightColumn = () => (
-    <FlexContainer
-        width="w-full sm:w-fit"
-        direction="flex-col"
-        gap="gap-4"
-        className="px-10 lg:px-0 items-start sm:justify-self-end"
-    >
-        <TypographyLarge>Důležité odkazy</TypographyLarge>
-        <Link href="/terms">
-            <TypographyMuted className="hover:text-white duration-200">
-                Podmínky ochrany osobních údajů
-            </TypographyMuted>
-        </Link>
-    </FlexContainer>
-)
+const RightColumn = () => {
+    const t = useTranslations('footer')
+    return (
+        <FlexContainer
+            width="w-full sm:w-fit"
+            direction="flex-col"
+            gap="gap-4"
+            className="px-10 lg:px-0 items-start sm:justify-self-end"
+        >
+            <TypographyLarge>{t('linksTitle')}</TypographyLarge>
+            <Link href="/terms">
+                <TypographyMuted className="hover:text-white duration-200">
+                    {t('privacyLink')}
+                </TypographyMuted>
+            </Link>
+        </FlexContainer>
+    )
+}
 
 export const Footer = () => {
+    const t = useTranslations('footer')
     const animationsEnabled = useAnimationsEnabled()
     const currentYear = new Date().getFullYear()
 
@@ -97,9 +105,7 @@ export const Footer = () => {
                 </address>
                 <RightColumn />
             </Box>
-            <TypographyMuted>
-                Dorijana s.r.o. © 2002-{currentYear}
-            </TypographyMuted>
+            <TypographyMuted>{t('copyright', { year: currentYear })}</TypographyMuted>
         </motion.footer>
     )
 }
