@@ -18,6 +18,7 @@ interface StaggeredMenuProps {
     accentColor?: string
     onOpen?: () => void
     onClose?: () => void
+    variants?: Variants
 }
 
 const overlayVariants: Variants = {
@@ -115,6 +116,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
     accentColor = '#737373',
     onOpen,
     onClose,
+    variants,
 }) => {
     const tMenu = useTranslations('common.menu')
     const tLanguages = useTranslations('common.languages')
@@ -162,11 +164,14 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
                 createPortal(
                     <>
                         {/* Toggle button */}
-                        <button
+                        <motion.button
                             onClick={handleToggleMenu}
+                            variants={variants}
                             type="button"
                             className="lg:hidden fixed top-6 right-10 flex items-center gap-2 bg-transparent border-0 cursor-pointer font-medium transition-colors duration-300 z-60 text-white"
-                            aria-label={isMenuOpen ? tMenu('close') : tMenu('open')}
+                            aria-label={
+                                isMenuOpen ? tMenu('close') : tMenu('open')
+                            }
                         >
                             <span className="text-lg select-none">
                                 {isMenuOpen ? tMenu('close') : tMenu('open')}
@@ -183,7 +188,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
                                     }`}
                                 />
                             </span>
-                        </button>
+                        </motion.button>
 
                         {/* Overlay & Sliding Panel */}
                         {animationsEnabled && (

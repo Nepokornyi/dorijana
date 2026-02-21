@@ -61,6 +61,8 @@ const NAV_CONFIG = [
     { key: 'contact' as const, link: '#footer' },
 ]
 
+const MotionLink = motion(Link)
+
 const LocaleSwitcher = ({
     pathname,
     locale,
@@ -72,17 +74,20 @@ const LocaleSwitcher = ({
 }) => (
     <Box className={className}>
         {routing.locales.map((loc) => (
-            <Link
+            <MotionLink
                 key={loc}
+                variants={menuVariants}
                 href={pathname || '/'}
                 locale={loc}
                 className={`text-sm font-medium transition-colors duration-200 ${
-                    locale === loc ? 'text-white' : 'text-white/70 hover:text-white'
+                    locale === loc
+                        ? 'text-white'
+                        : 'text-white/70 hover:text-white'
                 }`}
                 aria-label={loc === 'cs' ? 'Čeština' : 'English'}
             >
                 {loc.toUpperCase()}
-            </Link>
+            </MotionLink>
         ))}
     </Box>
 )
@@ -155,15 +160,13 @@ export const Header = () => {
                         />
                     </Box>
 
-                    <motion.div
-                        variants={menuVariants}
-                        className="lg:hidden relative z-50"
-                    >
+                    <Box className="lg:hidden z-50">
                         <StaggeredMenu
                             menuItems={menuItems}
+                            variants={menuVariants}
                             accentColor="#737373"
                         />
-                    </motion.div>
+                    </Box>
                 </>
             ) : (
                 <LocaleSwitcher
