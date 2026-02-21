@@ -51,7 +51,7 @@ export const ProjectShowcaseCard = ({
         </div>
 
         <div className="absolute inset-0 flex flex-col justify-start p-5 lg:p-2.5 xl:p-5">
-            <H3 className="text-white border-none pb-0 font-semibold drop-shadow-sm group-hover:translate-y-0 transition-transform duration-300 ease-out">
+            <H3 className="text-white border-none pb-0 drop-shadow-sm group-hover:translate-y-0 transition-transform duration-300 ease-out">
                 {project.title}
             </H3>
             <div className="pointer-events-none absolute inset-x-5 lg:inset-x-2.5 xl:inset-x-5 bottom-5 lg:translate-y-4 lg:opacity-0 group-hover:opacity-100 lg:group-hover:translate-y-0 transition-all duration-300 ease-out delay-75">

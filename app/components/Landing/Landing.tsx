@@ -75,10 +75,7 @@ export const Landing = () => {
                         className="pr-6 sm:pr-0"
                     >
                         <LogoText />
-                        <H3
-                            fontSize="text-xl md:text-2xl"
-                            className="text-white"
-                        >
+                        <H3 className="text-white">
                             {t('heroPrefix')}{' '}
                             <RotatingText
                                 texts={rotatingWords}

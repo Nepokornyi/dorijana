@@ -75,7 +75,6 @@ export const Projects = () => {
             ))}
             <MotionH3
                 variants={textLeftVariants}
-                fontSize="text-xl lg:text-2xl"
                 className="col-span-3 px-10 lg:px-0 lg:leading-10 pt-10"
             >
                 {t('intro')}

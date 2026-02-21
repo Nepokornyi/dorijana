@@ -96,7 +96,6 @@ export const About = () => {
                 </MotionH3>
                 <MotionH3
                     variants={textRightVariants}
-                    fontSize="text-xl lg:text-2xl"
                     className="px-10 lg:px-0 py-10 lg:col-span-2 lg:text-justify"
                 >
                     {t('paragraph1')}
