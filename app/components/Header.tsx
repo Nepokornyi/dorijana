@@ -50,6 +50,17 @@ const menuVariants: Variants = {
     },
 }
 
+const arrowLineVariants: Variants = {
+    hidden: { width: 0 },
+    hover: {
+        width: '100%',
+        transition: {
+            duration: 0.25,
+            ease: 'easeOut',
+        },
+    },
+}
+
 const MotionBox = motion.create(Box)
 const MotionButton = motion.create(Button)
 
@@ -77,9 +88,10 @@ const LocaleSwitcher = ({
             <MotionLink
                 key={loc}
                 variants={menuVariants}
+                whileHover="hover"
                 href={pathname || '/'}
                 locale={loc}
-                className={`px-4 text-sm font-medium transition-colors duration-200 ${
+                className={`relative ml-5 text-sm font-medium transition-colors duration-200 ${
                     locale === loc
                         ? 'text-white'
                         : 'text-white/70 hover:text-white'
@@ -87,6 +99,10 @@ const LocaleSwitcher = ({
                 aria-label={loc === 'cs' ? 'Čeština' : 'English'}
             >
                 {loc.toUpperCase()}
+                <motion.span
+                    variants={arrowLineVariants}
+                    className="absolute left-0 -bottom-1 h-[1px] bg-white/50"
+                />
             </MotionLink>
         ))}
     </Box>
@@ -141,22 +157,28 @@ export const Header = () => {
 
             {isHome ? (
                 <>
-                    <Box className="hidden lg:flex items-center">
+                    <Box className="hidden lg:flex items-center gap-5">
                         {menuItems.map((item) => (
                             <MotionButton
                                 variants={menuVariants}
                                 key={item.label}
-                                className="text-white"
                                 variant="link"
+                                size="link"
+                                whileHover="hover"
+                                className="relative"
                                 onClick={() => handleNavClick(item.link)}
                             >
                                 {item.label}
+                                <motion.span
+                                    variants={arrowLineVariants}
+                                    className="absolute left-0 -bottom-1 h-[1px] bg-white/50"
+                                />
                             </MotionButton>
                         ))}
                         <LocaleSwitcher
                             pathname={pathname}
                             locale={locale}
-                            className="hidden lg:flex items-center border-l border-white/30"
+                            className="hidden lg:flex gap-5 items-center border-l border-white/50"
                         />
                     </Box>
 
