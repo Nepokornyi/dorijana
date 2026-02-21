@@ -81,10 +81,7 @@ export const About = () => {
                 className="w-full lg:px-32 xl:px-60 grid grid-cols-2 lg:grid-cols-3 gap-10"
             >
                 {gridTexts.map((text, i) => (
-                    <Box
-                        key={text}
-                        className={ABOUT_GRID_CLASSES[i] ?? ''}
-                    >
+                    <Box key={text} className={ABOUT_GRID_CLASSES[i] ?? ''}>
                         {text}
                     </Box>
                 ))}
@@ -98,19 +95,20 @@ export const About = () => {
                 </MotionH3>
                 <MotionH3
                     variants={textRightVariants}
+                    fontSize="text-xl lg:text-2xl"
                     className="px-10 lg:px-0 py-10 lg:col-span-2 lg:text-justify"
                 >
                     {t('paragraph1')}
                 </MotionH3>
                 <MotionP
                     variants={textLeftVariants}
-                    className="pl-10 lg:pl-0 lg:col-start-2 lg:text-justify"
+                    className="px-10 lg:px-0 lg:col-start-2 lg:text-justify"
                 >
                     {t('paragraph2')}
                 </MotionP>
                 <MotionP
                     variants={textRightVariants}
-                    className="pl-10 lg:pl-10 lg:col-start-3 lg:text-justify"
+                    className="px-10 lg:pl-10 lg:pr-0 lg:col-start-3 lg:text-justify"
                 >
                     {t('paragraph3')}
                 </MotionP>

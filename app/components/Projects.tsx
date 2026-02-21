@@ -1,6 +1,6 @@
 import { Box } from '@/components/ui/box'
 import { FlexContainer } from '@/components/ui/flexContainer'
-import { H2, H3, P } from '@/components/ui/typography'
+import { H3, P } from '@/components/ui/typography'
 import VideoPlayer from '@/components/VideoPlayer'
 import { useAnimationsEnabled } from '@/contexts/animation-context'
 import { motion, stagger, Variants } from 'motion/react'
@@ -51,7 +51,7 @@ const textRightVariants: Variants = {
 
 const MotionBox = motion(Box)
 const MotionFlexContainer = motion(FlexContainer)
-const MotionH2 = motion(H2)
+const MotionH3 = motion(H3)
 
 export const Projects = () => {
     const t = useTranslations('projects')
@@ -73,12 +73,13 @@ export const Projects = () => {
                     {text}
                 </Box>
             ))}
-            <MotionH2
+            <MotionH3
                 variants={textLeftVariants}
-                className="col-span-3 px-10 lg:px-0 py-10 leading-12"
+                fontSize="text-xl lg:text-2xl"
+                className="col-span-3 px-10 lg:px-0 lg:leading-10 pt-10"
             >
                 {t('intro')}
-            </MotionH2>
+            </MotionH3>
 
             <MotionFlexContainer
                 variants={textLeftVariants}
