@@ -8,7 +8,7 @@
       "identity": "About",
       "services": "Services",
       "partners": "Partners",
-      "projects": "Projects",
+      "quality": "Quality",
       "contact": "Contact",
       "ariaHome": "Go to home page"
     },
@@ -32,7 +32,7 @@
       { "numeration": "No. 01", "title": "Identity", "description": "Construction vision", "link": "#about" },
       { "numeration": "No. 02", "title": "Services", "description": "Construction work", "link": "#work" },
       { "numeration": "No. 03", "title": "Partnership", "description": "Our partners", "link": "#partners" },
-      { "numeration": "No. 04", "title": "Quality", "description": "Standards and execution", "link": "#projects" },
+      { "numeration": "No. 04", "title": "Quality", "description": "Standards and execution", "link": "#quality" },
       { "numeration": "No. 05", "title": "Delivery", "description": "Selected construction projects", "link": "#footer" }
     ]
   },
@@ -53,7 +53,7 @@
     "wantMore": "Want to know more",
     "contactUs": "Contact us"
   },
-  "projects": {
+  "quality": {
     "grid": ["No. 04", "Quality", "Standards and execution"],
     "intro": "Our construction projects stand out for precise execution, proven technologies and quality materials. We therefore guarantee long life, high comfort and a professional result in every detail.",
     "cards": [

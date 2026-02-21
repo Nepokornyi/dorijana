@@ -6,7 +6,7 @@ import { useAnimationsEnabled } from '@/contexts/animation-context'
 import { motion, stagger, Variants } from 'motion/react'
 import { useTranslations } from 'next-intl'
 
-const PROJECTS_GRID_CLASSES = [
+const QUALITY_GRID_CLASSES = [
     'px-10 lg:px-0 pt-10',
     'pt-10',
     'pt-10 flex justify-end hidden lg:block lg:justify-self-end',
@@ -53,15 +53,15 @@ const MotionBox = motion(Box)
 const MotionFlexContainer = motion(FlexContainer)
 const MotionH3 = motion(H3)
 
-export const Projects = () => {
-    const t = useTranslations('projects')
+export const Quality = () => {
+    const t = useTranslations('quality')
     const animationsEnabled = useAnimationsEnabled()
     const gridTexts = t.raw('grid') as string[]
     const cardData = t.raw('cards') as Array<{ title: string; text: string }>
 
     return (
         <MotionBox
-            id="projects"
+            id="quality"
             variants={parentVariants}
             initial="hidden"
             whileInView={animationsEnabled ? 'visible' : 'hidden'}
@@ -69,7 +69,7 @@ export const Projects = () => {
             className="w-full lg:px-32 xl:px-60 grid grid-cols-2 lg:grid-cols-[2fr_1fr_1fr] gap-x-10 overflow-hidden"
         >
             {gridTexts.map((text, i) => (
-                <Box key={text} className={PROJECTS_GRID_CLASSES[i] ?? ''}>
+                <Box key={text} className={QUALITY_GRID_CLASSES[i] ?? ''}>
                     {text}
                 </Box>
             ))}

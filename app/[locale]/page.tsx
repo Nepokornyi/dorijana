@@ -7,7 +7,7 @@ import { Intro } from '../components/Intro'
 import { About } from '../components/About'
 import { Work } from '../components/Work'
 import { Partners } from '../components/Partners'
-import { Projects } from '../components/Projects'
+import { Quality } from '../components/Quality'
 import { ProjectsShowcase } from '../components/ProjectShowcase/ProjectsShowcase'
 import { Footer } from '../components/Footer'
 import { AnimationProvider } from '@/contexts/animation-context'
@@ -24,7 +24,7 @@ function Content({ mounted }: { mounted: boolean }) {
             <About />
             <Work />
             <Partners />
-            <Projects />
+            <Quality />
             <ProjectsShowcase />
             <Footer />
         </AnimationProvider>

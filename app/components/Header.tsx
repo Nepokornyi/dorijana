@@ -68,7 +68,7 @@ const NAV_CONFIG = [
     { key: 'identity' as const, link: '#about' },
     { key: 'services' as const, link: '#work' },
     { key: 'partners' as const, link: '#partners' },
-    { key: 'projects' as const, link: '#projects' },
+    { key: 'quality' as const, link: '#quality' },
     { key: 'contact' as const, link: '#footer' },
 ]
 

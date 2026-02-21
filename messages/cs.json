@@ -8,7 +8,7 @@
       "identity": "O nás",
       "services": "Služby",
       "partners": "Partneři",
-      "projects": "Projekty",
+      "quality": "Kvalita",
       "contact": "Kontakt",
       "ariaHome": "Přejít na úvodní stránku"
     },
@@ -32,7 +32,7 @@
       { "numeration": "Č. 01", "title": "Identita", "description": "Stavební vize", "link": "#about" },
       { "numeration": "Č. 02", "title": "Služby", "description": "Stavební práce", "link": "#work" },
       { "numeration": "Č. 03", "title": "Spolupráce", "description": "Naši partneři", "link": "#partners" },
-      { "numeration": "Č. 04", "title": "Kvalita", "description": "Standardy a provedení", "link": "#projects" },
+      { "numeration": "Č. 04", "title": "Kvalita", "description": "Standardy a provedení", "link": "#quality" },
       { "numeration": "Č. 05", "title": "Realizace", "description": "Vybrané stavební projekty", "link": "#footer" }
     ]
   },
@@ -53,7 +53,7 @@
     "wantMore": "Chceš vědět víc",
     "contactUs": "Kontaktuj nás"
   },
-  "projects": {
+  "quality": {
     "grid": ["Č. 04", "Kvalita", "Standardy a provedení"],
     "intro": "Naše stavební realizace vynikají precizním zpracováním, ověřenými technologiemi a kvalitními materiály. Díky tomu garantujeme dlouhou životnost, vysoký komfort a profesionální výsledek v každém detailu.",
     "cards": [
