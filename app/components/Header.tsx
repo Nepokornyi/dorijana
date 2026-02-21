@@ -79,7 +79,7 @@ const LocaleSwitcher = ({
                 variants={menuVariants}
                 href={pathname || '/'}
                 locale={loc}
-                className={`text-sm font-medium transition-colors duration-200 ${
+                className={`px-4 text-sm font-medium transition-colors duration-200 ${
                     locale === loc
                         ? 'text-white'
                         : 'text-white/70 hover:text-white'
@@ -141,7 +141,7 @@ export const Header = () => {
 
             {isHome ? (
                 <>
-                    <Box className="hidden lg:flex items-center gap-2.5">
+                    <Box className="hidden lg:flex items-center">
                         {menuItems.map((item) => (
                             <MotionButton
                                 variants={menuVariants}
@@ -156,7 +156,7 @@ export const Header = () => {
                         <LocaleSwitcher
                             pathname={pathname}
                             locale={locale}
-                            className="hidden lg:flex items-center gap-2 ml-4 pl-4 border-l border-white/30"
+                            className="hidden lg:flex items-center border-l border-white/30"
                         />
                     </Box>
 
@@ -172,7 +172,7 @@ export const Header = () => {
                 <LocaleSwitcher
                     pathname={pathname}
                     locale={locale}
-                    className="flex items-center gap-2"
+                    className="flex items-center"
                 />
             )}
         </motion.header>
