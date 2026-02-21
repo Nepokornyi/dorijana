@@ -8,7 +8,7 @@ import { About } from '../components/About'
 import { Work } from '../components/Work'
 import { Partners } from '../components/Partners'
 import { Quality } from '../components/Quality'
-import { ProjectsShowcase } from '../components/ProjectShowcase/ProjectsShowcase'
+import { Projects } from '../components/Project/Projects'
 import { Footer } from '../components/Footer'
 import { AnimationProvider } from '@/contexts/animation-context'
 import { LenisProvider } from '@/contexts/lenis-context'
@@ -25,7 +25,7 @@ function Content({ mounted }: { mounted: boolean }) {
             <Work />
             <Partners />
             <Quality />
-            <ProjectsShowcase />
+            <Projects />
             <Footer />
         </AnimationProvider>
     )

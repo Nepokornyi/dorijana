@@ -73,7 +73,7 @@
       "centralGroup": "Central Group"
     }
   },
-  "showcase": {
+  "projects": {
     "grid": ["No. 05", "Delivery", "Selected construction projects"],
     "projects": [
       { "title": "Dock", "description": "Dock is a city within a city in Prague 8 with shops, cafés, a restaurant, nursery and its own harbour.", "works": ["MACHINE GYPSUM PLASTERING", "MACHINE SKIM PLASTERING", "FLOOR STRUCTURES"] },

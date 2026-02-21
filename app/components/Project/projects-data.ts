@@ -12,7 +12,7 @@ export type ProjectItem = Readonly<{
     works: ReadonlyArray<string>
 }>
 
-/** Images and layout only; text comes from locale (showcase.projects). */
+/** Images and layout only; text comes from locale (projects). */
 export const PROJECT_IMAGES: ReadonlyArray<{
     image: typeof dock
     span?: boolean

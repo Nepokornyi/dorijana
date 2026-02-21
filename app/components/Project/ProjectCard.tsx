@@ -2,7 +2,7 @@ import Image from 'next/image'
 import { H3, TypographySmall } from '@/components/ui/typography'
 import { motion, Variants } from 'motion/react'
 import { Box } from '@/components/ui/box'
-import type { ProjectItem } from './projects-showcase-data'
+import type { ProjectItem } from './projects-data'
 
 const cardVariants: Variants = {
     hidden: { opacity: 0, y: 32 },
@@ -18,15 +18,15 @@ const cardVariants: Variants = {
 
 const MotionBox = motion(Box)
 
-type ProjectShowcaseCardProps = Readonly<{
+type ProjectCardProps = Readonly<{
     project: ProjectItem
     animationsEnabled: boolean
 }>
 
-export const ProjectShowcaseCard = ({
+export const ProjectCard = ({
     project,
     animationsEnabled,
-}: ProjectShowcaseCardProps) => (
+}: ProjectCardProps) => (
     <MotionBox
         key={project.title}
         variants={cardVariants}

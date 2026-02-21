@@ -73,7 +73,7 @@
       "centralGroup": "Central Group"
     }
   },
-  "showcase": {
+  "projects": {
     "grid": ["Č. 05", "Realizace", "Vybrané stavební projekty"],
     "projects": [
       { "title": "Dock", "description": "Dock in je město ve městě na Praze 8 s obchody, kavárnami, restaurací, školkou i vlastním přístavem.", "works": ["STROJNÍ SÁDROVÉ OMÍTKY", "STROJNÍ STĚRKOVÉ OMÍTKY", "KONSTRUKCE PODLAH"] },
