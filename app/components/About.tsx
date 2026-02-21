@@ -74,6 +74,7 @@ export const About = () => {
             initial="hidden"
             whileInView={animationsEnabled ? 'visible' : 'hidden'}
             viewport={{ once: true, amount: 0.2 }}
+            className="pb-10"
         >
             <MotionBox
                 variants={titleVariants}

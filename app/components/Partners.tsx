@@ -60,7 +60,7 @@ export const Partners = () => {
             initial="hidden"
             whileInView={animationsEnabled ? 'visible' : 'hidden'}
             viewport={{ once: true }}
-            className="px-10 lg:px-32 xl:px-60"
+            className="px-10 lg:px-32 xl:px-60 pb-10"
         >
             <div className="grid grid-cols-2 lg:grid-cols-[2fr_1fr_1fr] gap-10">
                 {gridTexts.map((text, i) => (

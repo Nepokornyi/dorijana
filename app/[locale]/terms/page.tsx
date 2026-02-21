@@ -32,7 +32,10 @@ function ClauseItem({ clause }: { clause: Clause }) {
 export default function TermsPage() {
     const messages = useMessages()
     const terms = messages.terms as
-        | { pageTitle: string; sections: Array<{ title: string; clauses: Clause[] }> }
+        | {
+              pageTitle: string
+              sections: Array<{ title: string; clauses: Clause[] }>
+          }
         | undefined
 
     if (!terms?.sections?.length) {
@@ -44,7 +47,7 @@ export default function TermsPage() {
             <LenisProvider>
                 <AnimationProvider enabled>
                     <Header />
-                    <section className="relative flex flex-col w-full h-full justify-center items-center lg:px-32 xl:px-60 py-40 gap-10">
+                    <section className="relative flex flex-col w-full h-full justify-center items-center px-10 lg:px-32 xl:px-60 py-40 gap-10">
                         <H3>{terms.pageTitle}</H3>
                         {terms.sections.map((section, sectionIndex) => (
                             <article
