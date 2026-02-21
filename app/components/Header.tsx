@@ -61,6 +61,32 @@ const NAV_CONFIG = [
     { key: 'contact' as const, link: '#footer' },
 ]
 
+const LocaleSwitcher = ({
+    pathname,
+    locale,
+    className = '',
+}: {
+    pathname: string
+    locale: string
+    className?: string
+}) => (
+    <Box className={className}>
+        {routing.locales.map((loc) => (
+            <Link
+                key={loc}
+                href={pathname || '/'}
+                locale={loc}
+                className={`text-sm font-medium transition-colors duration-200 ${
+                    locale === loc ? 'text-white' : 'text-white/70 hover:text-white'
+                }`}
+                aria-label={loc === 'cs' ? 'Čeština' : 'English'}
+            >
+                {loc.toUpperCase()}
+            </Link>
+        ))}
+    </Box>
+)
+
 export const Header = () => {
     const t = useTranslations('common.nav')
     const animationsEnabled = useAnimationsEnabled()
@@ -68,6 +94,7 @@ export const Header = () => {
     const [scrolled, setScrolled] = useState(false)
     const locale = useLocale()
     const pathname = usePathname()
+    const isHome = pathname === '/'
 
     const menuItems = NAV_CONFIG.map(({ key, link }) => ({
         label: t(key),
@@ -107,44 +134,44 @@ export const Header = () => {
                 </Link>
             </MotionBox>
 
-            <Box className="hidden lg:flex items-center gap-2.5">
-                {menuItems.map((item) => (
-                    <MotionButton
-                        variants={menuVariants}
-                        key={item.label}
-                        className="text-white"
-                        variant="link"
-                        onClick={() => handleNavClick(item.link)}
-                    >
-                        {item.label}
-                    </MotionButton>
-                ))}
-                <Box className="hidden lg:flex items-center gap-2 ml-4 pl-4 border-l border-white/30">
-                    {routing.locales.map((loc) => (
-                        <Link
-                            key={loc}
-                            href={pathname || '/'}
-                            locale={loc}
-                            className={`text-sm font-medium transition-colors duration-200 ${
-                                locale === loc ? 'text-white' : 'text-white/70 hover:text-white'
-                            }`}
-                            aria-label={loc === 'cs' ? 'Čeština' : 'English'}
-                        >
-                            {loc.toUpperCase()}
-                        </Link>
-                    ))}
-                </Box>
-            </Box>
+            {isHome ? (
+                <>
+                    <Box className="hidden lg:flex items-center gap-2.5">
+                        {menuItems.map((item) => (
+                            <MotionButton
+                                variants={menuVariants}
+                                key={item.label}
+                                className="text-white"
+                                variant="link"
+                                onClick={() => handleNavClick(item.link)}
+                            >
+                                {item.label}
+                            </MotionButton>
+                        ))}
+                        <LocaleSwitcher
+                            pathname={pathname}
+                            locale={locale}
+                            className="hidden lg:flex items-center gap-2 ml-4 pl-4 border-l border-white/30"
+                        />
+                    </Box>
 
-            <motion.div
-                variants={menuVariants}
-                className="lg:hidden relative z-50"
-            >
-                <StaggeredMenu
-                    menuItems={menuItems}
-                    accentColor="#737373"
+                    <motion.div
+                        variants={menuVariants}
+                        className="lg:hidden relative z-50"
+                    >
+                        <StaggeredMenu
+                            menuItems={menuItems}
+                            accentColor="#737373"
+                        />
+                    </motion.div>
+                </>
+            ) : (
+                <LocaleSwitcher
+                    pathname={pathname}
+                    locale={locale}
+                    className="flex items-center gap-2"
                 />
-            </motion.div>
+            )}
         </motion.header>
     )
 }
