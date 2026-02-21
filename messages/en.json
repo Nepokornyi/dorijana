@@ -55,6 +55,7 @@
   },
   "quality": {
     "grid": ["No. 04", "Quality", "Standards and execution"],
+    "title": "What we guarantee",
     "intro": "Our construction projects stand out for precise execution, proven technologies and quality materials. We therefore guarantee long life, high comfort and a professional result in every detail.",
     "cards": [
       { "title": "Floor structures", "text": "We produce floors for residential and industrial buildings. Every project meets the accuracy requirements of ČSN 744505." },

@@ -1,16 +1,9 @@
 import { Box } from '@/components/ui/box'
-import { FlexContainer } from '@/components/ui/flexContainer'
 import { H3, P } from '@/components/ui/typography'
 import VideoPlayer from '@/components/VideoPlayer'
 import { useAnimationsEnabled } from '@/contexts/animation-context'
 import { motion, stagger, Variants } from 'motion/react'
 import { useTranslations } from 'next-intl'
-
-const QUALITY_GRID_CLASSES = [
-    'px-10 lg:px-0 pt-10',
-    'pt-10',
-    'pt-10 flex justify-end hidden lg:block lg:justify-self-end',
-]
 
 const parentVariants: Variants = {
     hidden: { opacity: 0 },
@@ -20,7 +13,18 @@ const parentVariants: Variants = {
             duration: 1.2,
             ease: 'easeInOut',
             delayChildren: stagger(0.33),
-            delay: 0.33,
+        },
+    },
+}
+
+const titleVariants: Variants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: {
+            duration: 1.2,
+            ease: 'easeInOut',
         },
     },
 }
@@ -40,7 +44,7 @@ const textLeftVariants: Variants = {
 const textRightVariants: Variants = {
     hidden: { opacity: 0, x: 40 },
     visible: {
-        opacity: 0.75,
+        opacity: 1,
         x: 0,
         transition: {
             duration: 1.2,
@@ -49,9 +53,14 @@ const textRightVariants: Variants = {
     },
 }
 
-const MotionBox = motion(Box)
-const MotionFlexContainer = motion(FlexContainer)
-const MotionH3 = motion(H3)
+const MotionBox = motion.create(Box)
+const MotionH3 = motion.create(H3)
+
+const QUALITY_GRID_CLASSES = [
+    'px-10 lg:px-0 pt-10',
+    'px-10 lg:px-0 pt-10',
+    'px-10 lg:px-0 pt-10 hidden lg:block lg:justify-self-end',
+]
 
 export const Quality = () => {
     const t = useTranslations('quality')
@@ -65,46 +74,65 @@ export const Quality = () => {
             variants={parentVariants}
             initial="hidden"
             whileInView={animationsEnabled ? 'visible' : 'hidden'}
-            viewport={{ once: true }}
-            className="w-full lg:px-32 xl:px-60 grid grid-cols-2 lg:grid-cols-[2fr_1fr_1fr] gap-x-10 overflow-hidden"
+            viewport={{ once: true, amount: 0.2 }}
+            className="pb-10"
         >
-            {gridTexts.map((text, i) => (
-                <Box key={text} className={QUALITY_GRID_CLASSES[i] ?? ''}>
-                    {text}
-                </Box>
-            ))}
-            <MotionH3
-                variants={textLeftVariants}
-                className="col-span-3 px-10 lg:px-0 lg:leading-10 pt-10"
-            >
-                {t('intro')}
-            </MotionH3>
-
-            <MotionFlexContainer
-                variants={textLeftVariants}
-                direction="flex-col"
-                gap="gap-10"
-                className="px-10 lg:px-0 py-10 col-span-2 lg:col-span-1 lg:col-start-1"
-            >
-                {cardData.map((card, index) => (
-                    <FlexContainer direction="flex-col" gap="gap-4" key={index}>
-                        <H3>{card.title}</H3>
-                        <P>{card.text}</P>
-                    </FlexContainer>
-                ))}
-            </MotionFlexContainer>
-
             <MotionBox
-                variants={textRightVariants}
-                className="hidden lg:block col-span-2 relative my-10 pr-20 -mr-[12.5vw] bg-black/35"
+                variants={titleVariants}
+                className="w-full lg:px-32 xl:px-60 grid grid-cols-2 lg:grid-cols-3 gap-10"
             >
+                {gridTexts.map((text, i) => (
+                    <Box key={text} className={QUALITY_GRID_CLASSES[i] ?? ''}>
+                        {text}
+                    </Box>
+                ))}
+            </MotionBox>
+
+            <MotionBox className="w-full lg:px-32 xl:px-60 pb-10 grid grid-cols-1 lg:grid-cols-3 gap-x-10 gap-y-2.5">
+                <MotionH3
+                    variants={textLeftVariants}
+                    className="hidden lg:block px-10 lg:px-0 py-10"
+                >
+                    {t('title')}
+                </MotionH3>
+                <MotionH3
+                    variants={textRightVariants}
+                    className="px-10 lg:px-0 py-10 lg:col-span-2 lg:text-justify"
+                >
+                    {t('intro')}
+                </MotionH3>
+                <MotionBox
+                    variants={textLeftVariants}
+                    className="px-10 lg:px-0 flex flex-col gap-4 lg:col-start-2"
+                >
+                    <H3>{cardData[0].title}</H3>
+                    <P className="text-justify">{cardData[0].text}</P>
+                </MotionBox>
+                <MotionBox
+                    variants={textRightVariants}
+                    className="px-10 lg:px-0 flex flex-col gap-4 lg:col-start-3"
+                >
+                    <H3>{cardData[1].title}</H3>
+                    <P className="text-justify">{cardData[1].text}</P>
+                </MotionBox>
+                {/* TODO: Think of how to add more content */}
+                {/* <MotionBox
+                    variants={textLeftVariants}
+                    className="px-10 lg:px-0 flex flex-col gap-4 lg:col-span-2 lg:col-start-2"
+                >
+                    <H3>{cardData[2].title}</H3>
+                    <P className="text-justify">{cardData[2].text}</P>
+                </MotionBox> */}
+            </MotionBox>
+
+            <Box className="relative w-full h-[50vh] bg-black/35">
                 <VideoPlayer
                     src="/video5/master.m3u8"
                     autoPlay
                     loop
                     className="absolute top-0 left-0 -z-1 w-full h-full object-cover"
                 />
-            </MotionBox>
+            </Box>
         </MotionBox>
     )
 }

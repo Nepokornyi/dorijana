@@ -55,6 +55,7 @@
   },
   "quality": {
     "grid": ["Č. 04", "Kvalita", "Standardy a provedení"],
+    "title": "Co zaručujeme",
     "intro": "Naše stavební realizace vynikají precizním zpracováním, ověřenými technologiemi a kvalitními materiály. Díky tomu garantujeme dlouhou životnost, vysoký komfort a profesionální výsledek v každém detailu.",
     "cards": [
       { "title": "Podlahové konstrukce", "text": "Zhotovujeme podlahy pro domácnosti i průmyslové objekty. Každá realizace splňuje požadavky přesnosti podle ČSN 744505." },
