@@ -14,18 +14,26 @@ import { CentralGroupLogo } from '@/assets/partners/CentralGroup'
 const MotionBox = motion(Box)
 
 const PARTNERS_GRID_CLASSES = [
-    'py-10',
-    'py-10',
-    'py-10 flex justify-end hidden lg:block lg:justify-self-end',
+    'pt-10',
+    'pt-10',
+    'pt-10 flex justify-end hidden lg:block lg:justify-self-end',
 ]
 
 const partnersConfig = [
     { logo: MetrostavLogo, altKey: 'metrostav' as const, className: '' },
     { logo: CzechSonLogo, altKey: 'czechSon' as const, className: '' },
-    { logo: PrumstavLogo, altKey: 'prumstav' as const, className: 'lg:justify-end' },
+    {
+        logo: PrumstavLogo,
+        altKey: 'prumstav' as const,
+        className: 'lg:justify-end',
+    },
     { logo: SkanskaLogo, altKey: 'skanska' as const, className: '' },
     { logo: TrigemaLogo, altKey: 'trigema' as const, className: '' },
-    { logo: CentralGroupLogo, altKey: 'centralGroup' as const, className: 'lg:justify-end' },
+    {
+        logo: CentralGroupLogo,
+        altKey: 'centralGroup' as const,
+        className: 'lg:justify-end',
+    },
 ]
 
 const parentVariants: Variants = {
@@ -60,20 +68,25 @@ export const Partners = () => {
                         {text}
                     </Box>
                 ))}
-                {partnersConfig.map(({ logo: LogoComponent, altKey, className }) => (
-                    <motion.div
-                        key={altKey}
-                        whileHover={{
-                            y: -4,
-                            scale: 1.02,
-                            transition: { duration: 0.2, ease: 'easeOut' },
-                        }}
-                        transition={{ duration: 0.2, ease: 'easeOut' }}
-                        className={`flex opacity-80 hover:opacity-100 transition-opacity duration-200 ${className}`}
-                    >
-                        <LogoComponent className="w-full sm:w-52 h-auto grayscale hover:grayscale-0" aria-label={t(`alts.${altKey}`)} />
-                    </motion.div>
-                ))}
+                {partnersConfig.map(
+                    ({ logo: LogoComponent, altKey, className }) => (
+                        <motion.div
+                            key={altKey}
+                            whileHover={{
+                                y: -4,
+                                scale: 1.02,
+                                transition: { duration: 0.2, ease: 'easeOut' },
+                            }}
+                            transition={{ duration: 0.2, ease: 'easeOut' }}
+                            className={`flex opacity-80 hover:opacity-100 transition-opacity duration-200 ${className}`}
+                        >
+                            <LogoComponent
+                                className="w-full sm:w-52 h-auto grayscale hover:grayscale-0"
+                                aria-label={t(`alts.${altKey}`)}
+                            />
+                        </motion.div>
+                    ),
+                )}
             </div>
         </MotionBox>
     )

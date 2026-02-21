@@ -7,9 +7,9 @@ import { motion, stagger, Variants } from 'motion/react'
 import { useTranslations } from 'next-intl'
 
 const PROJECTS_GRID_CLASSES = [
-    'px-10 lg:px-0 py-10',
-    'py-10',
-    'py-10 flex justify-end hidden lg:block lg:justify-self-end',
+    'px-10 lg:px-0 pt-10',
+    'pt-10',
+    'pt-10 flex justify-end hidden lg:block lg:justify-self-end',
 ]
 
 const parentVariants: Variants = {

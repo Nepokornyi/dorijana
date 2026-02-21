@@ -9,9 +9,9 @@ import { ProjectShowcaseCard } from './ProjectShowcaseCard'
 import type { ProjectItem } from './projects-showcase-data'
 
 const SHOWCASE_GRID_CLASSES = [
-    'py-10',
-    'py-10',
-    'py-10 flex justify-end hidden lg:block lg:justify-self-end',
+    'pt-10 pb-5',
+    'pt-10 pb-5',
+    'pt-10 pb-5 flex justify-end hidden lg:block lg:justify-self-end',
 ]
 
 const containerVariants: Variants = {

@@ -58,9 +58,9 @@ const MotionH3 = motion.create(H3)
 const MotionP = motion.create(P)
 
 const ABOUT_GRID_CLASSES = [
-    'px-10 lg:px-0 py-10',
-    'px-10 lg:px-0 py-10',
-    'px-10 lg:px-0 py-10 hidden lg:block lg:justify-self-end',
+    'px-10 lg:px-0 pt-10',
+    'px-10 lg:px-0 pt-10',
+    'px-10 lg:px-0 pt-10 hidden lg:block lg:justify-self-end',
 ]
 
 export const About = () => {
