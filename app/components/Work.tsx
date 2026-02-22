@@ -96,16 +96,15 @@ export const Work = () => {
                         <P>{card.text}</P>
                     </Box>
                 ))}
-
-                <TypographyMuted className="uppercase py-4">
-                    {t('wantMore')}?
-                </TypographyMuted>
-
                 <MotionBox
                     className="w-fit"
                     initial="hidden"
                     whileHover="hover"
                 >
+                    <TypographyMuted className="uppercase py-4">
+                        {t('wantMore')}?
+                    </TypographyMuted>
+
                     <H2 className="w-fit cursor-pointer duration-200">
                         <a href="mailto:info@dorijana.cz">{t('contactUs')}</a>
                     </H2>
