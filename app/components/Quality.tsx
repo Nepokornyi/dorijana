@@ -88,7 +88,7 @@ export const Quality = () => {
                 ))}
             </MotionBox>
 
-            <MotionBox className="w-full lg:px-32 xl:px-60 pb-10 grid grid-cols-1 lg:grid-cols-3 gap-x-10 gap-y-2.5">
+            <MotionBox className="w-full lg:px-32 xl:px-60 pb-10 grid grid-cols-1 lg:grid-cols-3 gap-10">
                 <MotionH3
                     variants={textLeftVariants}
                     className="hidden lg:block px-10 lg:px-0 py-10"
@@ -97,7 +97,7 @@ export const Quality = () => {
                 </MotionH3>
                 <MotionH3
                     variants={textRightVariants}
-                    className="px-10 lg:px-0 py-10 lg:col-span-2 lg:text-justify"
+                    className="px-10 lg:px-0 pt-10 lg:col-span-2 lg:text-justify"
                 >
                     {t('intro')}
                 </MotionH3>
