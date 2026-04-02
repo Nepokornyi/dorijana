@@ -23,9 +23,7 @@ export default function VideoPlayer({
         const video = videoRef.current
         if (!video) return
 
-        if (video.canPlayType('application/vnd.apple.mpegurl')) {
-            video.src = src
-        } else if (Hls.isSupported()) {
+        if (Hls.isSupported()) {
             const hlsConfig: Partial<HlsConfig> = {
                 enableWorker: true,
                 lowLatencyMode: true,
@@ -40,6 +38,8 @@ export default function VideoPlayer({
             return () => {
                 hls.destroy()
             }
+        } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+            video.src = src
         }
     }, [src])
 
